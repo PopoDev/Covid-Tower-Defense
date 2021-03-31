@@ -35,6 +35,7 @@ public class Map1 extends World
     {    
         super(800, 800, 1);
         createRoad();
+        spawnMob();
     }
     
         public void createRoad()
@@ -89,5 +90,14 @@ public class Map1 extends World
                 }
             }
         }
+    }
+    
+    public void spawnMob()
+    {
+        int spawnX = gridSize/2 + gridSize;
+        int spawnY = gridSize/2;
+        
+        Tier1 tier1 = new Tier1();
+        addObject(tier1, spawnX, spawnY);
     }
 }
