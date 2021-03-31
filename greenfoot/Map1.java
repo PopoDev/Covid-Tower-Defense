@@ -33,6 +33,61 @@ public class Map1 extends World
     
     public Map1()
     {    
-        super(800, 800, 1); 
+        super(800, 800, 1);
+        createRoad();
+    }
+    
+        public void createRoad()
+    {
+        for(int i = 0; i < road.length; i++)
+        {
+            for(int j = 0; j < road[i].length; j++)
+            {
+                if(road[i][j] == 1)
+                {
+                    StraightRoad verticalRoad = new StraightRoad();
+                    addObject(verticalRoad, gridSize/2 + j*gridSize, 
+                    gridSize/2 + i*gridSize);
+                }
+                else if(road[i][j] == 2)
+                {
+                    StraightRoad horizontalRoad = new StraightRoad();
+                    horizontalRoad.setImage(new GreenfootImage("roads/road 50x50 (horizontal).png"));
+                    addObject(horizontalRoad, gridSize/2 + j*gridSize, 
+                    gridSize/2 + i*gridSize);
+                }
+                else if(road[i][j] == 12)
+                {
+                    CurvedRoad roadUR = new CurvedRoad();
+                    addObject(roadUR, gridSize/2 + j*gridSize, 
+                    gridSize/2 + i*gridSize);
+                }
+                else if(road[i][j] == 14)
+                {
+                    CurvedRoad roadUL = new CurvedRoad();
+                    roadUL.setImage(new GreenfootImage("roads/road 50x50 (UL).png"));
+                    addObject(roadUL, gridSize/2 + j*gridSize, 
+                    gridSize/2 + i*gridSize);
+                }
+                else if(road[i][j] == 32)
+                {
+                    CurvedRoad roadDR = new CurvedRoad();
+                    roadDR.setImage(new GreenfootImage("roads/road 50x50 (DR).png"));
+                    addObject(roadDR, gridSize/2 + j*gridSize, 
+                    gridSize/2 + i*gridSize);
+                }
+                else if(road[i][j] == 34)
+                {
+                    CurvedRoad roadDL = new CurvedRoad();
+                    roadDL.setImage(new GreenfootImage("roads/road 50x50 (DL).png"));
+                    addObject(roadDL, gridSize/2 + j*gridSize, 
+                    gridSize/2 + i*gridSize);
+                } else {
+                    Grass grass = new Grass();
+                    addObject(grass, gridSize/2 + j*gridSize, 
+                    gridSize/2 + i*gridSize);
+                }
+            }
+        }
     }
 }
