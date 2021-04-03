@@ -7,7 +7,7 @@ import java.util.List;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Towers extends Actor
+public class Towers extends SmoothMover
 {
     public void attack(Mobs mobs, int damage)
     {

@@ -102,5 +102,8 @@ public class Map1 extends World
         
         Tier2 tier2 = new Tier2();
         addObject(tier2, spawnX, spawnY);
+        
+        Tier3 tier3 = new Tier3();
+        addObject(tier3, spawnX, spawnY);
     }
 }

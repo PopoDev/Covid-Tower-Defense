@@ -35,17 +35,24 @@ public class Virus extends Mobs
     
     public void replaceTier(int x, int y)
     {
+        int rotation = getRotation();
         switch(getHealth())
         {
             case 1:
-                getWorld().addObject(new Tier1(), x, y);
+                Tier1 tier1 = new Tier1();
+                getWorld().addObject(tier1, x, y);
+                tier1.setRotation(rotation);
                 break;
             case 2:
-                getWorld().addObject(new Tier2(), x, y);
+                Tier2 tier2 = new Tier2();
+                getWorld().addObject(tier2, x, y);
+                tier2.setRotation(rotation);
                 break;
-            //case 3:
-                //getWorld().addObject(new Tier3(), x, y);
-                //break;
+            case 3:
+                Tier3 tier3 = new Tier3();
+                getWorld().addObject(tier3, x, y);
+                tier3.setRotation(rotation);
+                break;
             default:
                 break;
         }
