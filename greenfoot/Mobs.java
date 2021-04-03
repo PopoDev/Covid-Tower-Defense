@@ -7,7 +7,7 @@ import java.util.List;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Mobs extends Actor
+public class Mobs extends QActor
 {
     int gridSize = 50;
     
