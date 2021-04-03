@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.List;
 
 /**
  * Write a description of class HydroalcoholicGel here.
@@ -8,15 +9,29 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class HydroalcoholicGel extends Disinfectant
 {
-    /**
-     * Act - do whatever the HydroalcoholicGel wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    int cooldown = 30;
+    int wait = cooldown;
+    int damage = 1;
+    
     public void act() 
     {
-        if(isTouching(Virus.class))
+        attackGel();
+    }
+    
+    public void attackGel()
+    {
+        if(isTouching(Mobs.class))
         {
-            removeTouching(Virus.class);
+            if(wait == cooldown)
+            {
+                List <Mobs> touching = getIntersectingObjects(Mobs.class);
+                for(Mobs mob : touching)
+                {
+                    attack(mob, damage);
+                }
+                wait = 0;
+            }
+            wait ++;
         }
-    }    
+    }
 }

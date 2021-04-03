@@ -9,7 +9,9 @@ import java.util.List;
  */
 public class Mobs extends Actor
 {
-int gridSize = 50;
+    int gridSize = 50;
+    
+    int health = 0;
     
     public void turnAtCorner()
     {
@@ -61,5 +63,36 @@ int gridSize = 50;
                 }
             }
         }
-    }  
+    }
+    
+    public int getHealth()
+    {
+        return this.health;
+    }
+    
+    public void setHealth(int health)
+    {
+        this.health = health;
+    }
+    
+    public boolean isAlive()
+    {
+        boolean alive;
+        if(health <= 0)
+        {
+            alive = false;
+        } else {
+            alive = true;
+        }
+        return alive;
+    } 
+    
+    public void removeDead()
+    {
+        if(!isAlive())
+        {
+            getWorld().removeObject(this);
+            System.out.println(this.getClass() + " is dead");
+        }
+    }
 }

@@ -9,15 +9,18 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Tier2 extends Virus
 {
     int speed = 2;
+    int health = 2;
     
     public Tier2()
     {
         setRotation(90);
+        setHealth(health);
     }
     
     public void act() 
     {
         move(speed);
         turnAtCorner();
-    }    
+        removeDead();
+    }
 }
