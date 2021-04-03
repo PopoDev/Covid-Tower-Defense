@@ -20,6 +20,6 @@ public class Towers extends Actor
         System.out.println(currentHealth);
         int damagedHealth = currentHealth - damage;
         mobs.setHealth(damagedHealth);
-        Greenfoot.playSound(_soundFile_)
+        Greenfoot.playSound("pop.mp3");
     }
 }
