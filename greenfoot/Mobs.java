@@ -1,5 +1,6 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.List;
+import java.lang.Math;
 
 /**
  * Write a description of class Mobs here.
@@ -7,7 +8,7 @@ import java.util.List;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Mobs extends QActor
+public class Mobs extends SmoothMover
 {
     int gridSize = 50;
     
@@ -16,12 +17,33 @@ public class Mobs extends QActor
     public void turnAtCorner()
     {
         int angle = getRotation();
+        
         if(isTouching(CurvedRoad.class))
         {
             int angleRoad = getOneIntersectingObject(CurvedRoad.class).getRotation();
+            Actor intersect = getOneIntersectingObject(CurvedRoad.class);
             
-            if(getX() == getOneIntersectingObject(CurvedRoad.class).getX() &&
-            getY() == getOneIntersectingObject(CurvedRoad.class).getY())
+            //int roundedX = (int) Math.round(getExactX());
+            //int roundedY = (int) Math.round(getExactY());
+            //System.out.println("Virus : " + roundedX + ", " + roundedY + 
+            //" |  Corner : " + intersect.getX() + ", " + intersect.getY());
+            
+            int posX = Math.floorDiv(getX(), 5) * 5 - getX() % 5;
+            int posY = Math.floorDiv(getY(), 5) * 5 - getY() % 5;
+            
+            System.out.println("Virus : " + posX + ", " + posY + 
+            " |  Corner : " + intersect.getX() + ", " + intersect.getY());
+            
+            if(Math.abs(getExactX() - intersect.getX()) == 0.5 && getExactX() - intersect.getX() != 0) 
+            {
+                posX = intersect.getX();
+            }
+            if(Math.abs(getExactY() - intersect.getY()) == 0.5 && getExactY() - intersect.getY() != 0) 
+            {
+                posY = intersect.getY();
+            }
+            
+            if(posX == intersect.getX() && posY == intersect.getY())
             {
                 if(!getObjectsInRange(gridSize, StraightRoad.class).isEmpty())
                 {
@@ -59,6 +81,7 @@ public class Mobs extends QActor
                         set = true;
                     }
                     
+                    setLocation(intersect.getX(), intersect.getY());
                     turnTowards(x, y);
                 }
             }

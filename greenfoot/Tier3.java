@@ -9,7 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Tier3 extends Virus
 {
     int tier = 3;
-    int speed = 4;
+    double speed = 2.0;
     int health = 3;
     
     public Tier3()
@@ -21,12 +21,7 @@ public class Tier3 extends Virus
     
     public void act() 
     {
-        if(isTouching(CurvedRoad.class))
-        {
-            move(2);
-        } else {
-            move(speed);
-        }
+        move(speed);
         turnAtCorner();
         changeTier();
     }
