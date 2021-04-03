@@ -14,36 +14,28 @@ public class Mobs extends SmoothMover
     
     int health = 0;
     
+    GreenfootImage lastImage = new GreenfootImage("straightRoad 50x50.png");
+    boolean neverTurned = true;
+    
     public void turnAtCorner()
     {
         int angle = getRotation();
         
         if(isTouching(CurvedRoad.class))
         {
-            int angleRoad = getOneIntersectingObject(CurvedRoad.class).getRotation();
             Actor intersect = getOneIntersectingObject(CurvedRoad.class);
             
-            //int roundedX = (int) Math.round(getExactX());
-            //int roundedY = (int) Math.round(getExactY());
-            //System.out.println("Virus : " + roundedX + ", " + roundedY + 
-            //" |  Corner : " + intersect.getX() + ", " + intersect.getY());
-            
-            int posX = Math.floorDiv(getX(), 5) * 5 - getX() % 5;
-            int posY = Math.floorDiv(getY(), 5) * 5 - getY() % 5;
-            
-            System.out.println("Virus : " + posX + ", " + posY + 
-            " |  Corner : " + intersect.getX() + ", " + intersect.getY());
-            
-            if(Math.abs(getExactX() - intersect.getX()) == 0.5 && getExactX() - intersect.getX() != 0) 
+            if(lastImage.equals(intersect.getImage()))
             {
-                posX = intersect.getX();
-            }
-            if(Math.abs(getExactY() - intersect.getY()) == 0.5 && getExactY() - intersect.getY() != 0) 
-            {
-                posY = intersect.getY();
+                neverTurned = false;
+            } else {
+                neverTurned = true;
             }
             
-            if(posX == intersect.getX() && posY == intersect.getY())
+            double ecartX = Math.abs(getExactX() - intersect.getX());
+            double ecartY = Math.abs(getExactY() - intersect.getY());
+
+            if(ecartX <= 2.5 && ecartY <= 2.5)
             {
                 if(!getObjectsInRange(gridSize, StraightRoad.class).isEmpty())
                 {
@@ -81,8 +73,13 @@ public class Mobs extends SmoothMover
                         set = true;
                     }
                     
-                    setLocation(intersect.getX(), intersect.getY());
-                    turnTowards(x, y);
+                    if(neverTurned)
+                    {
+                        setLocation(intersect.getX(), intersect.getY());
+                        turnTowards(x, y);
+                        lastImage = intersect.getImage();
+                        neverTurned = false;
+                    }
                 }
             }
         }

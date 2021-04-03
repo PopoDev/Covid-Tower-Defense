@@ -97,13 +97,13 @@ public class Map1 extends World
         int spawnX = gridSize/2 + gridSize;
         int spawnY = gridSize/2;
         
-        //Tier1 tier1 = new Tier1();
-        //addObject(tier1, spawnX, spawnY);
+        Tier1 tier1 = new Tier1();
+        addObject(tier1, spawnX, spawnY);
         
         Tier2 tier2 = new Tier2();
         addObject(tier2, spawnX, spawnY);
         
-        //Tier3 tier3 = new Tier3();
-        //addObject(tier3, spawnX, spawnY);
+        Tier3 tier3 = new Tier3();
+        addObject(tier3, spawnX, spawnY);
     }
 }
