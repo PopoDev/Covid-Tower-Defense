@@ -14,6 +14,9 @@ public class HydroalcoholicGel extends Disinfectant
      */
     public void act() 
     {
-        // Add your action code here.
+        if(isTouching(Virus.class))
+        {
+            removeTouching(Virus.class);
+        }
     }    
 }
