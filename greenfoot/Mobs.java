@@ -92,7 +92,7 @@ public class Mobs extends Actor
         if(!isAlive())
         {
             getWorld().removeObject(this);
-            System.out.println(this.getClass() + " is dead");
+            System.out.println(this.getClass() + " is dead.");
         }
     }
 }
