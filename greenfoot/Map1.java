@@ -33,7 +33,7 @@ public class Map1 extends World
     
     public Map1()
     {    
-        super(800, 800, 1);
+        super(1200, 800, 1);
         createRoad();
         spawnMob();
     }

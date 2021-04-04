@@ -53,7 +53,18 @@ public class Virus extends Mobs
                 getWorld().addObject(tier3, x, y);
                 tier3.setRotation(rotation);
                 break;
+            case 4:
+                Tier4 tier4 = new Tier4();
+                getWorld().addObject(tier4, x, y);
+                tier4.setRotation(rotation);
+                break;
+            case 5:
+                Tier5 tier5 = new Tier5();
+                getWorld().addObject(tier5, x, y);
+                tier5.setRotation(rotation);
+                break;
             default:
+                System.out.println(getClass() + " got killed");
                 break;
         }
     }
