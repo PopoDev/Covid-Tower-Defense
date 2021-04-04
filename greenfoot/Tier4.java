@@ -1,18 +1,18 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Tier2 here.
+ * Write a description of class Tier4 here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Tier2 extends Virus
+public class Tier4 extends Virus
 {
-    int tier = 2;
-    double speed = 1.5;
-    int health = 2;
+    int tier = 4;
+    double speed = 2.5;
+    int health = 4;
     
-    public Tier2()
+    public Tier4()
     {
         setRotation(90);
         setTier(tier);
@@ -24,5 +24,5 @@ public class Tier2 extends Virus
         move(speed);
         turnAtCorner();
         changeTier();
-    }
+    }   
 }

@@ -9,7 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Tier3 extends Virus
 {
     int tier = 3;
-    double speed = 3.0;
+    double speed = 2.0;
     int health = 3;
     
     public Tier3()
