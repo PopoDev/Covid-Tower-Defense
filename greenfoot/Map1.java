@@ -36,6 +36,7 @@ public class Map1 extends World
         super(1200, 800, 1);
         createRoad();
         spawnMob();
+        placeTowers();
     }
     
         public void createRoad()
@@ -111,5 +112,14 @@ public class Map1 extends World
         
         Tier5 tier5 = new Tier5();
         addObject(tier5, spawnX, spawnY);
+    }
+    
+    public void placeTowers()
+    {
+        Tower_1M50 tower_1M50 = new Tower_1M50();
+        addObject(tower_1M50, 325, 125);
+        
+        Zone_1M50 zone_1M50 = new Zone_1M50();
+        addObject(zone_1M50, 325, 125);
     }
 }
