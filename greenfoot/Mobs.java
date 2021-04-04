@@ -37,16 +37,14 @@ public class Mobs extends SmoothMover
 
             if(ecartX <= 2.5 && ecartY <= 2.5)
             {
-                if(!getObjectsInRange(gridSize, StraightRoad.class).isEmpty())
-                {
-                    int x = 0;
-                    int y = 0;
-                    boolean set = false;
+                int x = 0;
+                int y = 0;
+                boolean set = false;
                     
-                    List<StraightRoad> neighbourRight = getObjectsAtOffset(gridSize, 0, StraightRoad.class);
-                    List<StraightRoad> neighbourLeft = getObjectsAtOffset(-gridSize, 0, StraightRoad.class);
-                    List<StraightRoad> neighbourUp = getObjectsAtOffset(0, -gridSize, StraightRoad.class);
-                    List<StraightRoad> neighbourDown = getObjectsAtOffset(0, gridSize, StraightRoad.class);
+                    List<Roads> neighbourRight = getObjectsAtOffset(gridSize, 0, Roads.class);
+                    List<Roads> neighbourLeft = getObjectsAtOffset(-gridSize, 0, Roads.class);
+                    List<Roads> neighbourUp = getObjectsAtOffset(0, -gridSize, Roads.class);
+                    List<Roads> neighbourDown = getObjectsAtOffset(0, gridSize, Roads.class);
                     
                     if(!neighbourRight.isEmpty() && set == false && angle != 180)
                     {
@@ -80,7 +78,6 @@ public class Mobs extends SmoothMover
                         lastImage = intersect.getImage();
                         neverTurned = false;
                     }
-                }
             }
         }
     }
