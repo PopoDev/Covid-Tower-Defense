@@ -35,7 +35,7 @@ public class Map1 extends World
     {    
         super(1200, 900, 1);
         createRoad();
-        spawnMob();
+        // spawnMob();
         placeTowers();
         
         setPaintOrder(Towers.class, Mobs.class, Range.class, Backgrounds.class);

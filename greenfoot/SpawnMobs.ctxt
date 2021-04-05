@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=SpawnMobs
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ SpawnMobs\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n\ Source\ \:\ image\ from\ http\://clipart-library.com/clipart/rijr5A4jT.htm\r\n
+comment1.params=
+comment1.target=void\ act()
+comment2.params=
+comment2.target=void\ spawning()
+comment3.params=number\ tier\ x\ y\ interval
+comment3.target=void\ spawnAtInterval(int,\ Virus,\ int,\ int,\ int)
+numComments=4
