@@ -39,7 +39,7 @@ public class Map1 extends World
         placeTowers();
     }
     
-        public void createRoad()
+    public void createRoad()
     {
         for(int i = 0; i < road.length; i++)
         {
@@ -116,10 +116,10 @@ public class Map1 extends World
     
     public void placeTowers()
     {
-        Tower_1M50 tower_1M50 = new Tower_1M50();
+        Tower_1M50 tower_1M50 = new Tower_1M50(this, 325, 125);
         addObject(tower_1M50, 325, 125);
         
-        Zone_1M50 zone_1M50 = new Zone_1M50();
-        addObject(zone_1M50, 325, 125);
+        Disinfectant disinfectant = new Disinfectant();
+        addObject(disinfectant, 225, 325);
     }
 }

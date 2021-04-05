@@ -9,6 +9,8 @@ import java.util.List;
  */
 public class Towers extends SmoothMover
 {
+    int range = 100;
+    
     public void attack(Mobs mobs, int damage)
     {
         int currentHealth = mobs.getHealth();
@@ -16,5 +18,29 @@ public class Towers extends SmoothMover
         int damagedHealth = currentHealth - damage;
         mobs.setHealth(damagedHealth);
         Greenfoot.playSound("pop.mp3");
+    }
+    
+    public void showRange()
+    {
+        if(Greenfoot.mouseClicked(this))
+        {
+            System.out.println("Clicked on : " + this);
+            Range rangeObj = new Range();
+            rangeObj.getImage().scale(range, range);
+            if(getWorld() != null)
+            {
+                getWorld().addObject(rangeObj, getX(), getY());
+            }
+        }
+    }
+    
+    public int getRange()
+    {
+        return range;
+    }
+    
+    public void setRange(int range)
+    {
+        this.range = range;
     }
 }
