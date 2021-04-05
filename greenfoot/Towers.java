@@ -10,6 +10,8 @@ import java.util.List;
 public class Towers extends SmoothMover
 {
     int range = 100;
+    boolean showingRange = false;
+    Range rangeObj = null;
     
     public void attack(Mobs mobs, int damage)
     {
@@ -22,15 +24,34 @@ public class Towers extends SmoothMover
     
     public void showRange()
     {
-        if(Greenfoot.mouseClicked(this))
+        if(Greenfoot.mouseClicked(null))
         {
-            System.out.println("Clicked on : " + this);
-            Range rangeObj = new Range();
-            rangeObj.getImage().scale(range, range);
-            if(getWorld() != null)
+            if(Greenfoot.mouseClicked(this) && !showingRange)
             {
-                getWorld().addObject(rangeObj, getX(), getY());
+                System.out.println("Clicked on : " + this);
+                rangeObj = new Range();
+                rangeObj.getImage().scale(range, range);
+                if(getWorld() != null)
+                {
+                    getWorld().addObject(rangeObj, getX(), getY());
+                    showingRange = true;
+                }   
+            } 
+            
+            if(!Greenfoot.mouseClicked(this) && rangeObj != null)
+            {
+                unshowRange(rangeObj);
             }
+        }
+    }
+    
+    public void unshowRange(Range rangeObj)
+    {
+        if(showingRange)
+        {
+             getWorld().removeObject(rangeObj);
+             System.out.println(rangeObj + " was removed");
+             showingRange = false;
         }
     }
     
