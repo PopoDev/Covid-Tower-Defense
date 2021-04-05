@@ -37,6 +37,8 @@ public class Map1 extends World
         createRoad();
         spawnMob();
         placeTowers();
+        
+        setPaintOrder(Towers.class, Mobs.class, Range.class, Backgrounds.class);
     }
     
     public void createRoad()
