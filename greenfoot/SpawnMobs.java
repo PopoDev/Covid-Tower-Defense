@@ -16,41 +16,58 @@ public class SpawnMobs extends Actor
     int spawnX = gridSize/2 + gridSize;
     int spawnY = gridSize/2;
     
+    int wave = 1;
     int timeWave = 0; // [acts]
     
     ArrayList <Integer> spawnCounters = new ArrayList();
     
     public void act()
     {
-        spawning();
+        wavesManager();
         timeWave++;
     }
     
-    public void spawning()
+    public void wavesManager()
     {
-        spawnAtInterval(10, 1, new Tier2(), spawnX, spawnY, 20);
-        spawnAtInterval(5, 2, new Tier4(), spawnX, spawnY, 40);
-        
-        if(timeWave > 500){ spawnAtInterval(20, 3, new Tier3(), spawnX, spawnY, 10); }
+        switch(wave)
+        {
+            case 1:
+                int[] Serie1 = {1, 10, 20, 0};  // spawnSerie / number / interval / timeWave [acts]
+                spawning(Serie1, new Tier2());  // Tier lvl
+                
+                int[] Serie2 = {2, 5, 40, 0};
+                spawning(Serie2, new Tier4());
+                
+                int[] Serie3 = {3, 20, 10, 500};
+                spawning(Serie3, new Tier3());
+
+            default:
+                break;
+        }
     }
     
-    public void spawnAtInterval(int number, int spawnNumber, Virus tier, int x, int y, int interval) // interval relative to act
+    public void spawning(int[] Serie, Virus tier)
+    {
+        if(timeWave >= Serie[3]){ spawnAtInterval(Serie[0], Serie[1], Serie[2], tier, spawnX, spawnY); }
+    }
+    
+    public void spawnAtInterval(int spawnSerie, int number, int interval, Virus tier, int x, int y) // interval relative to act
     {   
-        if(spawnCounters.size() < spawnNumber)
+        if(spawnCounters.size() < spawnSerie)
         {
-            spawnCounters.add(0);
+            spawnCounters.add(number);
         }
         
-        int soloCounter = spawnCounters.get(spawnNumber - 1);
         if(timeWave % interval == 0)
         {
-            if(soloCounter < number)
+            int soloCounter = spawnCounters.get(spawnSerie - 1);
+            if(soloCounter > 0)
             {
                 getWorld().addObject(tier, x, y);
-                soloCounter++;
-                spawnCounters.set((spawnNumber - 1), soloCounter);
+                soloCounter--;
+                spawnCounters.set((spawnSerie - 1), soloCounter);
             }
-            // System.out.println(spawnCounters); risque de lag
+            System.out.println(spawnCounters); // risque de lag
         }
     }
     
