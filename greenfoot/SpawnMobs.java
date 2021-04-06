@@ -18,12 +18,16 @@ public class SpawnMobs extends Actor
     
     GreenfootImage next = new GreenfootImage("MobSpawner 150x125.png");
     GreenfootImage nextOn = new GreenfootImage("MobSpawner mouseOn 150x125.png");
+    GreenfootImage speedUp = new GreenfootImage("Speed up 150x125.png");
+    GreenfootImage speedUpOn = new GreenfootImage("Speed up mouseOn 150x125.png");
     boolean mouseOn = false;
     boolean setImageOn = false;
     
     int wave = 1;
+    boolean waveRunning = false;
     int timeWave = 0; // [acts]
     int waveMax = 2;
+    boolean mapEnded = false;
     
     int[][] rounds = {{}};
     int spawnMax = 0;
@@ -38,21 +42,45 @@ public class SpawnMobs extends Actor
     
     public void act()
     {
-        changeIfHovering(next, nextOn);
-        
-        if(spawnNumber < spawnMax)
+        if(!mapEnded)
         {
-            wavesSpawner();
-        } else {
-            if(mobAlive != 0)
+            if(Greenfoot.mouseClicked(this))
             {
-                if(timeWave % 10 == 0) countAlive();  // Pour éviter le lag
-            } else {
-                System.out.println("Bravo vous avez battu la vague " + wave + " ! ");
-                if(wave < waveMax) nextWave();
+                if(!waveRunning)
+                {
+                    System.out.println("Wave " + wave + " starts.");
+                    wavesManager();
+                    waveRunning = true;
+                }
             }
         }
-        timeWave++;
+        
+        if(waveRunning)
+        {
+            changeIfHovering(speedUp, speedUpOn);
+            if(spawnNumber < spawnMax)
+            {
+                wavesSpawner();
+            } else {
+                if(mobAlive != 0)
+                {
+                    if(timeWave % 10 == 0) countAlive();  // Pour éviter le lag
+                } else {
+                    System.out.println("Bravo vous avez battu la vague " + wave + " ! ");
+                    waveRunning = false;
+                    if(wave < waveMax) 
+                    {
+                        nextWave();
+                    } else {
+                        mapEnded = true;
+                        System.out.println("Map1 complétée !");
+                    }
+                }
+            }
+            timeWave++;
+        } else {
+            changeIfHovering(next, nextOn);
+        }
     }
     
     public void wavesManager()
@@ -166,24 +194,23 @@ public class SpawnMobs extends Actor
         mobAlive = 1;
         
         wave++;
-        wavesManager();
     }
     
     public void changeIfHovering(GreenfootImage initialImg, GreenfootImage hoveringImg)
     {
-        if(Greenfoot.mouseMoved(this) && !mouseOn){ mouseOn = true; }
-        if(!Greenfoot.mouseMoved(this) && Greenfoot.mouseMoved(null)) { mouseOn = false; }
-        if(mouseOn && !setImageOn)
+        if(Greenfoot.mouseMoved(this) && !mouseOn) mouseOn = true; 
+        if(!Greenfoot.mouseMoved(this) && Greenfoot.mouseMoved(null)) mouseOn = false;
+        if(mouseOn && !setImageOn || mouseOn && !Greenfoot.mouseMoved(null))
         {
             setImage(hoveringImg);
             setImageOn = true;
-            System.out.println(hoveringImg);
+            // System.out.println(hoveringImg);
         }
-        if(!mouseOn && setImageOn)
+        if(!mouseOn && setImageOn || !mouseOn && !Greenfoot.mouseMoved(null))
         {
             setImage(initialImg);
             setImageOn = false;
-            System.out.println(initialImg);
+            // System.out.println(initialImg);
         }
     }
     
