@@ -35,8 +35,8 @@ public class Map1 extends World
     {    
         super(1200, 900, 1);
         createRoad();
-        // spawnMob();
         placeTowers();
+        placeGUI();
         
         setPaintOrder(Towers.class, Mobs.class, Range.class, Backgrounds.class);
     }
@@ -95,25 +95,10 @@ public class Map1 extends World
         }
     }
     
-    public void spawnMob()
+    public void placeGUI()
     {
-        int spawnX = gridSize/2 + gridSize;
-        int spawnY = gridSize/2;
-        
-        Tier1 tier1 = new Tier1();
-        addObject(tier1, spawnX, spawnY);
-        
-        Tier2 tier2 = new Tier2();
-        addObject(tier2, spawnX, spawnY);
-        
-        Tier3 tier3 = new Tier3();
-        addObject(tier3, spawnX, spawnY);
-        
-        Tier4 tier4 = new Tier4();
-        addObject(tier4, spawnX, spawnY);
-        
-        Tier5 tier5 = new Tier5();
-        addObject(tier5, spawnX, spawnY);
+        SpawnMobs nextButton = new SpawnMobs();
+        addObject(nextButton, 800 + 200, 800 - 75);
     }
     
     public void placeTowers()

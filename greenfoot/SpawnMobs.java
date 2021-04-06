@@ -18,10 +18,15 @@ public class SpawnMobs extends Actor
     
     int wave = 1;
     int timeWave = 0; // [acts]
+    int waveMax = 2;
     
     int[][] rounds = {{}};
     int spawnMax = 0;
     int spawnNumber = 0;
+    int tierNumber = 1;
+    Virus tierObj = new Tier1(); // default
+    
+    int mobAlive = 1;
     
     ArrayList <Integer> spawnCounters = new ArrayList();
     int soloCounter = 0;
@@ -36,6 +41,14 @@ public class SpawnMobs extends Actor
         if(spawnNumber < spawnMax)
         {
             wavesSpawner();
+        } else {
+            if(mobAlive != 0)
+            {
+                if(timeWave % 10 == 0) countAlive();  // Pour éviter le lag
+            } else {
+                System.out.println("Bravo vous avez battu la vague " + wave + " ! ");
+                if(wave < waveMax) nextWave();
+            }
         }
         timeWave++;
     }
@@ -46,17 +59,17 @@ public class SpawnMobs extends Actor
         {
             case 1:
                 rounds = new int[][]
-                { // spawnSerie / number / interval / timeWave [acts]
-                    {1, 10, 20, 0},     // Tier 2
-                    {2, 5, 40, 0},      // Tier 4
-                    {3, 20, 10, 500}    // Tier 3
+                { // spawnSerie / tier lvl / number / interval / timeWave [acts]
+                    {1, 2, 10, 20, 0},     // Tier 2
+                    {2, 4, 5, 40, 0},      // Tier 4
+                    {3, 3, 20, 10, 500}    // Tier 3
                 };
                 break;
                 
            case 2:
                 rounds = new int[][]
-                { // spawnSerie / number / interval / timeWave [acts]
-                    {1, 10, 20, 0},    // Tier 5
+                { // spawnSerie / Tier lvl / number / interval / timeWave [acts]
+                    {1, 5, 10, 20, 0},
                 };
                 break;
                 
@@ -66,30 +79,33 @@ public class SpawnMobs extends Actor
         
         for(int i = 0; i < rounds.length; i++)
         {
-            spawnMax += rounds[i][1];
-            spawnCounters.add(rounds[i][1]);
+            spawnMax += rounds[i][2];
+            spawnCounters.add(rounds[i][2]);
         }
-        System.out.println("Max Wave " + wave + ": " + spawnMax);
+        System.out.println("Wave " + wave + " max : " + spawnMax);
         System.out.println("Rounds : " + spawnCounters);
     }
     
     public void wavesSpawner()
     {
-        spawning(rounds[0], new Tier2());
-        spawning(rounds[1], new Tier4());
-        spawning(rounds[2], new Tier3());
-    }
-    
-    public void spawning(int[] Serie, Virus tier)
-    {
-        soloCounter = spawnCounters.get(Serie[0] - 1);
-        if(soloCounter > 0)
+        for(int[] serie : rounds)
         {
-            if(timeWave >= Serie[3]){ spawnAtInterval(Serie[0], Serie[1], Serie[2], tier, spawnX, spawnY); }
+            tierNumber = serie[1];
+            Virus tier = changeToTier(tierNumber);
+            spawning(serie, tier);
         }
     }
     
-    public void spawnAtInterval(int spawnSerie, int number, int interval, Virus tier, int x, int y) // interval relative to act
+    public void spawning(int[] serie, Virus tier)
+    {
+        soloCounter = spawnCounters.get(serie[0] - 1);
+        if(soloCounter > 0)
+        {
+            if(timeWave >= serie[4]){ spawnAtInterval(serie[0], tier, serie[2], serie[3], spawnX, spawnY); }
+        }
+    }
+    
+    public void spawnAtInterval(int spawnSerie, Virus tier, int number, int interval, int x, int y) // interval relative to act
     {   
         if(timeWave % interval == 0)
         {
@@ -100,6 +116,55 @@ public class SpawnMobs extends Actor
             
             System.out.println(spawnCounters); // risque de lag
         }
+    }
+    
+    public Virus changeToTier(int tierNumber)
+    {
+        switch(tierNumber)
+        {
+            case 1:
+                tierObj = new Tier1();
+                break;
+            case 2:
+                tierObj = new Tier2();
+                break;
+            case 3:
+                tierObj = new Tier3();
+                break;
+            case 4:
+                tierObj = new Tier4();
+                break;
+            case 5:
+                tierObj = new Tier5();
+                break;
+            default:
+                break;
+        }
+        return tierObj;
+    }
+    
+    public int countAlive()
+    {
+        mobAlive = getWorld().getObjects(Mobs.class).size();
+        System.out.println(mobAlive + " mobs are alive.");
+        return mobAlive;
+    }
+    
+    public void nextWave()
+    {
+        // Reset
+        timeWave = 0;
+        
+        spawnMax = 0;
+        spawnNumber = 0;
+        
+        spawnCounters = new ArrayList();
+        soloCounter = 0;
+        
+        mobAlive = 1;
+        
+        wave++;
+        wavesManager();
     }
     
     /*public void spawnAtInterval(int number, Virus tier, int x, int y, long interval) // interval in milliseconds
