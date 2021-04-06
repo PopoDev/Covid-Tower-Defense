@@ -16,6 +16,11 @@ public class SpawnMobs extends Actor
     int spawnX = gridSize/2 + gridSize;
     int spawnY = gridSize/2;
     
+    GreenfootImage next = new GreenfootImage("MobSpawner 150x125.png");
+    GreenfootImage nextOn = new GreenfootImage("MobSpawner mouseOn 150x125.png");
+    boolean mouseOn = false;
+    boolean setImageOn = false;
+    
     int wave = 1;
     int timeWave = 0; // [acts]
     int waveMax = 2;
@@ -30,14 +35,11 @@ public class SpawnMobs extends Actor
     
     ArrayList <Integer> spawnCounters = new ArrayList();
     int soloCounter = 0;
-       
-    public SpawnMobs()
-    {
-        wavesManager();
-    }
     
     public void act()
     {
+        changeIfHovering(next, nextOn);
+        
         if(spawnNumber < spawnMax)
         {
             wavesSpawner();
@@ -165,6 +167,24 @@ public class SpawnMobs extends Actor
         
         wave++;
         wavesManager();
+    }
+    
+    public void changeIfHovering(GreenfootImage initialImg, GreenfootImage hoveringImg)
+    {
+        if(Greenfoot.mouseMoved(this) && !mouseOn){ mouseOn = true; }
+        if(!Greenfoot.mouseMoved(this) && Greenfoot.mouseMoved(null)) { mouseOn = false; }
+        if(mouseOn && !setImageOn)
+        {
+            setImage(hoveringImg);
+            setImageOn = true;
+            System.out.println(hoveringImg);
+        }
+        if(!mouseOn && setImageOn)
+        {
+            setImage(initialImg);
+            setImageOn = false;
+            System.out.println(initialImg);
+        }
     }
     
     /*public void spawnAtInterval(int number, Virus tier, int x, int y, long interval) // interval in milliseconds
