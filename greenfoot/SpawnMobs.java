@@ -19,6 +19,8 @@ public class SpawnMobs extends Actor
     int wave = 1;
     int timeWave = 0; // [acts]
     
+    int spawnMax = 0;
+    
     ArrayList <Integer> spawnCounters = new ArrayList();
     
     public void act()
@@ -32,15 +34,18 @@ public class SpawnMobs extends Actor
         switch(wave)
         {
             case 1:
-                int[] Serie1 = {1, 10, 20, 0};  // spawnSerie / number / interval / timeWave [acts]
-                spawning(Serie1, new Tier2());  // Tier lvl
+                int[][] rounds = 
+                { // spawnSerie / number / interval / timeWave [acts]
+                    {1, 10, 20, 0},     // Tier 2
+                    {2, 5, 40, 0},      // Tier 4
+                    {3, 20, 10, 500}    // Tier 3
+                };
+                spawning(rounds[0], new Tier2());
+                spawning(rounds[1], new Tier4());
+                spawning(rounds[2], new Tier3());
                 
-                int[] Serie2 = {2, 5, 40, 0};
-                spawning(Serie2, new Tier4());
+                for(int i = 0; i < rounds.length; i++) spawnMax = rounds[i][1];
                 
-                int[] Serie3 = {3, 20, 10, 500};
-                spawning(Serie3, new Tier3());
-
             default:
                 break;
         }
