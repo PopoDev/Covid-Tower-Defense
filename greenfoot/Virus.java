@@ -64,7 +64,7 @@ public class Virus extends Mobs
                 tier5.setRotation(rotation);
                 break;
             default:
-                System.out.println(getClass() + " got killed");
+                // System.out.println(getClass() + " got killed");
                 break;
         }
     }

@@ -16,7 +16,7 @@ public class Towers extends SmoothMover
     public void attack(Mobs mobs, int damage)
     {
         int currentHealth = mobs.getHealth();
-        System.out.println(currentHealth);
+        // System.out.println(currentHealth);
         int damagedHealth = currentHealth - damage;
         mobs.setHealth(damagedHealth);
         Greenfoot.playSound("pop.mp3");

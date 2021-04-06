@@ -109,7 +109,7 @@ public class Mobs extends SmoothMover
         if(!isAlive())
         {
             getWorld().removeObject(this);
-            System.out.println(this.getClass() + " is dead.");
+            // System.out.println(this.getClass() + " is dead.");
         }
     }
 }
