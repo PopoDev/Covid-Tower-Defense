@@ -24,5 +24,9 @@ public class Tier3 extends Virus
         move(speed);
         turnAtCorner();
         changeTier();
+        if(isAtBorder()) 
+        {
+            removeLives();
+        }
     }
 }

@@ -9,4 +9,6 @@ comment3.params=
 comment3.target=void\ changeTier()
 comment4.params=x\ y
 comment4.target=void\ replaceTier(int,\ int)
-numComments=5
+comment5.params=
+comment5.target=void\ removeLives()
+numComments=6

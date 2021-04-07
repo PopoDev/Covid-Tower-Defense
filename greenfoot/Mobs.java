@@ -102,7 +102,18 @@ public class Mobs extends SmoothMover
             alive = true;
         }
         return alive;
-    } 
+    }
+    
+ 
+    public boolean isAtBorder()
+    {
+        if(getExactX() > Map1.MAP_WIDTH || getExactY() > Map1.MAP_HEIGHT)
+        {
+            return true;
+        } else {
+            return false;
+        }
+    }
     
     public void removeDead()
     {

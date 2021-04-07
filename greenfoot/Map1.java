@@ -10,6 +10,8 @@ public class Map1 extends World
 {
     int gridSize = 50;
     int dimension = 16;
+    public final static int MAP_WIDTH = 800;
+    public final static int MAP_HEIGHT = 800;
     
     int[][] road =  // 12 = up-right (UR), 14 = up-left (UL), 32 = down-right (DR), 34 = down-left(UL)
     {
@@ -35,7 +37,7 @@ public class Map1 extends World
     {    
         super(1200, 900, 1);
         createRoad();
-        placeTowers();
+        // placeTowers();
         placeGUI();
         
         setPaintOrder(Towers.class, Mobs.class, Range.class, Backgrounds.class);
@@ -103,6 +105,9 @@ public class Map1 extends World
         HealthIcon healthIcon = new HealthIcon();
         addObject(healthIcon, 900, 50);
         
+        LivesText livesText = new LivesText();
+        addObject(livesText, 900, 50);
+        
         SpawnMobs nextButton = new SpawnMobs();
         addObject(nextButton, 800 + 200, 800 - 75);
     }
@@ -115,4 +120,16 @@ public class Map1 extends World
         Disinfectant disinfectant = new Disinfectant();
         addObject(disinfectant, 225, 325);
     }
+    
+    /* 
+    public static int getMapWitdh()
+    {
+        return MAP_X;
+    }
+    
+    public static int getMapHeight()
+    {
+        return MAP_Y;
+    }
+     */
 }

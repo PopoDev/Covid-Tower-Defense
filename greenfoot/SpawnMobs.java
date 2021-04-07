@@ -14,7 +14,7 @@ public class SpawnMobs extends Actor
     int gridSize = 50;
     
     int spawnX = gridSize/2 + gridSize;
-    int spawnY = gridSize/2;
+    int spawnY = 0;
     
     GreenfootImage next = new GreenfootImage("MobSpawner 150x125.png");
     GreenfootImage nextOn = new GreenfootImage("MobSpawner mouseOn 150x125.png");

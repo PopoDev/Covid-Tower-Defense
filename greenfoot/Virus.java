@@ -1,4 +1,3 @@
-
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
@@ -67,5 +66,13 @@ public class Virus extends Mobs
                 // System.out.println(getClass() + " got killed");
                 break;
         }
+    }
+    
+    public void removeLives()
+    {
+        int livesLoosed = tier;
+        LivesManager.lives -= livesLoosed;
+        System.out.println("Lost " + livesLoosed + " lives.");
+        getWorld().removeObject(this);
     }
 }
