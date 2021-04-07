@@ -100,6 +100,9 @@ public class Map1 extends World
         TowersHUD towersHUD = new TowersHUD();
         addObject(towersHUD, 1000, 400);
         
+        HealthIcon healthIcon = new HealthIcon();
+        addObject(healthIcon, 900, 50);
+        
         SpawnMobs nextButton = new SpawnMobs();
         addObject(nextButton, 800 + 200, 800 - 75);
     }
