@@ -97,6 +97,9 @@ public class Map1 extends World
     
     public void placeGUI()
     {
+        TowersHUD towersHUD = new TowersHUD();
+        addObject(towersHUD, 1000, 400);
+        
         SpawnMobs nextButton = new SpawnMobs();
         addObject(nextButton, 800 + 200, 800 - 75);
     }
