@@ -8,27 +8,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class LivesManager extends Actor
 {
-    private final int LIVES_MAX;
-    private static int lives;
+    public final static int LIVES_MAX = 100;
+    public static int lives = LIVES_MAX;
     
     public LivesManager()
     {
-        this.LIVES_MAX = 100;
-        this.lives = LIVES_MAX;
-    }
-    
-    public static int getLives()
-    {
-        return lives;
-    }
-    
-    public final int getLivesMax()
-    {
-        return LIVES_MAX;
-    }
-    
-    public static void setLives(int live)
-    {
-        lives = live;
+        lives = LIVES_MAX;
     }
 }

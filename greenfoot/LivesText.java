@@ -15,14 +15,11 @@ public class LivesText extends HUD
     // Font healthFont = new Font("Black Ops One Regular", false, false, 30);
     // Font healthFont = new Font("Oetztype", false, false, 30);
     
-    private int lives;
-    LivesManager livesManager = new LivesManager();
-    
     public LivesText()
     {
         textBox.setFont(healthFont);
         textBox.setColor(Color.WHITE);
-        textBox.drawString(String.valueOf(livesManager.getLivesMax()), 42, 38);
+        textBox.drawString(String.valueOf(LivesManager.LIVES_MAX), 42, 38);
         setImage(textBox);
         // System.out.println(healthIcon.getFont());
     }
@@ -30,17 +27,7 @@ public class LivesText extends HUD
     public void act() 
     {
         textBox.clear();
-        textBox.drawString(String.valueOf(livesManager.getLives()), 42, 38);
+        textBox.drawString(String.valueOf(LivesManager.lives), 42, 38);
         setImage(textBox);
-    }
-    
-    public int getLives()
-    {
-        return livesManager.getLives();
-    }
-    
-    public void setLives(int lives)
-    {
-        livesManager.setLives(lives);
     }
 }
