@@ -29,9 +29,9 @@ public class TowersIcon extends HUD
     
     public void placeTower()
     {
-        if(!isTouching(Roads.class) && !isTouching(HUD.class))
+        if(!isTouching(Roads.class) && !isTouching(HUD.class) && !isTouching(Towers.class))
         {
-            System.out.println("Not on road nor HUD");
+            // System.out.println("Not on road nor HUD");
             if(specificTower != null && specificIcon != null)
             {
                 System.out.println(specificTower + " placed at : (" + specificIcon.getX() + ", " + specificIcon.getY() + ").");
@@ -40,7 +40,7 @@ public class TowersIcon extends HUD
                 getWorld().removeObject(specificIcon);
             }
         } else {
-            System.out.println("You can't place towers on the roads and outside of the map.");
+            System.out.println("You can't place towers on the roads, on other towers and outside of the map.");
         }
     }
     

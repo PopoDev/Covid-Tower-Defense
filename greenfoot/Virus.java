@@ -71,7 +71,8 @@ public class Virus extends Mobs
     public void removeLives()
     {
         int livesLoosed = tier;
-        LivesManager.lives -= livesLoosed;
+        LivesText livesText = new LivesText();
+        livesText.setLives(livesText.getLives() - livesLoosed);
         System.out.println("Lost " + livesLoosed + " lives.");
         getWorld().removeObject(this);
     }

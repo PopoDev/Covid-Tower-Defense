@@ -23,12 +23,14 @@ public class Disinfectant extends Towers
     public void act() 
     {
         showRange();
-        if(counter == cooldown)
-        {
-            placeGel();
-            counter = 0;
-        }
-        counter++;
+
+            if(counter == cooldown)
+            {
+                placeGel();
+                counter = 0;
+            }
+            counter++;
+
     }
     
     public void placeGel()

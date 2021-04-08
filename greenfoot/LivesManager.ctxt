@@ -1,4 +1,12 @@
 #BlueJ class context
 comment0.target=LivesManager
 comment0.text=\r\n\ Write\ a\ description\ of\ class\ LivesManager\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
-numComments=1
+comment1.params=
+comment1.target=LivesManager()
+comment2.params=
+comment2.target=int\ getLives()
+comment3.params=
+comment3.target=int\ getLivesMax()
+comment4.params=live
+comment4.target=void\ setLives(int)
+numComments=5

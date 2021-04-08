@@ -18,11 +18,14 @@ public class SpawnMobs extends HUD
     
     GreenfootImage next = new GreenfootImage("MobSpawner 150x125.png");
     GreenfootImage nextOn = new GreenfootImage("MobSpawner mouseOn 150x125.png");
-    GreenfootImage speedUp = new GreenfootImage("Speed up 150x125.png");
-    GreenfootImage speedUpOn = new GreenfootImage("Speed up mouseOn 150x125.png");
+    GreenfootImage imgSpeed = new GreenfootImage("Speed up 150x125.png");
+    GreenfootImage imgSpeedOn = new GreenfootImage("Speed up mouseOn 150x125.png");
+    GreenfootImage imgSpeedUp = new GreenfootImage("Speed up true 150x125.png");
+    GreenfootImage imgSpeedUpOn = new GreenfootImage("Speed up true mouseOn 150x125.png");
     
     int wave = 1;
     boolean waveRunning = false;
+    boolean speedUp = true;
     int timeWave = 0; // [acts]
     int waveMax = 2;
     boolean mapEnded = false;
@@ -55,7 +58,17 @@ public class SpawnMobs extends HUD
         
         if(waveRunning)
         {
-            changeIfHovering(speedUp, speedUpOn);
+            if(Greenfoot.mouseClicked(this)) speedUp = !speedUp;
+
+            if(speedUp)
+            {
+                changeIfHovering(imgSpeedUp, imgSpeedUpOn);
+                Greenfoot.setSpeed(60);
+            } else {
+                changeIfHovering(imgSpeed, imgSpeedOn);
+                Greenfoot.setSpeed(50);
+            }
+            
             if(spawnNumber < spawnMax)
             {
                 wavesSpawner();
@@ -174,7 +187,7 @@ public class SpawnMobs extends HUD
     public int countAlive()
     {
         mobAlive = getWorld().getObjects(Mobs.class).size();
-        System.out.println(mobAlive + " mobs are alive.");
+        // System.out.println(mobAlive + " mobs are alive.");
         return mobAlive;
     }
     
