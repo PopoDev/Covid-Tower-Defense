@@ -17,6 +17,4 @@ comment7.params=
 comment7.target=int\ countAlive()
 comment8.params=
 comment8.target=void\ nextWave()
-comment9.params=initialImg\ hoveringImg
-comment9.target=void\ changeIfHovering(greenfoot.GreenfootImage,\ greenfoot.GreenfootImage)
-numComments=10
+numComments=9

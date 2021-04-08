@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=TowersIcon
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ TowersIcon\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n\ Image\ source\ \:\ Designed\ by\ starline\ /\ Freepik\ and\ edited\ by\ PopoDev\r\n
+comment1.params=TowerImg
+comment1.target=void\ createWhenClicked(greenfoot.GreenfootImage)
+comment2.params=
+comment2.target=void\ followMouse()
+comment3.params=
+comment3.target=void\ placeTower()
+comment4.params=tower
+comment4.target=void\ setTower(Towers)
+numComments=5

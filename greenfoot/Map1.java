@@ -40,7 +40,7 @@ public class Map1 extends World
         // placeTowers();
         placeGUI();
         
-        setPaintOrder(Towers.class, Mobs.class, Range.class, Backgrounds.class);
+        setPaintOrder(HUD.class, Towers.class, Mobs.class, Range.class, Backgrounds.class);
     }
     
     public void createRoad()
@@ -107,6 +107,9 @@ public class Map1 extends World
         
         LivesText livesText = new LivesText();
         addObject(livesText, 900, 50);
+        
+        Disinfectant_Icon disinfectant_Icon = new Disinfectant_Icon();
+        addObject(disinfectant_Icon, 925, 150);
         
         SpawnMobs nextButton = new SpawnMobs();
         addObject(nextButton, 800 + 200, 800 - 75);

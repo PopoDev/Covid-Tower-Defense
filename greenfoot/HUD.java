@@ -8,12 +8,24 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class HUD extends Actor
 {
-    /**
-     * Act - do whatever the HUD wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    public void act() 
+    boolean mouseOn = false;
+    boolean setImageOn = false;
+    
+    public void changeIfHovering(GreenfootImage initialImg, GreenfootImage hoveringImg)
     {
-        // Add your action code here.
-    }    
+        if(Greenfoot.mouseMoved(this) && !mouseOn) mouseOn = true; 
+        if(!Greenfoot.mouseMoved(this) && Greenfoot.mouseMoved(null)) mouseOn = false;
+        if(mouseOn && !setImageOn || mouseOn && !Greenfoot.mouseMoved(null))
+        {
+            setImage(hoveringImg);
+            setImageOn = true;
+            // System.out.println(hoveringImg);
+        }
+        if(!mouseOn && setImageOn || !mouseOn && !Greenfoot.mouseMoved(null))
+        {
+            setImage(initialImg);
+            setImageOn = false;
+            // System.out.println(initialImg);
+        }
+    }
 }

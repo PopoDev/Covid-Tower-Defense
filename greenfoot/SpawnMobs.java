@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * @version (a version number or a date)
  * Source : image from http://clipart-library.com/clipart/rijr5A4jT.htm
  */
-public class SpawnMobs extends Actor
+public class SpawnMobs extends HUD
 {
     int gridSize = 50;
     
@@ -20,8 +20,6 @@ public class SpawnMobs extends Actor
     GreenfootImage nextOn = new GreenfootImage("MobSpawner mouseOn 150x125.png");
     GreenfootImage speedUp = new GreenfootImage("Speed up 150x125.png");
     GreenfootImage speedUpOn = new GreenfootImage("Speed up mouseOn 150x125.png");
-    boolean mouseOn = false;
-    boolean setImageOn = false;
     
     int wave = 1;
     boolean waveRunning = false;
@@ -194,24 +192,6 @@ public class SpawnMobs extends Actor
         mobAlive = 1;
         
         wave++;
-    }
-    
-    public void changeIfHovering(GreenfootImage initialImg, GreenfootImage hoveringImg)
-    {
-        if(Greenfoot.mouseMoved(this) && !mouseOn) mouseOn = true; 
-        if(!Greenfoot.mouseMoved(this) && Greenfoot.mouseMoved(null)) mouseOn = false;
-        if(mouseOn && !setImageOn || mouseOn && !Greenfoot.mouseMoved(null))
-        {
-            setImage(hoveringImg);
-            setImageOn = true;
-            // System.out.println(hoveringImg);
-        }
-        if(!mouseOn && setImageOn || !mouseOn && !Greenfoot.mouseMoved(null))
-        {
-            setImage(initialImg);
-            setImageOn = false;
-            // System.out.println(initialImg);
-        }
     }
     
     /*public void spawnAtInterval(int number, Virus tier, int x, int y, long interval) // interval in milliseconds
