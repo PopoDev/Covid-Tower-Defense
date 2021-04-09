@@ -40,7 +40,7 @@ public class Map1 extends World
         // placeTowers();
         placeGUI();
         
-        setPaintOrder(HUD.class, Towers.class, Mobs.class, Range.class, Backgrounds.class);
+        setPaintOrder(TowersPlacer.class, RangeIcon.class, HUD.class, Towers.class, Mobs.class, Range.class, Backgrounds.class);
     }
     
     public void createRoad()

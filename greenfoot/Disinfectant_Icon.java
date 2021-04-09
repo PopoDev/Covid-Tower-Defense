@@ -10,20 +10,17 @@ public class Disinfectant_Icon extends TowersIcon
 {
     GreenfootImage Icon = new GreenfootImage("TowersIcon désinfectant 100x100.png");
     GreenfootImage IconOn = new GreenfootImage("TowersIcon désinfectant mouseOn 100x100.png");
-    private GreenfootImage towerImg = new GreenfootImage("Désinfectant 50x50.png");
     
-    private boolean isGrabbed = false;
+    GreenfootImage towerImg = new GreenfootImage("Désinfectant 50x50.png");
     
+    DisinfectantPlacer disinfectantPlacer = new DisinfectantPlacer();
+
     public void act() 
     {
         changeIfHovering(Icon, IconOn);
         if(Greenfoot.mouseClicked(this))
         {
-            Towers disinfectant = new Disinfectant(); // Create new Instance only when clicked
-            createWhenClicked(towerImg);
-            setTower(disinfectant);
-            isGrabbed = true;
+            createWhenClicked(disinfectantPlacer, towerImg);
         }
-        if(isGrabbed)followMouse();
     }
 }
