@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * @version (a version number or a date)
  * Source : image from http://clipart-library.com/clipart/rijr5A4jT.htm
  */
-public class SpawnMobs extends HUD
+public class SpawnMobs extends Buttons
 {
     int gridSize = 50;
     

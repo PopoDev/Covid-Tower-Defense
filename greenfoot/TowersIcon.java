@@ -7,7 +7,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @version (a version number or a date)
  * 
  */
-public class TowersIcon extends HUD
+public class TowersIcon extends Buttons
 {   
     public void createWhenClicked(TowersPlacer towerPlacer, GreenfootImage TowerImg)
     {
