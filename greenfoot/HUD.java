@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class HUD extends Actor
+public class HUD extends SmoothMover
 {
     boolean mouseOn = false;
     boolean setImageOn = false;

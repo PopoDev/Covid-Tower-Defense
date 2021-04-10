@@ -26,7 +26,7 @@ public class Tier1 extends Virus
         removeDead();
         if(isAtBorder()) 
         {
-            removeLives();
+            attackLives();
         }
     }
 }

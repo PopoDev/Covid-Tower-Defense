@@ -68,11 +68,10 @@ public class Virus extends Mobs
         }
     }
     
-    public void removeLives()
+    public void attackLives()
     {
         int livesLoosed = tier;
-        LivesManager.lives -= livesLoosed;
-        System.out.println("Lost " + livesLoosed + " lives.");
+        LivesManager.removeLives(livesLoosed);
         getWorld().removeObject(this);
     }
 }

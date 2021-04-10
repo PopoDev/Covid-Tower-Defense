@@ -26,7 +26,7 @@ public class Tier4 extends Virus
         changeTier();
         if(isAtBorder()) 
         {
-            removeLives();
+            attackLives();
         }
     }   
 }

@@ -108,6 +108,12 @@ public class Map1 extends World
         LivesText livesText = new LivesText();
         addObject(livesText, 900, 50);
         
+        MoneyIcon moneyIcon = new MoneyIcon();
+        addObject(moneyIcon, 1100, 50);
+        
+        MoneyText moneyText = new MoneyText();
+        addObject(moneyText, 1125, 50);
+        
         Disinfectant_Icon disinfectant_Icon = new Disinfectant_Icon();
         addObject(disinfectant_Icon, 925, 150);
         

@@ -6,10 +6,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class TowersPlacer extends Actor
+public class TowersPlacer extends SmoothMover
 {
     Towers specificTower = null;
     boolean placeable = false;
+    int price = 0;
     
     RangeIcon rangeIcon = null;
     int basicRange = 100;
@@ -33,8 +34,9 @@ public class TowersPlacer extends Actor
         if(placeable)
         {
             // System.out.println("Not on road, HUD or other towers");
-            if(specificTower != null)
+            if(MoneyManager.buyIfEnough(price))
             {
+                
                 System.out.println(specificTower + " placed at : (" + getX() + ", " + getY() + ").");
                 getWorld().addObject(specificTower, getX(), getY());
                 System.out.println(rangeIcon + " was removed.");
@@ -92,5 +94,15 @@ public class TowersPlacer extends Actor
             rangeIcon.setImage(rangeFalseImg);
             rangeIcon.getImage().scale(basicRange, basicRange);
         }
+    }
+    
+    public void setBasicPrice(int amount)
+    {
+        this.price = amount;
+    }
+        
+    public int getPrice()
+    {
+        return price;
     }
 }

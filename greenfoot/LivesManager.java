@@ -11,8 +11,15 @@ public class LivesManager extends Actor
     public final static int LIVES_MAX = 100;
     public static int lives = LIVES_MAX;
     
-    public LivesManager()
+    public static int removeLives(int amount)
     {
-        lives = LIVES_MAX;
+        if(lives - amount > 0) {
+            lives -= amount;
+            System.out.println("Lost " + amount + " lives.");
+        } else {
+            lives = 0;
+            System.out.println("You lost.");
+        }
+        return lives;
     }
 }
