@@ -13,7 +13,7 @@ public class GameStateManager extends Actor
         STARTMENU, MAINMENU, GAME
     }
     
-    public static GameState gameState;
+    public static GameState gameState = GameState.STARTMENU;
     public static StartMenu startMenu;
     
     public static void update()
