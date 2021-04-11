@@ -8,8 +8,12 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class StartButton extends Buttons
 {
+    GreenfootImage startButton = new GreenfootImage("playButton 400x66.png");
+    GreenfootImage startButtonOn = new GreenfootImage("playButton mouseOn 440x73.png");
+    
     public void act() 
     {
+        changeIfHovering(startButton, startButtonOn);
         if(Greenfoot.mouseClicked(this))
         {
             Greenfoot.setWorld(new Map1());
