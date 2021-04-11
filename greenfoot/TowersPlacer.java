@@ -43,6 +43,7 @@ public class TowersPlacer extends SmoothMover
                 System.out.println(this + " was removed.");
                 getWorld().removeObject(rangeIcon);
                 getWorld().removeObject(this);
+                rangeIcon = null;
             }
         } else {
             System.out.println("You can't place towers on the roads, on other towers and outside of the map.");

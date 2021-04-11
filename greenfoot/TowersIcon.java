@@ -9,6 +9,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class TowersIcon extends Buttons
 {   
+    boolean setInfo = false;
+    HUD infoBox;
+    
     public void createWhenClicked(TowersPlacer towerPlacer, GreenfootImage TowerImg)
     {
         // Create new Instance only when clicked for selecting
@@ -16,4 +19,20 @@ public class TowersIcon extends Buttons
 
         getWorld().addObject(towerPlacer, getX(), getY());
     }
+    
+    public void showInfoIfHovering(HUD infoTower)
+    {
+        if(isHovering() && !setInfo)
+        {
+            infoBox = infoTower;
+            getWorld().addObject(infoBox, 700, getY());
+            setInfo = true;
+        }
+        
+        if(!isHovering() && setInfo)
+        {
+            getWorld().removeObject(infoBox);
+            setInfo = false;
+        }
+    }  
 }

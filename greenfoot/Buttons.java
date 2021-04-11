@@ -11,21 +11,31 @@ public class Buttons extends SmoothMover
     boolean mouseOn = false;
     boolean setImageOn = false;
     
-    public void changeIfHovering(GreenfootImage initialImg, GreenfootImage hoveringImg)
+    public boolean isHovering()
     {
         if(Greenfoot.mouseMoved(this) && !mouseOn) mouseOn = true; 
-        if(!Greenfoot.mouseMoved(this) && Greenfoot.mouseMoved(null)) mouseOn = false;
-        if(mouseOn && !setImageOn || mouseOn && !Greenfoot.mouseMoved(null))
+        if(!Greenfoot.mouseMoved(this) && Greenfoot.mouseMoved(null) && mouseOn) mouseOn = false;
+        if(mouseOn)
+        {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    public void changeIfHovering(GreenfootImage initialImg, GreenfootImage hoveringImg)
+    {
+        if(isHovering() && !setImageOn)
         {
             setImage(hoveringImg);
             setImageOn = true;
             // System.out.println(hoveringImg);
-        }
-        if(!mouseOn && setImageOn || !mouseOn && !Greenfoot.mouseMoved(null))
+        } 
+        if(!isHovering() && setImageOn)
         {
             setImage(initialImg);
             setImageOn = false;
             // System.out.println(initialImg);
         }
-    }  
+    }
 }

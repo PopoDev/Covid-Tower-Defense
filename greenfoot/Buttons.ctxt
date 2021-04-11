@@ -1,6 +1,8 @@
 #BlueJ class context
 comment0.target=Buttons
 comment0.text=\r\n\ Write\ a\ description\ of\ class\ Buttons\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
-comment1.params=initialImg\ hoveringImg
-comment1.target=void\ changeIfHovering(greenfoot.GreenfootImage,\ greenfoot.GreenfootImage)
-numComments=2
+comment1.params=
+comment1.target=boolean\ isHovering()
+comment2.params=initialImg\ hoveringImg
+comment2.target=void\ changeIfHovering(greenfoot.GreenfootImage,\ greenfoot.GreenfootImage)
+numComments=3

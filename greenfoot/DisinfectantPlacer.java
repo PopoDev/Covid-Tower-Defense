@@ -9,12 +9,13 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class DisinfectantPlacer extends TowersPlacer
 {
     int basicRange = 150;
-    int basicPrice = 100;
+    int basicPrice = 350;
     int price = basicPrice;
+    Towers disinfectant;
     
     public DisinfectantPlacer()
     {
-        Towers disinfectant = new Disinfectant();
+        disinfectant = new Disinfectant();
         setTower(disinfectant);
         setBasicRange(basicRange);
         setBasicPrice(basicPrice);
@@ -29,6 +30,8 @@ public class DisinfectantPlacer extends TowersPlacer
         if(Greenfoot.mouseClicked(this))
         {
             placeTower();
+            disinfectant = new Disinfectant();
+            setTower(disinfectant);
         }
     }
 }

@@ -14,10 +14,12 @@ public class Disinfectant_Icon extends TowersIcon
     GreenfootImage towerImg = new GreenfootImage("Désinfectant 50x50.png");
     
     DisinfectantPlacer disinfectantPlacer = new DisinfectantPlacer();
+    InfoDisinfectant infoDisinfectant = new InfoDisinfectant();
 
     public void act() 
     {
         changeIfHovering(Icon, IconOn);
+        showInfoIfHovering(infoDisinfectant);
         if(Greenfoot.mouseClicked(this))
         {
             createWhenClicked(disinfectantPlacer, towerImg);
