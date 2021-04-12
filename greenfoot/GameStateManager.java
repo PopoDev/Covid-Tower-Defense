@@ -16,6 +16,7 @@ public class GameStateManager extends Actor
     public static GameState gameState = GameState.STARTMENU;
     public static StartMenu startMenu;
     public static MainMenu mainMenu;
+    public static Map1 map1;
     
     public static void update()
     {
@@ -27,8 +28,20 @@ public class GameStateManager extends Actor
             case MAINMENU:
                 if(mainMenu == null) mainMenu = new MainMenu();
                 Greenfoot.setWorld(mainMenu);
+                break;
+            case GAME:
+                if(map1 == null) map1 = new Map1();
+                Greenfoot.setWorld(map1);
+                resetData();
+                break;
             default:
                 break;
         }
+    }
+    
+    public static void resetData()
+    {
+        LivesManager.lives = LivesManager.LIVES_MAX;
+        MoneyManager.money = MoneyManager.STARTING_MONEY;
     }
 }

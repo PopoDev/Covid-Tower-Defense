@@ -15,10 +15,10 @@ public class StartMenu extends World
     {    
         super(1200, 900, 1); 
         setBackground(startBackground);
-        placeButtons();
+        placeStartButtons();
     }
     
-    public void placeButtons()
+    public void placeStartButtons()
     {
         addObject(new StartButton(), 600, 550);
         addObject(new CreditsButton(), 600, 650);

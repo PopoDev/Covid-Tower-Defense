@@ -14,11 +14,11 @@ public class MainMenu extends World
     {    
         super(1200, 900, 1); 
         setBackground(menuBackground);
-        placeButtons();
+        placeMenuButtons();
     }
     
-    public void placeButtons()
+    public void placeMenuButtons()
     {
-        addObject(new StartButton(), 600, 550);
+        addObject(new PlayButton(), 600, 700);
     }
 }
