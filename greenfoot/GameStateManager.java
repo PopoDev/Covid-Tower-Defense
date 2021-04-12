@@ -10,11 +10,12 @@ public class GameStateManager extends Actor
 {
     public static enum GameState
     {
-        STARTMENU, MAINMENU, GAME
+        STARTMENU, MAINMENU, GAME, END
     }
     
     public static GameState gameState = GameState.STARTMENU;
     public static StartMenu startMenu;
+    public static MainMenu mainMenu;
     
     public static void update()
     {
@@ -23,7 +24,9 @@ public class GameStateManager extends Actor
             case STARTMENU:
                 if(startMenu == null) startMenu = new StartMenu();
                 break;
-                
+            case MAINMENU:
+                if(mainMenu == null) mainMenu = new MainMenu();
+                Greenfoot.setWorld(mainMenu);
             default:
                 break;
         }

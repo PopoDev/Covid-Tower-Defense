@@ -16,8 +16,8 @@ public class StartButton extends Buttons
         changeIfHovering(startButton, startButtonOn);
         if(Greenfoot.mouseClicked(this))
         {
-            Greenfoot.setWorld(new Map1());
             GameStateManager.gameState = GameStateManager.GameState.MAINMENU;
+            GameStateManager.update();
         }
     }    
 }
