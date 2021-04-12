@@ -30,7 +30,7 @@ public class GameStateManager extends Actor
                 Greenfoot.setWorld(mainMenu);
                 break;
             case GAME:
-                if(map1 == null) map1 = new Map1();
+                map1 = new Map1();
                 Greenfoot.setWorld(map1);
                 resetData();
                 break;
