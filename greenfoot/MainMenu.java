@@ -8,7 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MainMenu extends World
 {
-    GreenfootImage menuBackground = new GreenfootImage("menu background 1200x900.png");
+    //GreenfootImage menuBackground = new GreenfootImage("menu background 1200x900.png");
+    GreenfootImage menuBackground = new GreenfootImage("chooseMap 1200x900.png");
     
     public MainMenu()
     {    
@@ -19,6 +20,12 @@ public class MainMenu extends World
     
     public void placeMenuButtons()
     {
-        addObject(new PlayButton(), 600, 700);
+        ChooseMap mapRoute = new ChooseMap();
+        mapRoute.setImage(new GreenfootImage("Map route 320x450.png"));
+        mapRoute.setName("Route");
+        addObject(mapRoute, 250, 500);
+        addObject(new ChooseMap(), 600, 500);
+        addObject(new ChooseMap(), 950, 500);
+        // addObject(new PlayButton(), 600, 700);
     }
 }

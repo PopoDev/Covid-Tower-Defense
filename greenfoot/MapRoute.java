@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author PopoDev
  * @version 1.0.0
  */
-public class Map1 extends World
+public class MapRoute extends World
 {
     int gridSize = 50;
     int dimension = 16;
@@ -33,7 +33,7 @@ public class Map1 extends World
         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0 ,0}
     };
     
-    public Map1()
+    public MapRoute()
     {    
         super(1200, 900, 1);
         createRoad();

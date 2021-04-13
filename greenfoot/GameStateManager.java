@@ -16,7 +16,8 @@ public class GameStateManager extends Actor
     public static GameState gameState = GameState.STARTMENU;
     public static StartMenu startMenu;
     public static MainMenu mainMenu;
-    public static Map1 map1;
+    public static MapRoute mapRoute;
+    public static EndMenu endMenu;
     
     public static void update()
     {
@@ -30,9 +31,12 @@ public class GameStateManager extends Actor
                 Greenfoot.setWorld(mainMenu);
                 break;
             case GAME:
-                map1 = new Map1();
-                Greenfoot.setWorld(map1);
+                // map1 = new Map1();
+                // Greenfoot.setWorld(map1);
                 resetData();
+                break;
+            case END:
+                
                 break;
             default:
                 break;
