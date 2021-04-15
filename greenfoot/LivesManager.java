@@ -19,6 +19,10 @@ public class LivesManager extends Actor
         } else {
             lives = 0;
             System.out.println("You lost.");
+            
+            EndMenu endMenu = new EndMenu();
+            endMenu.setWinImage(false);
+            Greenfoot.setWorld(endMenu);
         }
         return lives;
     }

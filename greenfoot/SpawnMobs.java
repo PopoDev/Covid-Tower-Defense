@@ -29,6 +29,7 @@ public class SpawnMobs extends Buttons
     int timeWave = 0; // [acts]
     int waveMax = 2;
     boolean mapEnded = false;
+    EndMenu endMenu = new EndMenu();
     
     int[][] rounds = {{}};
     int spawnMax = 0;
@@ -85,6 +86,8 @@ public class SpawnMobs extends Buttons
                     } else {
                         mapEnded = true;
                         System.out.println("Map1 complétée !");
+                        endMenu.setWinImage(true);
+                        Greenfoot.setWorld(endMenu);
                     }
                 }
             }
