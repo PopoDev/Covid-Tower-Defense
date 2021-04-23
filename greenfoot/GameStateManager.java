@@ -27,7 +27,7 @@ public class GameStateManager extends Actor
                 if(startMenu == null) startMenu = new StartMenu();
                 break;
             case MAINMENU:
-                if(mainMenu == null) mainMenu = new MainMenu();
+                mainMenu = new MainMenu();
                 Greenfoot.setWorld(mainMenu);
                 break;
             case GAME:

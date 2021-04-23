@@ -9,12 +9,16 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class ChooseMap extends Buttons
 {
     private String name = "Soon";
+    GreenfootImage image;
+    GreenfootImage imageOn;
     
     public void act()
     {
+        if(name != "Soon") changeIfHovering(image, imageOn);
         if(Greenfoot.mouseClicked(this))
         {
-            chooseMap();
+            chooseDifficulty();
+            //chooseMap();
         }
     }
     
@@ -41,4 +45,19 @@ public class ChooseMap extends Buttons
         }
     }
     
+    public void chooseDifficulty()
+    {
+        getWorld().setBackground(new GreenfootImage("chooseDifficulty 1200x900.png"));
+        getWorld().removeObjects(getWorld().getObjects(ChooseMap.class));
+    }
+    
+    public void initImage(GreenfootImage image)
+    {
+        this.image = image;
+    }
+    
+    public void initImageOn(GreenfootImage image)
+    {
+        this.imageOn = image;
+    }
 }

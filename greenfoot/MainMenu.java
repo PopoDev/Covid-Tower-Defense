@@ -21,9 +21,11 @@ public class MainMenu extends World
     public void placeMenuButtons()
     {
         ChooseMap mapRoute = new ChooseMap();
-        mapRoute.setImage(new GreenfootImage("Map route 320x450.png"));
+        mapRoute.initImage(new GreenfootImage("Map route 320x450.png"));
+        mapRoute.initImageOn(new GreenfootImage("Map route mouseOn 334x464.png"));
         mapRoute.setName("Route");
         addObject(mapRoute, 250, 500);
+        
         addObject(new ChooseMap(), 600, 500);
         addObject(new ChooseMap(), 950, 500);
         // addObject(new PlayButton(), 600, 700);
