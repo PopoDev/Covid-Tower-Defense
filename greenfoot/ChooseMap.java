@@ -14,11 +14,15 @@ public class ChooseMap extends Buttons
     
     public void act()
     {
-        if(name != "Soon") changeIfHovering(image, imageOn);
-        if(Greenfoot.mouseClicked(this))
+        if(name != "Soon")
         {
-            chooseDifficulty();
-            //chooseMap();
+            changeIfHovering(image, imageOn);
+            if(Greenfoot.mouseClicked(this))
+            {
+                ((MainMenu)getWorld()).setMap(name);
+                ((MainMenu)getWorld()).chooseDifficulty();
+                //chooseMap();
+            }
         }
     }
     
