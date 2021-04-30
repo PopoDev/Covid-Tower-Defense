@@ -10,8 +10,9 @@ public class MapRoute extends World
 {
     int gridSize = 50;
     int dimension = 16;
-    public final static int MAP_WIDTH = 800;
+    public final static int MAP_WIDTH = 800; // pour détection border dans la class Mobs
     public final static int MAP_HEIGHT = 800;
+    private String difficulty;
     
     int[][] road =  // 12 = up-right (UR), 14 = up-left (UL), 32 = down-right (DR), 34 = down-left(UL)
     {
@@ -36,11 +37,10 @@ public class MapRoute extends World
     public MapRoute()
     {    
         super(1200, 900, 1);
-        createRoad();
-        // placeTowers();
-        placeGUI();
-        
         setPaintOrder(TowersPlacer.class, RangeIcon.class, Buttons.class, HUD.class, Towers.class, Mobs.class, Range.class, Backgrounds.class);
+        
+        createRoad();
+        placeGUI();
     }
     
     public void createRoad()
@@ -121,24 +121,8 @@ public class MapRoute extends World
         addObject(nextButton, 800 + 200, 800 - 75);
     }
     
-    public void placeTowers()
+    public void setDifficulty(String difficulty)
     {
-        Tower_1M50 tower_1M50 = new Tower_1M50(this, 325, 125);
-        addObject(tower_1M50, 325, 125);
-        
-        Disinfectant disinfectant = new Disinfectant();
-        addObject(disinfectant, 225, 325);
+        this.difficulty = difficulty;
     }
-    
-    /* 
-    public static int getMapWitdh()
-    {
-        return MAP_X;
-    }
-    
-    public static int getMapHeight()
-    {
-        return MAP_Y;
-    }
-     */
 }
