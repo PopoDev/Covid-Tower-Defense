@@ -15,14 +15,24 @@ public class Disinfectant_Icon extends TowersIcon
     
     DisinfectantPlacer disinfectantPlacer = new DisinfectantPlacer();
     InfoDisinfectant infoDisinfectant = new InfoDisinfectant();
+    
+    Prices disinfectantPrices = Prices.DISINFECTANT;
+    int basicPrice = disinfectantPrices.getPrice(0);
+    
+    public Disinfectant_Icon()
+    {
+        setBasicPrice(basicPrice);
+    }
 
-    public void act() 
+    public void act()
     {
         changeIfHovering(Icon, IconOn);
         showInfoIfHovering(infoDisinfectant);
+        putShadow();
         if(Greenfoot.mouseClicked(this))
         {
             createWhenClicked(disinfectantPlacer, towerImg);
+            System.out.println(basicPrice);
         }
     }
 }

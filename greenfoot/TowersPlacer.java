@@ -36,7 +36,6 @@ public class TowersPlacer extends SmoothMover
             // System.out.println("Not on road, HUD or other towers");
             if(((Map)getWorld()).buyIfEnough(price))
             {
-                
                 System.out.println(specificTower + " placed at : (" + getX() + ", " + getY() + ").");
                 getWorld().addObject(specificTower, getX(), getY());
                 System.out.println(rangeIcon + " was removed.");

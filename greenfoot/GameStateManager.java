@@ -10,7 +10,7 @@ public class GameStateManager
 {
     public static enum GameState
     {
-        STARTMENU, MAINMENU, GAME, END
+        STARTMENU, MAINMENU, GAME, END;
     }
     
     public static GameState gameState = GameState.STARTMENU;
