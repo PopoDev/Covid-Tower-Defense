@@ -34,7 +34,7 @@ public class TowersPlacer extends SmoothMover
         if(placeable)
         {
             // System.out.println("Not on road, HUD or other towers");
-            if(MoneyManager.buyIfEnough(price))
+            if(((Map)getWorld()).buyIfEnough(price))
             {
                 
                 System.out.println(specificTower + " placed at : (" + getX() + ", " + getY() + ").");

@@ -40,8 +40,8 @@ public class MainMenu extends World
         {
             case "ROUTE":
                 MapRoute mapRoute = new MapRoute();
-                mapRoute.setDifficulty(difficulty);
                 Greenfoot.setWorld(mapRoute);
+                mapRoute.initMap(difficulty);
                 break;
             
             default:

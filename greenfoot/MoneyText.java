@@ -15,18 +15,26 @@ public class MoneyText extends HUD
     // Font healthFont = new Font("Black Ops One Regular", false, false, 30);
     // Font healthFont = new Font("Oetztype", false, false, 30);
     
+    boolean init = false;
+    
     public MoneyText()
     {
         textBox.setFont(moneyFont);
         textBox.setColor(Color.WHITE);
-        textBox.drawString(String.valueOf(MoneyManager.STARTING_MONEY), 42, 38);
         setImage(textBox);
     }
     
     public void act() 
     {
+        if(!init) init();
         textBox.clear();
-        textBox.drawString(String.valueOf(MoneyManager.money), 42, 38);
+        textBox.drawString(String.valueOf(((Map)getWorld()).money), 42, 38);
         setImage(textBox);
+    }
+        
+    public void init()
+    {
+        textBox.drawString(String.valueOf(((Map)getWorld()).money), 42, 38);
+        init = true;
     }
 } 

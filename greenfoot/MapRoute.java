@@ -6,13 +6,12 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author PopoDev
  * @version 1.0.0
  */
-public class MapRoute extends World
+public class MapRoute extends Map
 {
-    int gridSize = 50;
-    int dimension = 16;
-    public final static int MAP_WIDTH = 800; // pour détection border dans la class Mobs
-    public final static int MAP_HEIGHT = 800;
-    private String difficulty;
+    private int gridSize = 50;
+    private int dimension = 16;
+    private final int MAP_WIDTH = 800;
+    private final int MAP_HEIGHT = 800;
     
     int[][] road =  // 12 = up-right (UR), 14 = up-left (UL), 32 = down-right (DR), 34 = down-left(UL)
     {
@@ -36,11 +35,8 @@ public class MapRoute extends World
     
     public MapRoute()
     {    
-        super(1200, 900, 1);
-        setPaintOrder(TowersPlacer.class, RangeIcon.class, Buttons.class, HUD.class, Towers.class, Mobs.class, Range.class, Backgrounds.class);
-        
         createRoad();
-        placeGUI();
+        setMapDimension(MAP_WIDTH, MAP_HEIGHT);
     }
     
     public void createRoad()
@@ -95,34 +91,5 @@ public class MapRoute extends World
                 }
             }
         }
-    }
-    
-    public void placeGUI()
-    {
-        TowersHUD towersHUD = new TowersHUD();
-        addObject(towersHUD, 1000, 400);
-        
-        HealthIcon healthIcon = new HealthIcon();
-        addObject(healthIcon, 900, 50);
-        
-        LivesText livesText = new LivesText();
-        addObject(livesText, 900, 50);
-        
-        MoneyIcon moneyIcon = new MoneyIcon();
-        addObject(moneyIcon, 1100, 50);
-        
-        MoneyText moneyText = new MoneyText();
-        addObject(moneyText, 1125, 50);
-        
-        Disinfectant_Icon disinfectant_Icon = new Disinfectant_Icon();
-        addObject(disinfectant_Icon, 925, 150);
-        
-        SpawnMobs nextButton = new SpawnMobs();
-        addObject(nextButton, 800 + 200, 800 - 75);
-    }
-    
-    public void setDifficulty(String difficulty)
-    {
-        this.difficulty = difficulty;
     }
 }

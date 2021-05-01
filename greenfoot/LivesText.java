@@ -8,26 +8,34 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class LivesText extends HUD
 {
-    GreenfootImage textBox = new GreenfootImage(80, 51);
+    GreenfootImage textBox = new GreenfootImage(90, 51);
     
     Font healthFont = new Font("Agency FB", true, false, 30);
     // Font healthFont = new Font("Chewy", false, false, 30);
     // Font healthFont = new Font("Black Ops One Regular", false, false, 30);
     // Font healthFont = new Font("Oetztype", false, false, 30);
     
+    boolean init = false;
+    
     public LivesText()
     {
         textBox.setFont(healthFont);
         textBox.setColor(Color.WHITE);
-        textBox.drawString(String.valueOf(LivesManager.LIVES_MAX), 42, 38);
         setImage(textBox);
         // System.out.println(healthIcon.getFont());
     }
     
     public void act() 
     {
+        if(!init) init();
         textBox.clear();
-        textBox.drawString(String.valueOf(LivesManager.lives), 42, 38);
+        textBox.drawString(String.valueOf(((Map)getWorld()).lives), 42, 38);
         setImage(textBox);
+    }
+    
+    public void init()
+    {
+        textBox.drawString(String.valueOf(((Map)getWorld()).lives), 42, 38);
+        init = true;
     }
 }

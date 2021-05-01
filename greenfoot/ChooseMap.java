@@ -21,7 +21,6 @@ public class ChooseMap extends Buttons
             {
                 ((MainMenu)getWorld()).setMap(name);
                 ((MainMenu)getWorld()).chooseDifficulty();
-                //chooseMap();
             }
         }
     }
@@ -34,25 +33,6 @@ public class ChooseMap extends Buttons
     public String getName()
     {
         return name;
-    }
-    
-    public void chooseMap()
-    {
-        switch(name.toUpperCase())
-        {
-            case "ROUTE":
-                Greenfoot.setWorld(new MapRoute());
-                break;
-            
-            default:
-                break;
-        }
-    }
-    
-    public void chooseDifficulty()
-    {
-        getWorld().setBackground(new GreenfootImage("chooseDifficulty 1200x900.png"));
-        getWorld().removeObjects(getWorld().getObjects(ChooseMap.class));
     }
     
     public void initImage(GreenfootImage image)

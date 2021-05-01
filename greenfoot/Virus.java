@@ -71,7 +71,7 @@ public class Virus extends Mobs
     public void attackLives()
     {
         int livesLoosed = tier;
-        LivesManager.removeLives(livesLoosed);
+        ((Map)getWorld()).removeLives(livesLoosed);
         getWorld().removeObject(this);
     }
 }

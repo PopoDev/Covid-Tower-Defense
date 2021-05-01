@@ -104,10 +104,9 @@ public class Mobs extends SmoothMover
         return alive;
     }
     
- 
     public boolean isAtBorder()
     {
-        if(getExactX() > MapRoute.MAP_WIDTH || getExactY() > MapRoute.MAP_HEIGHT)
+        if(getExactX() > ((Map)getWorld()).mapWidth || getExactY() > ((Map)getWorld()).mapHeight)
         {
             return true;
         } else {
