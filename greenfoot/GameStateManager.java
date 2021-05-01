@@ -33,7 +33,6 @@ public class GameStateManager
             case GAME:
                 // map1 = new Map1();
                 // Greenfoot.setWorld(map1);
-                resetData();
                 break;
             case END:
                 
@@ -41,11 +40,5 @@ public class GameStateManager
             default:
                 break;
         }
-    }
-    
-    public static void resetData()
-    {
-        LivesManager.lives = LivesManager.LIVES_MAX;
-        MoneyManager.money = MoneyManager.STARTING_MONEY;
     }
 }
