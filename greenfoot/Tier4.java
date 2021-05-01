@@ -23,10 +23,10 @@ public class Tier4 extends Virus
     {
         move(speed);
         turnAtCorner();
-        changeTier();
         if(isAtBorder()) 
         {
             attackLives();
         }
+        changeTier();
     }   
 }

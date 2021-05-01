@@ -23,10 +23,10 @@ public class Tier1 extends Virus
     {
         move(speed);
         turnAtCorner();
-        removeDead();
         if(isAtBorder()) 
         {
             attackLives();
         }
+        removeDead();
     }
 }
