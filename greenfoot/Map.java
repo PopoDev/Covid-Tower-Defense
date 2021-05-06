@@ -10,6 +10,7 @@ public class Map extends World
 {   
     private String difficulty;
     private double multiplicator; // multiplicateur des prix
+    private PriceManager priceManager = new PriceManager();
     
     private final int STARTING_MONEY = 1000;
     public int money = STARTING_MONEY;
@@ -29,6 +30,7 @@ public class Map extends World
     public void initMap(String difficulty)
     {
         setDifficulty(difficulty);
+        priceManager.setMultiplicator(multiplicator);
         placeGUI();
     }
     
