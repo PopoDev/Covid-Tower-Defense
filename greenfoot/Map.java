@@ -39,6 +39,9 @@ public class Map extends World
         TowersHUD towersHUD = new TowersHUD();
         addObject(towersHUD, 1000, 400);
         
+        BottomHUD bottomHUD = new BottomHUD();
+        addObject(bottomHUD, 600, 850);
+        
         HealthIcon healthIcon = new HealthIcon();
         addObject(healthIcon, 900, 50);
         
