@@ -210,6 +210,18 @@ public class SpawnMobs extends Buttons
         wave++;
     }
     
+    /*
+    public void showWaveNumber()
+    {
+        waveText.clear();
+        waveText.setFont(waveFont);
+        waveText.setColor(Color.BLACK);
+        waveText.drawString(wave + " / " + waveMax, 150, 50);
+        getWorld().getBackground().drawImage(waveText, 50, 825);
+        getWorld().showText("Wave : " + wave + " / " + waveMax, 300, 850);
+    }
+    */
+   
     /*public void spawnAtInterval(int number, Virus tier, int x, int y, long interval) // interval in milliseconds
     {
         for(int i = 1; i <= number; i++)

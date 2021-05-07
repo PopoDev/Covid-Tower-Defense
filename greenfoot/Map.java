@@ -59,6 +59,12 @@ public class Map extends World
         
         SpawnMobs nextButton = new SpawnMobs();
         addObject(nextButton, 800 + 200, 800 - 75);
+        
+        WaveIcon waveIcon = new WaveIcon();
+        addObject(waveIcon, 180, 850);
+        
+        WaveText waveText = new WaveText();
+        addObject(waveText, 200, 850);
     }
     
     public void setDifficulty(String difficulty)
