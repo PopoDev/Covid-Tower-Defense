@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Map extends World
 {   
-    private String difficulty;
+    public String difficulty;
     private double multiplicator; // multiplicateur des prix
     private PriceManager priceManager = new PriceManager();
     
@@ -65,6 +65,9 @@ public class Map extends World
         
         WaveText waveText = new WaveText();
         addObject(waveText, 200, 850);
+        
+        DifficultyIcon difficultyIcon = new DifficultyIcon();
+        addObject(difficultyIcon, 520, 850);
     }
     
     public void setDifficulty(String difficulty)
