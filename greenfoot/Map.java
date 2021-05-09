@@ -67,7 +67,10 @@ public class Map extends World
         addObject(waveText, 200, 850);
         
         DifficultyIcon difficultyIcon = new DifficultyIcon();
-        addObject(difficultyIcon, 520, 850);
+        addObject(difficultyIcon, 525, 850);
+        
+        MultiplicatorIcon multiplicatorIcon = new MultiplicatorIcon();
+        addObject(multiplicatorIcon, 750, 850);
     }
     
     public void setDifficulty(String difficulty)
