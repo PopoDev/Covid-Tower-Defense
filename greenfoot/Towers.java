@@ -13,6 +13,9 @@ public class Towers extends SmoothMover
     boolean showingRange = false;
     Range rangeObj = null;
     
+    boolean showingUpgrade = false;
+    UpgradeHUD upgradeHUD = new UpgradeHUD();
+    
     public void attack(Mobs mobs, int damage)
     {
         int currentHealth = mobs.getHealth();
@@ -22,26 +25,37 @@ public class Towers extends SmoothMover
         Greenfoot.playSound("pop.mp3");
     }
     
-    public void showRange()
+    public void showInfo()
     {
         if(Greenfoot.mouseClicked(null))
         {
-            if(Greenfoot.mouseClicked(this) && !showingRange)
+            if(Greenfoot.mouseClicked(this))
             {
-                System.out.println("Clicked on : " + this);
-                rangeObj = new Range();
-                rangeObj.getImage().scale(range, range);
-                if(getWorld() != null)
-                {
-                    getWorld().addObject(rangeObj, getX(), getY());
-                    showingRange = true;
-                }   
-            } 
+                showRange();
+                showUpgrade();
+            }
             
-            if(!Greenfoot.mouseClicked(this) && rangeObj != null)
+            if(!Greenfoot.mouseClicked(this))
             {
                 unshowRange(rangeObj);
+                unshowUpgrade();
             }
+        }
+        
+    }
+    
+    public void showRange()
+    {
+        if(!showingRange)
+        {
+             System.out.println("Clicked on : " + this);
+             rangeObj = new Range();
+             rangeObj.getImage().scale(range, range);
+             if(getWorld() != null)
+             {
+                 getWorld().addObject(rangeObj, getX(), getY());
+                 showingRange = true;
+             }   
         }
     }
     
@@ -63,5 +77,24 @@ public class Towers extends SmoothMover
     public void setRange(int range)
     {
         this.range = range;
+    }
+     
+    public void showUpgrade()
+    {
+        if(!showingUpgrade)
+        {
+            getWorld().addObject(upgradeHUD, 400, 850);
+            getWorld().addObject(new UpgradeButton(), 300, 850);
+            showingUpgrade = true;
+        }
+    }
+    
+    public void unshowUpgrade()
+    {
+        if(showingUpgrade)
+        {
+            getWorld().removeObject(upgradeHUD);
+            showingUpgrade = false;
+        }
     }
 }
