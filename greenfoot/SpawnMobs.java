@@ -23,11 +23,12 @@ public class SpawnMobs extends Buttons
     GreenfootImage imgSpeedUp = new GreenfootImage("Speed up true 150x125.png");
     GreenfootImage imgSpeedUpOn = new GreenfootImage("Speed up true mouseOn 150x125.png");
     
-    int wave = 1;
-    boolean waveRunning = false;
-    boolean speedUp = true;
-    int timeWave = 0; // [acts]
+    int wave = 0;
     int waveMax = 2;
+    boolean waveRunning = false;
+    int timeWave = 0; // [acts]
+    boolean speedUp = false;
+    
     boolean mapEnded = false;
     EndMenu endMenu = new EndMenu();
     
@@ -42,6 +43,15 @@ public class SpawnMobs extends Buttons
     ArrayList <Integer> spawnCounters = new ArrayList();
     int soloCounter = 0;
     
+    Map map;
+    
+    @Override
+    protected void addedToWorld(World world)
+    {
+        map = (Map)getWorld();
+        map.waveMax = waveMax;
+    }
+    
     public void act()
     {
         if(!mapEnded)
@@ -50,6 +60,7 @@ public class SpawnMobs extends Buttons
             {
                 if(!waveRunning)
                 {
+                    nextWave();
                     System.out.println("Wave " + wave + " starts.");
                     wavesManager();
                     waveRunning = true;
@@ -59,7 +70,7 @@ public class SpawnMobs extends Buttons
         
         if(waveRunning)
         {
-            if(Greenfoot.mouseClicked(this)) speedUp = !speedUp;
+            if(Greenfoot.mouseClicked(this) && timeWave > 0) speedUp = !speedUp;
 
             if(speedUp)
             {
@@ -74,16 +85,14 @@ public class SpawnMobs extends Buttons
             {
                 wavesSpawner();
             } else {
-                if(mobAlive != 0)
+                if(mobAlive > 0)
                 {
                     if(timeWave % 10 == 0) countAlive();  // Pour éviter le lag
                 } else {
                     System.out.println("Bravo vous avez battu la vague " + wave + " ! ");
                     waveRunning = false;
-                    if(wave < waveMax) 
+                    if(wave >= waveMax)
                     {
-                        nextWave();
-                    } else {
                         mapEnded = true;
                         System.out.println("Map1 complétée !");
                         endMenu.setWinImage(true);
@@ -198,6 +207,7 @@ public class SpawnMobs extends Buttons
     {
         // Reset
         timeWave = 0;
+        speedUp = false;
         
         spawnMax = 0;
         spawnNumber = 0;
@@ -208,6 +218,7 @@ public class SpawnMobs extends Buttons
         mobAlive = 1;
         
         wave++;
+        map.waveNumber = wave;
     }
     
     /*

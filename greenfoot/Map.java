@@ -18,6 +18,9 @@ public class Map extends World
     private int LIVES_MAX;
     public int lives;
     
+    public int waveNumber = 0;
+    public int waveMax;
+    
     public int mapWidth; // pour détection border dans la class Mobs
     public int mapHeight;
     
