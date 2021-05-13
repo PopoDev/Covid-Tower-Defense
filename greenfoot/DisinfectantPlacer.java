@@ -18,8 +18,6 @@ public class DisinfectantPlacer extends TowersPlacer
     
     public DisinfectantPlacer()
     {
-        disinfectant = new Disinfectant();
-        setTower(disinfectant);
         setBasicRange(basicRange);
         setBasicPrice(basicPrice);
     }
@@ -32,9 +30,9 @@ public class DisinfectantPlacer extends TowersPlacer
         showIfPlaceable();
         if(Greenfoot.mouseClicked(this))
         {
-            placeTower();
             disinfectant = new Disinfectant();
             setTower(disinfectant);
+            placeTower();
         }
     }
 }

@@ -15,9 +15,13 @@ public class Disinfectant extends Towers
     int cooldown = 300; // time relative to acts
     int counter = cooldown;
     
+    String[] upgrades = new String[] {"Damage", "Range", "Cooldown"};
+    
     public Disinfectant()
     {
         setRange(range);
+        setUpgrades(upgrades);
+        addUpgrades();
     }
     
     public void act() 

@@ -1,5 +1,6 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-import java.util.List;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
 
 /**
  * Write a description of class Towers here.
@@ -15,6 +16,9 @@ public class Towers extends SmoothMover
     
     boolean showingUpgrade = false;
     UpgradeHUD upgradeHUD = new UpgradeHUD();
+    
+    LinkedHashMap <String, Integer> upgrades = new LinkedHashMap(); // (Type, Level)
+    ArrayList <HUD> upgradesIcon = new ArrayList();
     
     public void attack(Mobs mobs, int damage)
     {
@@ -78,13 +82,16 @@ public class Towers extends SmoothMover
     {
         this.range = range;
     }
-     
+    
     public void showUpgrade()
     {
         if(!showingUpgrade)
         {
             getWorld().addObject(upgradeHUD, 400, 850);
-            getWorld().addObject(new UpgradeButton(), 300, 850);
+            for(int i = 0; i < upgradesIcon.size(); i++)
+            {
+                getWorld().addObject(upgradesIcon.get(i), 275 + 200 * i, 850);
+            }
             showingUpgrade = true;
         }
     }
@@ -94,7 +101,27 @@ public class Towers extends SmoothMover
         if(showingUpgrade)
         {
             getWorld().removeObject(upgradeHUD);
+            getWorld().removeObjects(getWorld().getObjects(UpgradeIcon.class));
             showingUpgrade = false;
+        }
+    }
+    
+    public void setUpgrades(String[] Upgrades)
+    {
+        for(String upgrade : Upgrades)
+        {
+            upgrades.put(upgrade, 1);
+        }
+        System.out.println(upgrades);
+    }
+    
+    public void addUpgrades()
+    {
+        for(String type : upgrades.keySet())
+        {
+            UpgradeIcon upgradeIcon = new UpgradeIcon();
+            upgradeIcon.setUpgradeType(type);
+            upgradesIcon.add(upgradeIcon);
         }
     }
 }
