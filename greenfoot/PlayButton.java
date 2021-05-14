@@ -14,7 +14,7 @@ public class PlayButton extends Buttons
     public void act() 
     {
         changeIfHovering(playButton, playButtonOn);
-        if(Greenfoot.mouseClicked(this))
+        if(Greenfoot.mousePressed(this))
         {
             GameStateManager.gameState = GameStateManager.GameState.GAME;
             GameStateManager.update();

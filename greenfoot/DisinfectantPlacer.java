@@ -28,7 +28,7 @@ public class DisinfectantPlacer extends TowersPlacer
         followMouse();
         isPlaceable();
         showIfPlaceable();
-        if(Greenfoot.mouseClicked(this))
+        if(Greenfoot.mousePressed(this))
         {
             disinfectant = new Disinfectant();
             setTower(disinfectant);

@@ -17,7 +17,7 @@ public class ChooseMap extends Buttons
         if(name != "Soon")
         {
             changeIfHovering(image, imageOn);
-            if(Greenfoot.mouseClicked(this))
+            if(Greenfoot.mousePressed(this))
             {
                 ((MainMenu)getWorld()).setMap(name);
                 ((MainMenu)getWorld()).chooseDifficulty();

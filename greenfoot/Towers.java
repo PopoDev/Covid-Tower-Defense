@@ -42,16 +42,16 @@ public class Towers extends SmoothMover
     
     public void showInfo()
     {
-        if(Greenfoot.mouseClicked(null) && !Greenfoot.mouseClicked(upgradeHUD) && !Greenfoot.mouseClicked(getWorld().getObjects(UpgradeIcon.class))
-           && !Greenfoot.mouseClicked(getWorld().getObjects(Buttons.class)))
+        if(Greenfoot.mousePressed(null) && !Greenfoot.mousePressed(upgradeHUD) && !Greenfoot.mousePressed(getWorld().getObjects(UpgradeIcon.class))
+           && !Greenfoot.mousePressed(getWorld().getObjects(Buttons.class)))
         {
-            if(Greenfoot.mouseClicked(this))
+            if(Greenfoot.mousePressed(this))
             {
                 showRange();
                 showUpgrade();
             }
             
-            if(!Greenfoot.mouseClicked(this))
+            if(!Greenfoot.mousePressed(this))
             {
                 unshowRange(rangeObj);
                 unshowUpgrade();

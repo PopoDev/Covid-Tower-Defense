@@ -15,7 +15,7 @@ public class ChooseDifficulty extends Buttons
     public void act()
     {
         changeIfHovering(image, imageOn);
-        if(Greenfoot.mouseClicked(this))
+        if(Greenfoot.mousePressed(this))
         {
             ((MainMenu)getWorld()).setDifficulty(name);
             ((MainMenu)getWorld()).chooseMap();

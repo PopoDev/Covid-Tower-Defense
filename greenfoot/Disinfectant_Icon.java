@@ -28,7 +28,7 @@ public class Disinfectant_Icon extends TowersIcon
         changeIfHovering(Icon, IconOn);
         showInfoIfHovering(infoDisinfectant);
         putShadow();
-        if(Greenfoot.mouseClicked(this))
+        if(Greenfoot.mousePressed(this))
         {
             createWhenClicked(disinfectantPlacer, towerImg);
             System.out.println(basicPrice);

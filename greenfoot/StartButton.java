@@ -14,7 +14,7 @@ public class StartButton extends Buttons
     public void act() 
     {
         changeIfHovering(startButton, startButtonOn);
-        if(Greenfoot.mouseClicked(this))
+        if(Greenfoot.mousePressed(this))
         {
             GameStateManager.gameState = GameStateManager.GameState.MAINMENU;
             GameStateManager.update();
