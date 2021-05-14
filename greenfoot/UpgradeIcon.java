@@ -8,13 +8,16 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class UpgradeIcon extends HUD
 {
-    private GreenfootImage upgradeIcon = new GreenfootImage("IconUpgrade 175x70.png");
+    private GreenfootImage upgradeIcon = new GreenfootImage("IconUpgrade 180x70.png");
     
     private Font font = new Font("Agency FB", true, false, 14);
     
     private String type;
+    private String textAligner = " ".repeat(20);
     private String adjustedText; // Pour centrer le texte
     private int level;
+    private int value1;
+    private int value2;
     
     public UpgradeIcon()
     {
@@ -27,7 +30,7 @@ public class UpgradeIcon extends HUD
         upgradeIcon.setFont(font);
         upgradeIcon.setColor(Color.WHITE);
         
-        int spaces = (8 - type.length()) - 1; // Plus long type "Cooldown" 8 character
+        int spaces = (8 - type.length()); // Plus long type "Cooldown" 8 character
         if(spaces >= 0) 
         {
             adjustedText = " ".repeat(spaces) + type;
@@ -40,6 +43,12 @@ public class UpgradeIcon extends HUD
             upgradeIcon.setColor(Color.GREEN);
             upgradeIcon.drawString(type + " " + (level + 1), 115, 19);
         }
+        
+        GreenfootImage textBox1 = new GreenfootImage(textAligner + "\n" + value1, 18, Color.WHITE, null);
+        upgradeIcon.drawImage(textBox1, 20, 6);
+        
+        GreenfootImage textBox2 = new GreenfootImage(textAligner + "\n" + value2, 18, Color.GREEN, null);
+        upgradeIcon.drawImage(textBox2, 100, 6);
         /*
         GreenfootImage textBox1 = new GreenfootImage(type + " " + level, 13, Color.WHITE, null);
         upgradeIcon.drawImage(textBox1, 34, 8);
@@ -59,6 +68,12 @@ public class UpgradeIcon extends HUD
     public void setUpgradeType(String type)
     {
         this.type = type;
+    }
+    
+    public void setUpgradeValues(int value1, int value2)
+    {
+        this.value1 = value1;
+        this.value2 = value2;
     }
     
     /*

@@ -4,7 +4,7 @@ import java.util.List;
 /**
  * Write a description of class HydroalcoholicGel here.
  * 
- * @author (your name) 
+ * @author (your name)
  * @version (a version number or a date)
  */
 public class HydroalcoholicGel extends Towers
@@ -33,5 +33,10 @@ public class HydroalcoholicGel extends Towers
             }
             wait ++;
         }
+    }
+    
+    public void setDamage(int damage)
+    {
+        this.damage = damage;
     }
 }

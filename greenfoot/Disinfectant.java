@@ -1,5 +1,6 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.List;
+import java.util.HashMap;
 import java.lang.Math;
 
 /**
@@ -12,13 +13,23 @@ public class Disinfectant extends Towers
 {
     int range = 150; // diamètre
     int radius = range / 2; // rayon
-    int cooldown = 300; // time relative to acts
+    int cooldown = 60; // time relative to acts
     int counter = cooldown;
     
     String[] upgrades = new String[] {"Damage", "Range", "Cooldown"};
     
+    HashMap <String, int[]> stats = new HashMap();
+    
     public Disinfectant()
     {
+        int[] damages = {1, 2, 3, 4, 5};
+        int[] ranges = {150, 160, 170, 180, 190};
+        int[] cd = {600, 540, 480, 420, 360}; // Cooldown
+        stats.put("Damage", damages);
+        stats.put("Range", ranges);
+        stats.put("Cooldown", cd);
+        
+        setStats(stats);
         setRange(range);
         setUpgrades(upgrades);
         addUpgrades();

@@ -1,6 +1,9 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.List;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
+import java.util.Arrays;
 
 /**
  * Write a description of class Towers here.
@@ -14,9 +17,10 @@ public class Towers extends SmoothMover
     boolean showingRange = false;
     Range rangeObj = null;
     
+    HashMap <String, int[]> stats = new HashMap();
+    
     boolean showingUpgrade = false;
     UpgradeHUD upgradeHUD = new UpgradeHUD();
-    
     LinkedHashMap <String, Integer> upgrades = new LinkedHashMap(); // (Type, Level)
     ArrayList <HUD> upgradesIcon = new ArrayList();
     
@@ -91,6 +95,7 @@ public class Towers extends SmoothMover
             for(int i = 0; i < upgradesIcon.size(); i++)
             {
                 getWorld().addObject(upgradesIcon.get(i), 275 + 200 * i, 850);
+                getWorld().addObject(new UpgradeButton(), 288 + 200 * i, 870);
             }
             showingUpgrade = true;
         }
@@ -102,6 +107,7 @@ public class Towers extends SmoothMover
         {
             getWorld().removeObject(upgradeHUD);
             getWorld().removeObjects(getWorld().getObjects(UpgradeIcon.class));
+            getWorld().removeObjects(getWorld().getObjects(UpgradeButton.class));
             showingUpgrade = false;
         }
     }
@@ -121,7 +127,20 @@ public class Towers extends SmoothMover
         {
             UpgradeIcon upgradeIcon = new UpgradeIcon();
             upgradeIcon.setUpgradeType(type);
+            
+            int level = upgrades.get(type);
+            int[] values = stats.get(type);
+            System.out.println(Arrays.toString(values));
+            int initialValue = values[level - 1];
+            int upgradedValue = values[level];
+            upgradeIcon.setUpgradeValues(initialValue, upgradedValue);
+            
             upgradesIcon.add(upgradeIcon);
         }
+    }
+    
+    public void setStats(HashMap stats)
+    {
+        this.stats = stats;
     }
 }
