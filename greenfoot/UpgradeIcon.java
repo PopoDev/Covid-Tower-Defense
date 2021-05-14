@@ -27,35 +27,24 @@ public class UpgradeIcon extends HUD
     @Override
     protected void addedToWorld(World world)
     {      
+        upgradeIcon.clear();
+        upgradeIcon = new GreenfootImage("IconUpgrade 180x70.png");
         upgradeIcon.setFont(font);
         upgradeIcon.setColor(Color.WHITE);
         
-        int spaces = (8 - type.length()); // Plus long type "Cooldown" 8 character
-        if(spaces >= 0) 
-        {
-            adjustedText = " ".repeat(spaces) + type;
+        int spaces = 8 - type.length(); // Plus long type "Cooldown" 8 character
+        adjustedText = " ".repeat(spaces) + type;
         
-            upgradeIcon.drawString(adjustedText + " " + level, 32, 19);
-            upgradeIcon.setColor(Color.GREEN);
-            upgradeIcon.drawString(adjustedText + " " + (level + 1), 115, 19); 
-        } else {
-            upgradeIcon.drawString(type + " " + level, 32, 19);
-            upgradeIcon.setColor(Color.GREEN);
-            upgradeIcon.drawString(type + " " + (level + 1), 115, 19);
-        }
+        upgradeIcon.drawString(adjustedText + " " + level, 32, 19);
+        
+        upgradeIcon.setColor(Color.GREEN);
+        upgradeIcon.drawString(adjustedText + " " + (level + 1), 115, 19); 
         
         GreenfootImage textBox1 = new GreenfootImage(textAligner + "\n" + value1, 18, Color.WHITE, null);
         upgradeIcon.drawImage(textBox1, 20, 6);
         
         GreenfootImage textBox2 = new GreenfootImage(textAligner + "\n" + value2, 18, Color.GREEN, null);
-        upgradeIcon.drawImage(textBox2, 100, 6);
-        /*
-        GreenfootImage textBox1 = new GreenfootImage(type + " " + level, 13, Color.WHITE, null);
-        upgradeIcon.drawImage(textBox1, 34, 8);
-        
-        GreenfootImage textBox2 = new GreenfootImage(type + " " + (level + 1), 13, Color.GREEN, null);
-        upgradeIcon.drawImage(textBox2, 115, 8);
-        */
+        upgradeIcon.drawImage(textBox2, 105, 6);
        
         setImage(upgradeIcon);
     }
@@ -75,19 +64,4 @@ public class UpgradeIcon extends HUD
         this.value1 = value1;
         this.value2 = value2;
     }
-    
-    /*
-    public void setUpgradeType(String type, String digit1, String digit2)
-    {
-        switch(type.toUpperCase())
-        {
-            case "DAMAGE" :
-                upgradeIcon.drawString(type + " " + digit1, 0, 0);
-                break;
-            
-            default:
-                break;
-        }
-    }
-    */
 }

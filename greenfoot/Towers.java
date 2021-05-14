@@ -13,21 +13,28 @@ import java.util.Arrays;
  */
 public class Towers extends SmoothMover
 {
+    HashMap <String, int[]> stats = new HashMap();
+    
     int range = 100;
     boolean showingRange = false;
     Range rangeObj = null;
     
-    HashMap <String, int[]> stats = new HashMap();
+    
     
     boolean showingUpgrade = false;
     UpgradeHUD upgradeHUD = new UpgradeHUD();
     LinkedHashMap <String, Integer> upgrades = new LinkedHashMap(); // (Type, Level)
     ArrayList <HUD> upgradesIcon = new ArrayList();
     
+    @Override
+    protected void addedToWorld(World world)
+    {
+        // range = stats.get("Range")[0];
+    }
+    
     public void attack(Mobs mobs, int damage)
     {
         int currentHealth = mobs.getHealth();
-        // System.out.println(currentHealth);
         int damagedHealth = currentHealth - damage;
         mobs.setHealth(damagedHealth);
         Greenfoot.playSound("pop.mp3");
@@ -35,7 +42,8 @@ public class Towers extends SmoothMover
     
     public void showInfo()
     {
-        if(Greenfoot.mouseClicked(null))
+        if(Greenfoot.mouseClicked(null) && !Greenfoot.mouseClicked(upgradeHUD) && !Greenfoot.mouseClicked(getWorld().getObjects(UpgradeIcon.class))
+           && !Greenfoot.mouseClicked(getWorld().getObjects(Buttons.class)))
         {
             if(Greenfoot.mouseClicked(this))
             {
