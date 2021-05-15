@@ -7,7 +7,7 @@ import java.util.List;
  * @author (your name)
  * @version (a version number or a date)
  */
-public class HydroalcoholicGel extends Towers
+public class HydroalcoholicGel extends TowersProjectile
 {
     int cooldown = 30;
     int wait = cooldown;

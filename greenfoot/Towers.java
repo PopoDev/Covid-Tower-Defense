@@ -14,22 +14,21 @@ import java.util.Arrays;
 public class Towers extends SmoothMover
 {
     HashMap <String, int[]> stats = new HashMap();
+    LinkedHashMap <String, Integer> upgrades = new LinkedHashMap(); // (Type, Level)
     
-    int range = 100;
-    boolean showingRange = false;
+    UpgradeHUD upgradeHUD = new UpgradeHUD();
+    ArrayList <HUD> upgradesIcon = new ArrayList();
+    
+    int range;
     Range rangeObj = null;
     
-    
-    
+    boolean showingRange = false;
     boolean showingUpgrade = false;
-    UpgradeHUD upgradeHUD = new UpgradeHUD();
-    LinkedHashMap <String, Integer> upgrades = new LinkedHashMap(); // (Type, Level)
-    ArrayList <HUD> upgradesIcon = new ArrayList();
     
     @Override
     protected void addedToWorld(World world)
     {
-        // range = stats.get("Range")[0];
+        range = stats.get("Range")[0];
     }
     
     public void attack(Mobs mobs, int damage)

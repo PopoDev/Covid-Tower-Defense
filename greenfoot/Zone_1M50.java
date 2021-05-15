@@ -7,7 +7,7 @@ import java.util.List;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Zone_1M50 extends Towers
+public class Zone_1M50 extends TowersProjectile
 {
     int cooldown = 80;
     int wait = cooldown;
