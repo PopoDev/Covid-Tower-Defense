@@ -38,14 +38,12 @@ public class TowersPlacer extends SmoothMover
             {
                 System.out.println(specificTower + " placed at : (" + getX() + ", " + getY() + ").");
                 getWorld().addObject(specificTower, getX(), getY());
-                System.out.println(rangeIcon + " was removed.");
-                System.out.println(this + " was removed.");
+                //System.out.println(rangeIcon + " was removed.");
+                //System.out.println(this + " was removed.");
                 getWorld().removeObject(rangeIcon);
                 getWorld().removeObject(this);
                 rangeIcon = null;
             }
-        } else {
-            System.out.println("You can't place towers on the roads, on other towers and outside of the map.");
         }
     }
     

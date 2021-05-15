@@ -30,9 +30,14 @@ public class DisinfectantPlacer extends TowersPlacer
         showIfPlaceable();
         if(Greenfoot.mousePressed(this))
         {
-            disinfectant = new Disinfectant();
-            setTower(disinfectant);
-            placeTower();
+            if(placeable)
+            {
+                disinfectant = new Disinfectant();
+                setTower(disinfectant);
+                placeTower();
+            } else {
+                System.out.println("You can't place towers on the roads, on other towers and outside of the map.");
+            }
         }
     }
 }

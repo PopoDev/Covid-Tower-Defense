@@ -17,8 +17,8 @@ public class Towers extends SmoothMover
     LinkedHashMap <String, Integer> upgrades = new LinkedHashMap(); // (Type, Level)
     
     UpgradeHUD upgradeHUD = new UpgradeHUD();
-    ArrayList <UpgradeIcon> upgradeIcons = new ArrayList();
-    ArrayList <UpgradeButton> upgradeButtons = new ArrayList();
+    HashMap <String, UpgradeIcon> upgradeIcons = new HashMap();
+    HashMap <String, UpgradeButton> upgradeButtons = new HashMap();
     
     int damage;
     int cooldown;
@@ -27,13 +27,7 @@ public class Towers extends SmoothMover
     
     boolean showingRange = false;
     boolean showingUpgrade = false;
-    
-    @Override
-    protected void addedToWorld(World world)
-    {
-        range = stats.get("Range")[0];
-    }
-    
+
     public void attack(Mobs mobs, int damage)
     {
         int currentHealth = mobs.getHealth();
@@ -68,7 +62,7 @@ public class Towers extends SmoothMover
     {
         if(!showingRange)
         {
-             System.out.println("Clicked on : " + this);
+             //System.out.println("Clicked on : " + this);
              rangeObj = new Range();
              rangeObj.getImage().scale(range, range);
              if(getWorld() != null)
@@ -104,10 +98,12 @@ public class Towers extends SmoothMover
         if(!showingUpgrade)
         {
             getWorld().addObject(upgradeHUD, 400, 850);
-            for(int i = 0; i < upgradeIcons.size(); i++)
+            int i = 0;
+            for(String type : upgrades.keySet())
             {
-                getWorld().addObject(upgradeIcons.get(i), 275 + 200 * i, 850);
-                getWorld().addObject(upgradeButtons.get(i), 288 + 200 * i, 870);
+                getWorld().addObject(upgradeIcons.get(type), 275 + 200 * i, 850);
+                getWorld().addObject(upgradeButtons.get(type), 288 + 200 * i, 870);
+                i++;
             }
             showingUpgrade = true;
         }
@@ -147,6 +143,8 @@ public class Towers extends SmoothMover
                 break;
         }
         System.out.println("Damage : " + damage + " | Range : " + range + " | Cooldown : " + cooldown);
+        
+        upgradeIcons.get(type).update();
     }
     
     public void setUpgrades(String[] Upgrades)
@@ -168,11 +166,9 @@ public class Towers extends SmoothMover
             int level = upgrades.get(type);
             int[] values = stats.get(type);
             System.out.println(Arrays.toString(values));
-            int initialValue = values[level - 1];
-            int upgradedValue = values[level];
-            upgradeIcon.setUpgradeValues(initialValue, upgradedValue);
+            upgradeIcon.setUpgradeValues(values);
             
-            upgradeIcons.add(upgradeIcon);
+            upgradeIcons.put(type, upgradeIcon);
         }
     }
     
@@ -184,12 +180,16 @@ public class Towers extends SmoothMover
             upgradeButton.setLinkedTower(this);
             upgradeButton.setUpgradeType(type);
             
-            upgradeButtons.add(upgradeButton);
+            upgradeButtons.put(type, upgradeButton);
         }
     }
     
     public void setStats(HashMap stats)
     {
         this.stats = stats;
+        
+        damage = this.stats.get("Damage")[0];
+        range = this.stats.get("Range")[0];
+        cooldown = this.stats.get("Cooldown")[0];
     }
 }

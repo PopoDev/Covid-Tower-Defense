@@ -33,12 +33,10 @@ public class UpgradeButton extends Buttons
     public void setLinkedTower(Towers tower)
     {
         this.linkedTower = tower;
-        System.out.println(linkedTower);
     }
     
     public void setUpgradeType(String type)
     {
         this.type = type;
-        System.out.println(type + " " + level);
     }
 }
