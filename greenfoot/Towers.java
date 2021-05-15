@@ -17,8 +17,11 @@ public class Towers extends SmoothMover
     LinkedHashMap <String, Integer> upgrades = new LinkedHashMap(); // (Type, Level)
     
     UpgradeHUD upgradeHUD = new UpgradeHUD();
-    ArrayList <HUD> upgradesIcon = new ArrayList();
+    ArrayList <UpgradeIcon> upgradeIcons = new ArrayList();
+    ArrayList <UpgradeButton> upgradeButtons = new ArrayList();
     
+    int damage;
+    int cooldown;
     int range;
     Range rangeObj = null;
     
@@ -41,16 +44,18 @@ public class Towers extends SmoothMover
     
     public void showInfo()
     {
-        if(Greenfoot.mousePressed(null) && !Greenfoot.mousePressed(upgradeHUD) && !Greenfoot.mousePressed(getWorld().getObjects(UpgradeIcon.class))
-           && !Greenfoot.mousePressed(getWorld().getObjects(Buttons.class)))
+        if(Greenfoot.mousePressed(null))
         {
+            MouseInfo mi = Greenfoot.getMouseInfo();
+            Actor mouseActor = mi.getActor();
             if(Greenfoot.mousePressed(this))
             {
                 showRange();
                 showUpgrade();
             }
             
-            if(!Greenfoot.mousePressed(this))
+            if(!Greenfoot.mousePressed(this)
+            && !(mouseActor instanceof Buttons || mouseActor instanceof HUD)) // Pas si on clique sur les buttons et HUD
             {
                 unshowRange(rangeObj);
                 unshowUpgrade();
@@ -79,7 +84,7 @@ public class Towers extends SmoothMover
         if(showingRange)
         {
              getWorld().removeObject(rangeObj);
-             System.out.println(rangeObj + " was removed");
+             // System.out.println(rangeObj + " was removed");
              showingRange = false;
         }
     }
@@ -99,10 +104,10 @@ public class Towers extends SmoothMover
         if(!showingUpgrade)
         {
             getWorld().addObject(upgradeHUD, 400, 850);
-            for(int i = 0; i < upgradesIcon.size(); i++)
+            for(int i = 0; i < upgradeIcons.size(); i++)
             {
-                getWorld().addObject(upgradesIcon.get(i), 275 + 200 * i, 850);
-                getWorld().addObject(new UpgradeButton(), 288 + 200 * i, 870);
+                getWorld().addObject(upgradeIcons.get(i), 275 + 200 * i, 850);
+                getWorld().addObject(upgradeButtons.get(i), 288 + 200 * i, 870);
             }
             showingUpgrade = true;
         }
@@ -119,6 +124,31 @@ public class Towers extends SmoothMover
         }
     }
     
+    public void upgrade(String type)
+    {
+        int initialLevel = upgrades.get(type);
+        int level = initialLevel + 1;
+        upgrades.put(type, level);
+        System.out.println(upgrades);
+        
+        int index = level - 1;
+        switch(type.toUpperCase())
+        {
+            case "DAMAGE":
+                damage = stats.get(type) [index];
+                break;
+            case "RANGE":
+                range = stats.get(type) [level - 1];
+                break;
+            case "COOLDOWN":
+                cooldown = stats.get(type) [level - 1];
+                break;
+            default:
+                break;
+        }
+        System.out.println("Damage : " + damage + " | Range : " + range + " | Cooldown : " + cooldown);
+    }
+    
     public void setUpgrades(String[] Upgrades)
     {
         for(String upgrade : Upgrades)
@@ -128,7 +158,7 @@ public class Towers extends SmoothMover
         System.out.println(upgrades);
     }
     
-    public void addUpgrades()
+    public void addUpgradeIcon()
     {
         for(String type : upgrades.keySet())
         {
@@ -142,7 +172,19 @@ public class Towers extends SmoothMover
             int upgradedValue = values[level];
             upgradeIcon.setUpgradeValues(initialValue, upgradedValue);
             
-            upgradesIcon.add(upgradeIcon);
+            upgradeIcons.add(upgradeIcon);
+        }
+    }
+    
+    public void addUpgradeButton()
+    {
+        for(String type : upgrades.keySet())
+        {
+            UpgradeButton upgradeButton = new UpgradeButton();
+            upgradeButton.setLinkedTower(this);
+            upgradeButton.setUpgradeType(type);
+            
+            upgradeButtons.add(upgradeButton);
         }
     }
     

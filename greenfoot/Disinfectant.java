@@ -32,7 +32,8 @@ public class Disinfectant extends Towers
         setStats(stats);
         setRange(range);
         setUpgrades(upgrades);
-        addUpgrades();
+        addUpgradeIcon();
+        addUpgradeButton();
     }
     
     public void act() 
