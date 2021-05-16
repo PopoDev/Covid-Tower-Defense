@@ -8,12 +8,27 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class UpgradeHUD extends HUD
 {
-    /**
-     * Act - do whatever the UpgradeHUD wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    public void act() 
+    private int score;
+    
+    Font scoreFont = new Font("Agency FB", true, false, 15);
+    
+    GreenfootImage textBox = new GreenfootImage(200, 40);
+    //GreenfootImage scoreBox = new GreenfootImage(200, 40);
+    
+    public UpgradeHUD()
     {
-        // Add your action code here.
-    }    
+        score = 0;
+        textBox.setColor(Color.WHITE);
+        textBox.setFont(scoreFont);
+        textBox.drawString("Virus killed : \n" + score, 50, 20);
+        getImage().drawImage(textBox, 100, 20);
+    }
+    
+    public void act()
+    {
+        textBox.clear();
+        textBox.drawString("Virus killed : \n" + score, 50, 20);
+        getImage().drawImage(textBox, 100, 20);
+        score++;
+    }
 }

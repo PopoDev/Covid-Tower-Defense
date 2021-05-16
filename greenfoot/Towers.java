@@ -27,7 +27,9 @@ public class Towers extends SmoothMover
     
     private boolean showingRange = false;
     private boolean showingUpgrade = false;
-
+    
+    private GreenfootImage towerImg = getImage();
+    
     public void attack(Mobs mobs, int damage)
     {
         int currentHealth = mobs.getHealth();
@@ -46,13 +48,19 @@ public class Towers extends SmoothMover
             if(Greenfoot.mousePressed(this))
             {
                 System.out.println("Clicked on : " + this);
-                showRange();
-                showUpgrade();
+                if(!showingUpgrade)
+                {
+                    showRange();
+                    showUpgrade();
+                }
             } else {
                 if(!(mouseActor instanceof Buttons || mouseActor instanceof HUD)) // Pas si on clique sur les buttons et HUD
                 {
-                    unshowRange(rangeObj);
-                    unshowUpgrade();
+                    if(showingUpgrade)
+                    {
+                        unshowRange(rangeObj);
+                        unshowUpgrade();
+                    }
                 }
             }
         }
@@ -63,7 +71,6 @@ public class Towers extends SmoothMover
     {
         if(!showingRange)
         {
-             //System.out.println("Clicked on : " + this);
              rangeObj = new Range();
              rangeObj.getImage().scale(range, range);
              if(getWorld() != null)
@@ -98,6 +105,7 @@ public class Towers extends SmoothMover
     {
         if(!showingUpgrade)
         {
+            upgradeHUD.getImage().drawImage(towerImg, 25, 25);
             getWorld().addObject(upgradeHUD, 400, 850);
             int i = 0;
             for(String type : upgrades.keySet())
@@ -114,14 +122,15 @@ public class Towers extends SmoothMover
     {
         if(showingUpgrade)
         {
-            getWorld().removeObject(this.upgradeHUD);
+            upgradeHUD.getImage().clear();
+            upgradeHUD.setImage(new GreenfootImage("HUD Upgrade + TowersIcon 800x100.png"));
+            getWorld().removeObject(upgradeHUD);
             for(String type : upgrades.keySet())
             {
                 getWorld().removeObject(upgradeIcons.get(type));
                 getWorld().removeObject(upgradeButtons.get(type));
             }
             showingUpgrade = false;
-            System.out.println("Unshowing" + this);
         }
     }
     
