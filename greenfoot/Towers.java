@@ -13,20 +13,20 @@ import java.util.Arrays;
  */
 public class Towers extends SmoothMover
 {
-    HashMap <String, int[]> stats = new HashMap();
-    LinkedHashMap <String, Integer> upgrades = new LinkedHashMap(); // (Type, Level)
+    private HashMap <String, int[]> stats = new HashMap();
+    private LinkedHashMap <String, Integer> upgrades = new LinkedHashMap(); // (Type, Level)
     
-    UpgradeHUD upgradeHUD = new UpgradeHUD();
-    HashMap <String, UpgradeIcon> upgradeIcons = new HashMap();
-    HashMap <String, UpgradeButton> upgradeButtons = new HashMap();
+    private UpgradeHUD upgradeHUD = new UpgradeHUD();
+    private HashMap <String, UpgradeIcon> upgradeIcons = new HashMap();
+    private HashMap <String, UpgradeButton> upgradeButtons = new HashMap();
     
-    int damage;
-    int cooldown;
-    int range;
-    Range rangeObj = null;
+    private int damage;
+    private int cooldown;
+    private int range;
+    private Range rangeObj = null;
     
-    boolean showingRange = false;
-    boolean showingUpgrade = false;
+    private boolean showingRange = false;
+    private boolean showingUpgrade = false;
 
     public void attack(Mobs mobs, int damage)
     {
@@ -42,17 +42,18 @@ public class Towers extends SmoothMover
         {
             MouseInfo mi = Greenfoot.getMouseInfo();
             Actor mouseActor = mi.getActor();
+            
             if(Greenfoot.mousePressed(this))
             {
+                System.out.println("Clicked on : " + this);
                 showRange();
                 showUpgrade();
-            }
-            
-            if(!Greenfoot.mousePressed(this)
-            && !(mouseActor instanceof Buttons || mouseActor instanceof HUD)) // Pas si on clique sur les buttons et HUD
-            {
-                unshowRange(rangeObj);
-                unshowUpgrade();
+            } else {
+                if(!(mouseActor instanceof Buttons || mouseActor instanceof HUD)) // Pas si on clique sur les buttons et HUD
+                {
+                    unshowRange(rangeObj);
+                    unshowUpgrade();
+                }
             }
         }
         
@@ -113,10 +114,14 @@ public class Towers extends SmoothMover
     {
         if(showingUpgrade)
         {
-            getWorld().removeObject(upgradeHUD);
-            getWorld().removeObjects(getWorld().getObjects(UpgradeIcon.class));
-            getWorld().removeObjects(getWorld().getObjects(UpgradeButton.class));
+            getWorld().removeObject(this.upgradeHUD);
+            for(String type : upgrades.keySet())
+            {
+                getWorld().removeObject(upgradeIcons.get(type));
+                getWorld().removeObject(upgradeButtons.get(type));
+            }
             showingUpgrade = false;
+            System.out.println("Unshowing" + this);
         }
     }
     
