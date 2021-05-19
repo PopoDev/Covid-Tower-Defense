@@ -29,6 +29,16 @@ public class Towers extends SmoothMover
     private boolean showingUpgrade = false;
     
     private GreenfootImage towerImg = getImage();
+    private StatsText statstext = new StatsText();
+    Font statsFont = new Font("Arial", true, false, 14);
+    
+    protected void addedToWorld(World world)
+    {
+        getWorld().addObject(statstext, getX(), getY() - (getImage().getHeight()/2));
+        statstext.getImage().setFont(statsFont);
+        statstext.getImage().setColor(Color.CYAN); // CYAN, GREEN or YELLOW
+        showStats();
+    }
     
     public void attack(Mobs mobs, int damage)
     {
@@ -64,7 +74,6 @@ public class Towers extends SmoothMover
                 }
             }
         }
-        
     }
     
     public void showRange()
@@ -159,6 +168,7 @@ public class Towers extends SmoothMover
         System.out.println("Damage : " + damage + " | Range : " + range + " | Cooldown : " + cooldown);
         
         upgradeIcons.get(type).update();
+        showStats();
     }
     
     public void setUpgrades(String[] Upgrades)
@@ -205,5 +215,20 @@ public class Towers extends SmoothMover
         damage = this.stats.get("Damage")[0];
         range = this.stats.get("Range")[0];
         cooldown = this.stats.get("Cooldown")[0];
+    }
+    
+    public void showStats()
+    {
+        statstext.getImage().clear();
+        ArrayList <Integer> levels = new ArrayList();
+        for(String type : upgrades.keySet())
+        {
+            levels.add(upgrades.get(type));
+        }
+        statstext.getImage().drawString(levels.get(0) + " | " + levels.get(1) + " | " + levels.get(2), 0, 10);
+        
+        // GreenfootImage statsImg = new GreenfootImage(levels.get(0) + " | " + levels.get(1) + " | " + levels.get(2), 18, 
+        //                                             Color.GREEN, Color.BLACK);
+        // statstext.setImage(statsImg);
     }
 }

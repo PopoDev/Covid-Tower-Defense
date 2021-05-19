@@ -27,7 +27,7 @@ public class Map extends World
     public Map()
     {    
         super(1200, 900, 1);
-        setPaintOrder(TowersPlacer.class, RangeIcon.class, Buttons.class, HUD.class, 
+        setPaintOrder(TowersPlacer.class, RangeIcon.class, Buttons.class, Utils.class, HUD.class,
         TowersProjectile.class, Towers.class, Mobs.class, Range.class, Backgrounds.class);
     }
     
