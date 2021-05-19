@@ -1,10 +1,15 @@
 #BlueJ class context
 comment0.target=Disinfectant
-comment0.text=\n\ Write\ a\ description\ of\ class\ Disinfectant\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Disinfectant\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
 comment1.params=
 comment1.target=Disinfectant()
-comment2.params=
-comment2.target=void\ act()
+comment2.params=world
+comment2.target=void\ addedToWorld(greenfoot.World)
 comment3.params=
-comment3.target=void\ placeGel()
-numComments=4
+comment3.target=void\ act()
+comment4.params=
+comment4.target=void\ checkLocation()
+comment4.text=\r\n\ Trouve\ toutes\ les\ coordonn\u00E9es\ o\u00F9\ il\ y\ a\ des\ routes\ dans\ un\ rayon\ donn\u00E9.\r\n
+comment5.params=
+comment5.target=void\ placeGel()
+numComments=6

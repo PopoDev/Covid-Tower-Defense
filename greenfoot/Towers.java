@@ -20,13 +20,16 @@ public class Towers extends SmoothMover
     private HashMap <String, UpgradeIcon> upgradeIcons = new HashMap();
     private HashMap <String, UpgradeButton> upgradeButtons = new HashMap();
     
-    private int damage;
-    private int cooldown;
-    private int range;
-    private Range rangeObj = null;
+    public int damage;
+    public int range; // diamètre
+    public int radius; // rayon
+    public int cooldown; // time relative to acts
     
+    private Range rangeObj = null;
     private boolean showingRange = false;
     private boolean showingUpgrade = false;
+    
+    public boolean rangeUpdated = true;
     
     private GreenfootImage towerImg = getImage();
     private StatsText statstext = new StatsText();
@@ -157,10 +160,13 @@ public class Towers extends SmoothMover
                 damage = stats.get(type) [index];
                 break;
             case "RANGE":
-                range = stats.get(type) [level - 1];
+                range = stats.get(type) [index];
+                radius = range / 2;
+                rangeObj.getImage().scale(range, range);
+                rangeUpdated = false;
                 break;
             case "COOLDOWN":
-                cooldown = stats.get(type) [level - 1];
+                cooldown = stats.get(type) [index];
                 break;
             default:
                 break;
@@ -215,6 +221,7 @@ public class Towers extends SmoothMover
         damage = this.stats.get("Damage")[0];
         range = this.stats.get("Range")[0];
         cooldown = this.stats.get("Cooldown")[0];
+        radius = range / 2;
     }
     
     public void showStats()
