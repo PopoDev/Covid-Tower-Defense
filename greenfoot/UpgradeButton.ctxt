@@ -1,12 +1,16 @@
 #BlueJ class context
 comment0.target=UpgradeButton
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ UpgradeButton\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\n\ Write\ a\ description\ of\ class\ UpgradeButton\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
 comment1.params=
 comment1.target=UpgradeButton()
-comment2.params=
-comment2.target=void\ act()
-comment3.params=tower
-comment3.target=void\ setLinkedTower(Towers)
-comment4.params=type
-comment4.target=void\ setUpgradeType(java.lang.String)
-numComments=5
+comment2.params=world
+comment2.target=void\ addedToWorld(greenfoot.World)
+comment3.params=
+comment3.target=void\ act()
+comment4.params=tower
+comment4.target=void\ setLinkedTower(Towers)
+comment5.params=type
+comment5.target=void\ setUpgradeType(java.lang.String)
+comment6.params=price
+comment6.target=void\ setUpgradePrice(int)
+numComments=7

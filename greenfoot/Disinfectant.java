@@ -17,6 +17,8 @@ public class Disinfectant extends Towers
     private String[] upgrades = new String[] {"Damage", "Range", "Cooldown"};
     
     private HashMap <String, int[]> stats = new HashMap();
+    private HashMap <String, int[]> prices = new HashMap();
+    private PriceManager.Prices towerPrices = PriceManager.Prices.DISINFECTANT;
     
     private ArrayList <int[]> possibleLoc = new ArrayList(); // coordonnées [x, y]
     
@@ -29,7 +31,13 @@ public class Disinfectant extends Towers
         stats.put("Range", ranges);
         stats.put("Cooldown", cd);
         
+        prices.put("Basic", towerPrices.getTypePrices(0));
+        prices.put("Damage", towerPrices.getTypePrices(1));
+        prices.put("Range", towerPrices.getTypePrices(2));
+        prices.put("Cooldown", towerPrices.getTypePrices(3));
+        
         setStats(stats);
+        setPrices(prices);
         setUpgrades(upgrades);
         addUpgradeIcon();
         addUpgradeButton();

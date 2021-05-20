@@ -1,4 +1,4 @@
-import java.util.List;
+import java.util.ArrayList;
 /**
  * Write a description of class PriceManager here.
  * 
@@ -11,20 +11,34 @@ public class PriceManager
     
     public enum Prices
     {
-        DISINFECTANT(new int[] {350, 600, 1200, 2400});
+        DISINFECTANT(new int[][] {{350}, // Default Price (0, 0)
+                                  {300, 600, 1200, 2400},   // 1=Damage Upgrade Price
+                                  {300, 600, 1200, 2400},   // 2=Range
+                                  {300, 600, 1200, 2400}}); // 3=Cooldown
         
-        private int[] prices;
+        private int[][] prices;
+        private int[] typePrices;
         private int price;
         
-        Prices(int[] prices)
+        Prices(int[][] prices)
         {
             this.prices = prices;
         }
         
-        public int getPrice(int index)
+        public int getPrice(int type, int index)
         {
-            price = (int)(prices[index] * multiplicator);
+            price = (int)(prices[type][index] * multiplicator);
             return price;
+        }
+        
+        public int[] getTypePrices(int type)
+        {
+            typePrices = prices[type];
+            for(int i=0 ; i<typePrices.length ; i++)
+            {
+                typePrices[i] = (int)(typePrices[i] * multiplicator);
+            }
+            return typePrices;
         }
     }
     

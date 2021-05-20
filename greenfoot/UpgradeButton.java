@@ -14,10 +14,20 @@ public class UpgradeButton extends Buttons
     private Towers linkedTower = null;
     private String type;
     private int level;
+    private int price;
+    private int[] prices;
+    private int initialPrice;
+    private int upgradedPrice;
+    private boolean updated = false;
     
     public UpgradeButton()
     {
         level = 1;
+    }
+    
+    protected void addedToWorld(World world)
+    {
+        getImage().drawString("liufdashifuakshfdsja" + price, 10, 15);
     }
     
     public void act() 
@@ -38,5 +48,10 @@ public class UpgradeButton extends Buttons
     public void setUpgradeType(String type)
     {
         this.type = type;
+    }
+    
+    public void setUpgradePrice(int price)
+    {
+        this.price = price;
     }
 }

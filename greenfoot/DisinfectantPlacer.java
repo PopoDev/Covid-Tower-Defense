@@ -10,7 +10,7 @@ public class DisinfectantPlacer extends TowersPlacer
 {
     private int basicRange = 150;
     
-    private int basicPrice = PriceManager.Prices.DISINFECTANT.getPrice(0);
+    private int basicPrice = PriceManager.Prices.DISINFECTANT.getPrice(0, 0);
     // private double multiplicator = ((Map)getWorld()).multiplicator;
     // private int price = (int)(basicPrice * multiplicator);
     

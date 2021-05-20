@@ -25,13 +25,13 @@ public class Buttons extends SmoothMover
     
     public void changeIfHovering(GreenfootImage initialImg, GreenfootImage hoveringImg)
     {
-        if(isHovering())
+        if(isHovering() && !setImageOn)
         {
             setImage(hoveringImg);
             setImageOn = true;
             // System.out.println(hoveringImg);
         } 
-        if(!isHovering())
+        if(!isHovering() && setImageOn)
         {
             setImage(initialImg);
             setImageOn = false;

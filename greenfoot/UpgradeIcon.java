@@ -13,7 +13,7 @@ public class UpgradeIcon extends HUD
     private Font font = new Font("Agency FB", true, false, 14);
     
     private String type;
-    private String textAligner = " ".repeat(20);
+    private String textAligner = new String(new char[20]).replace("\0", " ");
     private String adjustedText; // Pour centrer le texte
     private int level;
     private int[] values;
@@ -36,7 +36,8 @@ public class UpgradeIcon extends HUD
             upgradeIcon.setColor(Color.WHITE);
             
             int spaces = 8 - type.length(); // Plus long type "Cooldown" 8 character
-            adjustedText = " ".repeat(spaces) + type;
+            String textSpacer = new String(new char[spaces]).replace("\0", " ");
+            adjustedText = textSpacer + type;
             
             upgradeIcon.drawString(adjustedText + " " + level, 30, 19);
             
@@ -44,11 +45,11 @@ public class UpgradeIcon extends HUD
             upgradeIcon.drawString(adjustedText + " " + (level + 1), 115, 19); 
             
             GreenfootImage textBox1 = new GreenfootImage(textAligner + "\n" + initialValue, 18, Color.WHITE, null);
-            upgradeIcon.drawImage(textBox1, 20, 6);
+            upgradeIcon.drawImage(textBox1, 10, 6);
             
             GreenfootImage textBox2 = new GreenfootImage(textAligner + "\n" + upgradedValue, 18, Color.GREEN, null);
-            upgradeIcon.drawImage(textBox2, 105, 6);
-           
+            upgradeIcon.drawImage(textBox2, 90, 6);
+            
             setImage(upgradeIcon);
             
             updated = true;

@@ -16,7 +16,7 @@ public class Disinfectant_Icon extends TowersIcon
     DisinfectantPlacer disinfectantPlacer = new DisinfectantPlacer();
     InfoDisinfectant infoDisinfectant = new InfoDisinfectant();
     
-    int basicPrice = PriceManager.Prices.DISINFECTANT.getPrice(0);
+    int basicPrice = PriceManager.Prices.DISINFECTANT.getPrice(0, 0);
     
     public Disinfectant_Icon()
     {

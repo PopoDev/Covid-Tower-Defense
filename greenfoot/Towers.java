@@ -14,6 +14,7 @@ import java.util.Arrays;
 public class Towers extends SmoothMover
 {
     private HashMap <String, int[]> stats = new HashMap();
+    private HashMap <String, int[]> prices = new HashMap();
     private LinkedHashMap <String, Integer> upgrades = new LinkedHashMap(); // (Type, Level)
     
     private UpgradeHUD upgradeHUD = new UpgradeHUD();
@@ -151,7 +152,7 @@ public class Towers extends SmoothMover
         int initialLevel = upgrades.get(type);
         int level = initialLevel + 1;
         upgrades.put(type, level);
-        System.out.println(upgrades);
+        // System.out.println(upgrades);
         
         int index = level - 1;
         switch(type.toUpperCase())
@@ -209,6 +210,7 @@ public class Towers extends SmoothMover
             UpgradeButton upgradeButton = new UpgradeButton();
             upgradeButton.setLinkedTower(this);
             upgradeButton.setUpgradeType(type);
+            upgradeButton.setUpgradePrice(prices.get("Basic")[0]);
             
             upgradeButtons.put(type, upgradeButton);
         }
@@ -237,5 +239,10 @@ public class Towers extends SmoothMover
         // GreenfootImage statsImg = new GreenfootImage(levels.get(0) + " | " + levels.get(1) + " | " + levels.get(2), 18, 
         //                                             Color.GREEN, Color.BLACK);
         // statstext.setImage(statsImg);
+    }
+    
+    public void setPrices(HashMap prices)
+    {
+        this.prices = prices;
     }
 }
