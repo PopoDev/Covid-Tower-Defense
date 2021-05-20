@@ -70,7 +70,16 @@ public class SpawnMobs extends Buttons
         
         if(waveRunning)
         {
-            if(Greenfoot.mousePressed(this) && timeWave > 0) speedUp = !speedUp;
+            if(Greenfoot.mousePressed(this)) 
+            {
+                if(timeWave > 0) speedUp = !speedUp;
+                if(speedUp)
+                {
+                    setImage(imgSpeedUpOn);
+                } else {
+                    setImage(imgSpeedOn);
+                }
+            }
 
             if(speedUp)
             {

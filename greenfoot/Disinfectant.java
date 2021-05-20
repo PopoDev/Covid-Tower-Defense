@@ -26,7 +26,7 @@ public class Disinfectant extends Towers
     {
         int[] damages = {1, 2, 3, 4, 5};
         int[] ranges = {150, 160, 170, 180, 190};
-        int[] cd = {10, 540, 480, 420, 360}; // Cooldown
+        int[] cd = {600, 540, 480, 420, 360}; // Cooldown
         stats.put("Damage", damages);
         stats.put("Range", ranges);
         stats.put("Cooldown", cd);

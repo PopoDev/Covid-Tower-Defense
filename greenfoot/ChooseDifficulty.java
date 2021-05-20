@@ -35,6 +35,7 @@ public class ChooseDifficulty extends Buttons
     public void initImage(GreenfootImage image)
     {
         this.image = image;
+        setImage(image);
     }
     
     public void initImageOn(GreenfootImage image)

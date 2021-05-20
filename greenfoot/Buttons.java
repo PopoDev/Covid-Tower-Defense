@@ -29,13 +29,11 @@ public class Buttons extends SmoothMover
         {
             setImage(hoveringImg);
             setImageOn = true;
-            // System.out.println(hoveringImg);
         } 
         if(!isHovering() && setImageOn)
         {
             setImage(initialImg);
             setImageOn = false;
-            // System.out.println(initialImg);
         }
     }
 }
