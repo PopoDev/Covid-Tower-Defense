@@ -35,16 +35,17 @@ public class Disinfectant extends Towers
         prices.put("Damage", towerPrices.getTypePrices(1));
         prices.put("Range", towerPrices.getTypePrices(2));
         prices.put("Cooldown", towerPrices.getTypePrices(3));
-        
-        setStats(stats);
-        setPrices(prices);
-        setUpgrades(upgrades);
-        addUpgradeIcon();
-        addUpgradeButton();
     }
     
+    @Override
     protected void addedToWorld(World world)
     {
+        setUpgrades(upgrades);
+        setStats(stats);
+        setPrices(prices);
+        addUpgradeIcon();
+        addUpgradeButton();
+        
         counter = cooldown;
         checkLocation();
     }

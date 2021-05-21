@@ -36,14 +36,6 @@ public class Towers extends SmoothMover
     private StatsText statstext = new StatsText();
     Font statsFont = new Font("Arial", true, false, 14);
     
-    protected void addedToWorld(World world)
-    {
-        getWorld().addObject(statstext, getX(), getY() - (getImage().getHeight()/2));
-        statstext.getImage().setFont(statsFont);
-        statstext.getImage().setColor(Color.CYAN); // CYAN, GREEN or YELLOW
-        showStats();
-    }
-    
     public void attack(Mobs mobs, int damage)
     {
         int currentHealth = mobs.getHealth();
@@ -224,6 +216,11 @@ public class Towers extends SmoothMover
         range = this.stats.get("Range")[0];
         cooldown = this.stats.get("Cooldown")[0];
         radius = range / 2;
+        
+        getWorld().addObject(statstext, getX(), getY() - (getImage().getHeight()/2));
+        statstext.getImage().setFont(statsFont);
+        statstext.getImage().setColor(Color.CYAN); // CYAN, GREEN or YELLOW
+        showStats();
     }
     
     public void showStats()
