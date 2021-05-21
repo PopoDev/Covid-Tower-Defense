@@ -26,7 +26,7 @@ public class Towers extends SmoothMover
     public int radius; // rayon
     public int cooldown; // time relative to acts
     
-    private Range rangeObj = null;
+    private Range rangeObj = new Range();;
     private boolean showingRange = false;
     private boolean showingUpgrade = false;
     
@@ -76,7 +76,6 @@ public class Towers extends SmoothMover
     {
         if(!showingRange)
         {
-             rangeObj = new Range();
              rangeObj.getImage().scale(range, range);
              if(getWorld() != null)
              {
