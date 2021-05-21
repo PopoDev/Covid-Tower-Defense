@@ -8,8 +8,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class UpgradeButton extends Buttons
 {
-    private GreenfootImage upgradeButton = new GreenfootImage("Upgrade Button 110x22.png");
-    private GreenfootImage upgradeButtonOn = new GreenfootImage("Upgrade Button 112x24 mouseOn.png");
+    private GreenfootImage upgradeButton = new GreenfootImage("UpgradeButton 140x22.png");
+    private GreenfootImage upgradeButtonOn = new GreenfootImage("UpgradeButton 142x24 mouseOn.png");
+    // Font upgradeFont = new Font("Gill Sans MT Gras", true, false, 14);
+    Font upgradeFont = new Font("Berlin Sans FB Demi Gras", true, false, 19);
     
     private Towers linkedTower = null;
     private String type;
@@ -27,7 +29,14 @@ public class UpgradeButton extends Buttons
     
     protected void addedToWorld(World world)
     {
-        getImage().drawString("liufdashifuakshfdsja" + price, 10, 15);
+        upgradeButton.setFont(upgradeFont);
+        upgradeButton.setColor(Color.WHITE);
+        upgradeButton.drawString("" + price, 95, 16);
+        upgradeButtonOn.setFont(upgradeFont);
+        upgradeButtonOn.setColor(Color.WHITE);
+        upgradeButtonOn.drawString("" + price, 97, 17);
+        
+        setImage(upgradeButton);
     }
     
     public void act() 
@@ -37,6 +46,7 @@ public class UpgradeButton extends Buttons
         if(Greenfoot.mousePressed(this))
         {
             linkedTower.upgrade(type);
+            updateImage();
         }
     }
     
@@ -53,5 +63,22 @@ public class UpgradeButton extends Buttons
     public void setUpgradePrice(int price)
     {
         this.price = price;
+    }
+    
+    public void updateImage()
+    {
+        upgradeButton.clear();
+        upgradeButton = new GreenfootImage("UpgradeButton 140x22.png");
+        upgradeButton.setFont(upgradeFont);
+        upgradeButton.setColor(Color.WHITE);
+        upgradeButton.drawString("" + price, 95, 16);
+        
+        upgradeButtonOn.clear();
+        upgradeButtonOn = new GreenfootImage("UpgradeButton 142x24 mouseOn.png");
+        upgradeButtonOn.setFont(upgradeFont);
+        upgradeButtonOn.setColor(Color.WHITE);
+        upgradeButtonOn.drawString("" + price, 97, 17);
+        
+        setImage(upgradeButtonOn);
     }
 }
