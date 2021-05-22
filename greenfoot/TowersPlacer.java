@@ -15,8 +15,8 @@ public class TowersPlacer extends SmoothMover
     RangeIcon rangeIcon = null;
     int basicRange = 100;
     
-    GreenfootImage rangeTrueImg = new GreenfootImage("Range 100x100 (5.0).png");
-    GreenfootImage rangeFalseImg = new GreenfootImage("Range false 100x100 (5.0).png");
+    GreenfootImage rangeTrueImg = new GreenfootImage("Range (5.0) 1000x1000.png");
+    GreenfootImage rangeFalseImg = new GreenfootImage("Range false 1000x1000 (5.0).png");
     
     public void followMouse()
     {
