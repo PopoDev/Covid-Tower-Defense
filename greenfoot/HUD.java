@@ -14,6 +14,14 @@ public class HUD extends SmoothMover
     boolean setInfo = false;
     HUD infoBox;
     
+    Map map;
+    
+    @Override
+    protected void addedToWorld(World world)  
+    {
+        map = (Map)getWorld();
+    }
+    
     public boolean isHovering()
     {
         if(Greenfoot.mouseMoved(this) && !mouseOn) mouseOn = true; 

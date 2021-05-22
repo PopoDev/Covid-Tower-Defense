@@ -167,6 +167,7 @@ public class Towers extends SmoothMover
         System.out.println("Damage : " + damage + " | Range : " + range + " | Cooldown : " + cooldown);
         
         upgradeIcons.get(type).update();
+        upgradeButtons.get(type).update();
         showStats();
     }
     
@@ -202,7 +203,7 @@ public class Towers extends SmoothMover
             UpgradeButton upgradeButton = new UpgradeButton();
             upgradeButton.setLinkedTower(this);
             upgradeButton.setUpgradeType(type);
-            upgradeButton.setUpgradePrice(prices.get("Basic")[0]);
+            upgradeButton.setUpgradePrices(prices.get(type));
             
             upgradeButtons.put(type, upgradeButton);
         }

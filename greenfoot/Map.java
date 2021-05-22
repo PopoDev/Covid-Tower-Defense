@@ -14,6 +14,7 @@ public class Map extends World
     
     private final int STARTING_MONEY = 1000;
     public int money = STARTING_MONEY;
+    public boolean moneyUpdated = true;
     
     private int LIVES_MAX;
     public int lives;
@@ -129,6 +130,7 @@ public class Map extends World
         if(money - price >= 0)
         {
             money -= price;
+            moneyUpdated = false;
             return true;
         } else {
             System.out.println("You can't afford this. (Money : " + money + "; Price : " + price + ")");

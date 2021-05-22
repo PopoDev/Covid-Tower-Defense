@@ -12,9 +12,9 @@ public class PriceManager
     public enum Prices
     {
         DISINFECTANT(new int[][] {{350}, // Default Price (0, 0)
-                                  {300, 600, 1200, 2400},   // 1=Damage Upgrade Price
-                                  {300, 600, 1200, 2400},   // 2=Range
-                                  {300, 600, 1200, 2400}}); // 3=Cooldown
+                                  {600, 900, 1200, 1500},   // 1=Damage Upgrade Price
+                                  {300, 600, 900, 1200},   // 2=Range
+                                  {400, 800, 1200, 1600}}); // 3=Cooldown
         
         private int[][] prices;
         private int[] typePrices;

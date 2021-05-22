@@ -8,18 +8,16 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class UpgradeButton extends Buttons
 {
-    private GreenfootImage upgradeButton = new GreenfootImage("UpgradeButton 140x22.png");
-    private GreenfootImage upgradeButtonOn = new GreenfootImage("UpgradeButton 142x24 mouseOn.png");
+    private GreenfootImage upgradeButton = new GreenfootImage("UpgradeButton 140x22 (8px).png");
+    private GreenfootImage upgradeButtonOn = new GreenfootImage("UpgradeButton 142x24 mouseOn (8px).png");
     // Font upgradeFont = new Font("Gill Sans MT Gras", true, false, 14);
-    Font upgradeFont = new Font("Berlin Sans FB Demi Gras", true, false, 19);
+    Font upgradeFont = new Font("Berlin Sans FB Demi Gras", true, false, 16);
     
     private Towers linkedTower = null;
     private String type;
     private int level;
     private int price;
     private int[] prices;
-    private int initialPrice;
-    private int upgradedPrice;
     private boolean updated = false;
     
     public UpgradeButton()
@@ -31,23 +29,25 @@ public class UpgradeButton extends Buttons
     {
         upgradeButton.setFont(upgradeFont);
         upgradeButton.setColor(Color.WHITE);
-        upgradeButton.drawString("" + price, 95, 16);
+        upgradeButton.drawString("" + price, 95, 15);
         upgradeButtonOn.setFont(upgradeFont);
         upgradeButtonOn.setColor(Color.WHITE);
-        upgradeButtonOn.drawString("" + price, 97, 17);
+        upgradeButtonOn.drawString("" + price, 97, 16);
         
         setImage(upgradeButton);
     }
     
     public void act() 
     {
-        changeIfHovering(upgradeButton, upgradeButtonOn);
-        
         if(Greenfoot.mousePressed(this))
         {
-            linkedTower.upgrade(type);
-            updateImage();
+            if(((Map)getWorld()).buyIfEnough(price))
+            {
+                linkedTower.upgrade(type);
+                updateImage();
+            }
         }
+        changeIfHovering(upgradeButton, upgradeButtonOn);
     }
     
     public void setLinkedTower(Towers tower)
@@ -60,25 +60,32 @@ public class UpgradeButton extends Buttons
         this.type = type;
     }
     
-    public void setUpgradePrice(int price)
+    public void setUpgradePrices(int[] prices)
     {
-        this.price = price;
+        this.prices = prices;
+        this.price = prices[level - 1];
     }
     
     public void updateImage()
     {
         upgradeButton.clear();
-        upgradeButton = new GreenfootImage("UpgradeButton 140x22.png");
+        upgradeButton = new GreenfootImage("UpgradeButton 140x22 (8px).png");
         upgradeButton.setFont(upgradeFont);
         upgradeButton.setColor(Color.WHITE);
-        upgradeButton.drawString("" + price, 95, 16);
-        
+        upgradeButton.drawString("" + price, 95, 15);
+
         upgradeButtonOn.clear();
-        upgradeButtonOn = new GreenfootImage("UpgradeButton 142x24 mouseOn.png");
+        upgradeButtonOn = new GreenfootImage("UpgradeButton 142x24 mouseOn (8px).png");
         upgradeButtonOn.setFont(upgradeFont);
         upgradeButtonOn.setColor(Color.WHITE);
-        upgradeButtonOn.drawString("" + price, 97, 17);
-        
+        upgradeButtonOn.drawString("" + price, 97, 16);
+
         setImage(upgradeButtonOn);
+    }
+    
+    public void update()
+    {
+        level++;
+        price = prices[level - 1];
     }
 }
