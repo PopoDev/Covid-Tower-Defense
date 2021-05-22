@@ -28,14 +28,19 @@ public class LivesText extends HUD
     public void act() 
     {
         if(!init) init();
-        textBox.clear();
-        textBox.drawString(String.valueOf(((Map)getWorld()).lives), 42, 38);
-        setImage(textBox);
     }
     
     public void init()
     {
-        textBox.drawString(String.valueOf(((Map)getWorld()).lives), 42, 38);
+        map.setLivesText(this);
+        textBox.drawString(String.valueOf(map.lives), 42, 38);
         init = true;
+    }
+    
+    public void updateLivesText()
+    {
+        textBox.clear();
+        textBox.drawString(String.valueOf(map.lives), 42, 38);
+        System.out.println("Lives updated.");
     }
 }

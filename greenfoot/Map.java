@@ -14,13 +14,15 @@ public class Map extends World
     
     private final int STARTING_MONEY = 1000;
     public int money = STARTING_MONEY;
-    public boolean moneyUpdated = true;
+    private MoneyText moneyText;
     
     private int LIVES_MAX;
     public int lives;
+    private LivesText livesText;
     
     public int waveNumber = 0;
     public int waveMax;
+    public WaveText waveText;
     
     public int mapWidth; // pour détection border dans la class Mobs
     public int mapHeight;
@@ -114,6 +116,7 @@ public class Map extends World
         if(lives - amount > 0) {
             lives -= amount;
             System.out.println("Lost " + amount + " lives.");
+            livesText.updateLivesText();
         } else {
             lives = 0;
             System.out.println("You lost.");
@@ -130,7 +133,7 @@ public class Map extends World
         if(money - price >= 0)
         {
             money -= price;
-            moneyUpdated = false;
+            moneyText.updateMoneyText();
             return true;
         } else {
             System.out.println("You can't afford this. (Money : " + money + "; Price : " + price + ")");
@@ -142,5 +145,20 @@ public class Map extends World
     {
         this.mapWidth = width;
         this.mapHeight = height;
+    }
+    
+    public void setMoneyText(MoneyText moneyText)
+    {
+        this.moneyText = moneyText;
+    }
+    
+    public void setLivesText(LivesText livesText)
+    {
+        this.livesText = livesText;
+    }
+    
+    public void setWaveText(WaveText waveText)
+    {
+        this.waveText = waveText;
     }
 }

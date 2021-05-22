@@ -12,7 +12,7 @@ public class WaveText extends HUD
     
     Font waveFont = new Font("Agency FB", true, false, 34);
     
-    Map map;
+    boolean init = false;
     
     public WaveText()
     {
@@ -23,14 +23,20 @@ public class WaveText extends HUD
     
     public void act() 
     {
-        textBox.clear();
-        textBox.drawString(map.waveNumber + " / " + map.waveMax, 105, 34);
+        if(!init) init();
     }
     
-    @Override
-    protected void addedToWorld(World world)  
+    public void init()
     {
-        map = (Map)getWorld();
+        map.setWaveText(this);
         textBox.drawString(map.waveNumber + " / " + map.waveMax, 105, 34);
+        init = true;
+    }
+    
+    public void updateWaveText()
+    {
+        textBox.clear();
+        textBox.drawString(map.waveNumber + " / " + map.waveMax, 105, 34);
+        System.out.println("Wave number updated.");
     }
 }

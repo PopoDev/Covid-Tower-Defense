@@ -60,8 +60,9 @@ public class SpawnMobs extends Buttons
             {
                 if(!waveRunning)
                 {
-                    nextWave();
+                    nextWave(); 
                     System.out.println("Wave " + wave + " starts.");
+                    map.waveText.updateWaveText();
                     wavesManager();
                     waveRunning = true;
                 }
@@ -99,6 +100,7 @@ public class SpawnMobs extends Buttons
                     if(timeWave % 10 == 0) countAlive();  // Pour éviter le lag
                 } else {
                     System.out.println("Bravo vous avez battu la vague " + wave + " ! ");
+                    setImageOn = !setImageOn; // Réinitialise l'image next
                     waveRunning = false;
                     if(wave >= waveMax)
                     {
@@ -144,8 +146,8 @@ public class SpawnMobs extends Buttons
             spawnMax += rounds[i][2];
             spawnCounters.add(rounds[i][2]);
         }
-        System.out.println("Wave " + wave + " max : " + spawnMax);
-        System.out.println("Rounds : " + spawnCounters);
+        //System.out.println("Wave " + wave + " max : " + spawnMax);
+        //System.out.println("Rounds : " + spawnCounters);
     }
     
     public void wavesSpawner()
@@ -176,7 +178,7 @@ public class SpawnMobs extends Buttons
             spawnCounters.set((spawnSerie - 1), soloCounter);
             spawnNumber++;
             
-            System.out.println(spawnCounters); // risque de lag
+            //System.out.println(spawnCounters); // risque de lag
         }
     }
     
