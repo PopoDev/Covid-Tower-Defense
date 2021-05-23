@@ -17,9 +17,9 @@ public class UpgradeIcon extends HUD
     private String adjustedText; // Pour centrer le texte
     private int level;
     private int[] values;
-    private int initialValue;
-    private int upgradedValue;
-    private boolean updated = false;
+    private String initialValue;
+    private String upgradedValue;
+    private boolean updatedText = false;
     
     public UpgradeIcon()
     {
@@ -28,7 +28,7 @@ public class UpgradeIcon extends HUD
     
     public void act()
     {
-        if(!updated)
+        if(!updatedText)
         {
             upgradeIcon.clear();
             upgradeIcon = new GreenfootImage("IconUpgrade 180x70.png");
@@ -39,20 +39,33 @@ public class UpgradeIcon extends HUD
             String textSpacer = new String(new char[spaces]).replace("\0", " ");
             adjustedText = textSpacer + type;
             
-            upgradeIcon.drawString(adjustedText + " " + level, 30, 19);
+            if(level < 5)
+            {
+                upgradeIcon.drawString(adjustedText + " " + level, 30, 19);
             
-            upgradeIcon.setColor(Color.GREEN);
-            upgradeIcon.drawString(adjustedText + " " + (level + 1), 115, 19); 
+                upgradeIcon.setColor(Color.GREEN);
+                upgradeIcon.drawString(adjustedText + " " + (level + 1), 115, 19);
+                
+                GreenfootImage textBox1 = new GreenfootImage(textAligner + "\n" + initialValue, 18, Color.WHITE, null);
+                upgradeIcon.drawImage(textBox1, 10, 6);
             
-            GreenfootImage textBox1 = new GreenfootImage(textAligner + "\n" + initialValue, 18, Color.WHITE, null);
-            upgradeIcon.drawImage(textBox1, 10, 6);
+                GreenfootImage textBox2 = new GreenfootImage(textAligner + "\n" + upgradedValue, 18, Color.GREEN, null);
+                upgradeIcon.drawImage(textBox2, 90, 6);
+            } else {
+                upgradeIcon.drawString(adjustedText + " " + level, 30, 19);
             
-            GreenfootImage textBox2 = new GreenfootImage(textAligner + "\n" + upgradedValue, 18, Color.GREEN, null);
-            upgradeIcon.drawImage(textBox2, 90, 6);
+                upgradeIcon.setColor(Color.GREEN);
+                upgradeIcon.drawString("MAX", 136, 19);
+                upgradeIcon.drawString("MAX", 136, 38);
+                
+                GreenfootImage textBox1 = new GreenfootImage(textAligner + "\n" + initialValue, 18, Color.WHITE, null);
+                upgradeIcon.drawImage(textBox1, 10, 6);
+            }
+            
             
             setImage(upgradeIcon);
             
-            updated = true;
+            updatedText = true;
         }
     }
     
@@ -64,15 +77,20 @@ public class UpgradeIcon extends HUD
     public void setUpgradeValues(int[] values)
     {
         this.values = values;
-        initialValue = values[level - 1];
-        upgradedValue = values[level];
+        initialValue = "" + values[level - 1];
+        upgradedValue = "" + values[level];
     }
     
     public void update()
     {
         level++;
-        initialValue = values[level - 1];
-        upgradedValue = values[level];
-        updated = false;
+        if(level < 5)
+        {
+            initialValue = "" + values[level - 1];
+            upgradedValue = "" + values[level];
+        } else {
+            initialValue = "" + values[level - 1];
+        }
+        updatedText = false;
     }
 }

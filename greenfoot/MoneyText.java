@@ -32,14 +32,14 @@ public class MoneyText extends HUD
     public void init()
     {
         map.setMoneyText(this);
-        textBox.drawString(String.valueOf(map.money), 42, 38);
+        textBox.drawString(String.valueOf(map.money), 30, 38);
         init = true;
     }
     
     public void updateMoneyText()
     {
         textBox.clear();
-        textBox.drawString(String.valueOf(map.money), 42, 38);
+        textBox.drawString(String.valueOf(map.money), 30, 38);
         System.out.println("Money updated.");
     }
 } 

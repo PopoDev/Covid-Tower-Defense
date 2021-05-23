@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.lang.Integer;
 
 /**
  * Write a description of class UpgradeButton here.
@@ -16,7 +17,7 @@ public class UpgradeButton extends Buttons
     private Towers linkedTower = null;
     private String type;
     private int level;
-    private int price;
+    private String price;
     private int[] prices;
     private boolean updated = false;
     
@@ -29,10 +30,10 @@ public class UpgradeButton extends Buttons
     {
         upgradeButton.setFont(upgradeFont);
         upgradeButton.setColor(Color.WHITE);
-        upgradeButton.drawString("" + price, 95, 15);
+        upgradeButton.drawString(price, 95, 15);
         upgradeButtonOn.setFont(upgradeFont);
         upgradeButtonOn.setColor(Color.WHITE);
-        upgradeButtonOn.drawString("" + price, 97, 16);
+        upgradeButtonOn.drawString(price, 97, 16);
         
         setImage(upgradeButton);
     }
@@ -41,10 +42,15 @@ public class UpgradeButton extends Buttons
     {
         if(Greenfoot.mousePressed(this))
         {
-            if(((Map)getWorld()).buyIfEnough(price))
+            if(level < 5)
             {
-                linkedTower.upgrade(type);
-                updateImage();
+                if(((Map)getWorld()).buyIfEnough(Integer.valueOf(price)))
+                {
+                    linkedTower.upgrade(type);
+                    updateImage();
+                }
+            } else {
+                System.out.println("Vous avez atteint le niveau maximal pour : " + type);
             }
         }
         changeIfHovering(upgradeButton, upgradeButtonOn);
@@ -63,7 +69,7 @@ public class UpgradeButton extends Buttons
     public void setUpgradePrices(int[] prices)
     {
         this.prices = prices;
-        this.price = prices[level - 1];
+        this.price = "" + prices[level - 1];
     }
     
     public void updateImage()
@@ -72,13 +78,13 @@ public class UpgradeButton extends Buttons
         upgradeButton = new GreenfootImage("UpgradeButton 140x22 (8px).png");
         upgradeButton.setFont(upgradeFont);
         upgradeButton.setColor(Color.WHITE);
-        upgradeButton.drawString("" + price, 95, 15);
+        upgradeButton.drawString(price, 95, 15);
 
         upgradeButtonOn.clear();
         upgradeButtonOn = new GreenfootImage("UpgradeButton 142x24 mouseOn (8px).png");
         upgradeButtonOn.setFont(upgradeFont);
         upgradeButtonOn.setColor(Color.WHITE);
-        upgradeButtonOn.drawString("" + price, 97, 16);
+        upgradeButtonOn.drawString(price, 97, 16);
 
         setImage(upgradeButtonOn);
     }
@@ -86,6 +92,11 @@ public class UpgradeButton extends Buttons
     public void update()
     {
         level++;
-        price = prices[level - 1];
+        if(level < 5)
+        {
+            price = "" + prices[level - 1];
+        } else {
+            price = "###";
+        }
     }
 }
