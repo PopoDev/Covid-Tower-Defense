@@ -18,7 +18,7 @@ public class Tier1 extends Virus
         setTier(tier);
         setHealth(health);
     }
-
+    
     public void act() 
     {
         move(speed);
@@ -27,6 +27,6 @@ public class Tier1 extends Virus
         {
             attackLives();
         }
-        removeDead();
+        changeTier();
     }
 }

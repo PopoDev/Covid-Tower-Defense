@@ -40,10 +40,9 @@ public class Towers extends SmoothMover
     {
         int currentHealth = mobs.getHealth();
         int damagedHealth = currentHealth - damage;
+        if(damagedHealth <= 0) damagedHealth = 0;
         mobs.setHealth(damagedHealth);
         Greenfoot.playSound("pop.mp3");
-        
-        ((Map)getWorld()).addMoneyPerKill(damage);
     }
     
     public void showInfo()

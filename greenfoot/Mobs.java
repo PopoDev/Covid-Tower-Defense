@@ -12,10 +12,10 @@ public class Mobs extends SmoothMover
 {
     int gridSize = 50;
     
-    int health = 0;
+    private int health = 0;
     
-    GreenfootImage lastImage = new GreenfootImage("straightRoad 50x50.png");
-    boolean neverTurned = true;
+    private GreenfootImage lastImage = new GreenfootImage("straightRoad 50x50.png");
+    private boolean neverTurned = true;
     
     public void turnAtCorner()
     {

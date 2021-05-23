@@ -28,6 +28,7 @@ public class SpawnMobs extends Buttons
     boolean waveRunning = false;
     int timeWave = 0; // [acts]
     boolean speedUp = false;
+    int speed = 50;
     
     boolean mapEnded = false;
     EndMenu endMenu = new EndMenu();
@@ -85,10 +86,18 @@ public class SpawnMobs extends Buttons
             if(speedUp)
             {
                 changeIfHovering(imgSpeedUp, imgSpeedUpOn);
-                Greenfoot.setSpeed(60);
+                if(speed != 60)
+                {
+                    speed = 60;
+                    Greenfoot.setSpeed(speed);
+                }
             } else {
                 changeIfHovering(imgSpeed, imgSpeedOn);
-                Greenfoot.setSpeed(50);
+                if(speed != 50)
+                {
+                    speed = 50;
+                    Greenfoot.setSpeed(speed);
+                }
             }
             
             if(spawnNumber < spawnMax)
