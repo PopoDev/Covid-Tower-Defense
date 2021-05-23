@@ -11,7 +11,38 @@ public class HydroalcoholicGel extends TowersProjectile
 {
     int cooldown = 30;
     int wait = cooldown;
-    int damage = 1;
+    int damage;
+    
+    GreenfootImage lvl1 = new GreenfootImage("Gel Hydroalcolique 1 (50x50).png");
+    GreenfootImage lvl2 = new GreenfootImage("Gel Hydroalcolique 2 (50x50).png");
+    GreenfootImage lvl3 = new GreenfootImage("Gel Hydroalcolique 3 (50x50).png");
+    GreenfootImage lvl4 = new GreenfootImage("Gel Hydroalcolique 4 (50x50).png");
+    GreenfootImage lvl5 = new GreenfootImage("Gel Hydroalcolique 5 (50x50).png");
+    
+    @Override
+    protected void addedToWorld(World world)
+    {
+        switch(damage)
+        {
+            case 1:
+                setImage(lvl1);
+                break;
+            case 2:
+                setImage(lvl2);
+                break;
+            case 3:
+                setImage(lvl3);
+                break;
+            case 4:
+                setImage(lvl4);
+                break;
+            case 5:
+                setImage(lvl5);
+                break;
+            default:
+                break;
+        }
+    }
     
     public void act() 
     {

@@ -92,20 +92,6 @@ public class Disinfectant extends Towers
                 }
             }
         }
-        
-        /*
-        int x = getX() + (Greenfoot.getRandomNumber(2*delta) - delta);
-        int y = getY() + (Greenfoot.getRandomNumber(2*delta) - delta);
-        
-        if((x- getX())*(x- getX()) + (y-getY())*(y-getY()) <= (delta*delta)) // Equation d'un cercle de rayon delta
-        {
-            if(getWorld().getObjectsAt(x, y, Roads.class).size() >= 1)
-            {
-                int[] coords = {x, y};
-                possibleLoc.add(coords);
-            }
-        }
-        */
     }
     
     public void placeGel()
@@ -113,6 +99,7 @@ public class Disinfectant extends Towers
         if(possibleLoc.size() > 0)
         {
             HydroalcoholicGel hydroalcoholicGel = new HydroalcoholicGel();
+            hydroalcoholicGel.setDamage(damage); // variable damage de la class Towers
             
             int index = Greenfoot.getRandomNumber(possibleLoc.size());
             int posX = possibleLoc.get(index) [0];
