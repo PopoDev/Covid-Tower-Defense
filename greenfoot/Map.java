@@ -111,7 +111,7 @@ public class Map extends World
         System.out.println("Lives : " + lives + " | Multiplicator : x" + multiplicator);
     }
     
-    public int removeLives(int amount)
+    public void removeLives(int amount)
     {
         if(lives - amount > 0) {
             lives -= amount;
@@ -125,7 +125,16 @@ public class Map extends World
             endMenu.setWinImage(false);
             Greenfoot.setWorld(endMenu);
         }
-        return lives;
+    }
+    
+    /**
+     * Add money for each virus killed
+     */
+    public void addMoneyPerKill(int amount)
+    {
+        money += amount;
+        System.out.println(money);
+        moneyText.updateMoneyText();
     }
     
     public boolean buyIfEnough(int price)

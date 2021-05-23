@@ -14,5 +14,12 @@ public class TowersProjectile extends SmoothMover
         int damagedHealth = currentHealth - damage;
         mobs.setHealth(damagedHealth);
         Greenfoot.playSound("pop.mp3");
+        
+        if(damagedHealth >= 0)
+        {
+            ((Map)getWorld()).addMoneyPerKill(damagedHealth);
+        } else {
+            ((Map)getWorld()).addMoneyPerKill(currentHealth);
+        }
     }
 }
