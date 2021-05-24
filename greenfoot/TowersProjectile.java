@@ -8,12 +8,21 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class TowersProjectile extends SmoothMover
 {
+    public Towers linkedTower;
+    
     public void attack(Mobs mobs, int damage)
     {
         int currentHealth = mobs.getHealth();
+        if(damage > currentHealth) damage = currentHealth;
         int damagedHealth = currentHealth - damage;
-        if(damagedHealth <= 0) damagedHealth = 0;
         mobs.setHealth(damagedHealth);
         Greenfoot.playSound("pop.mp3");
+        
+        linkedTower.addKills(damage);
+    }
+    
+    public void setLinkedTower(Towers tower)
+    {
+        this.linkedTower = tower;
     }
 }

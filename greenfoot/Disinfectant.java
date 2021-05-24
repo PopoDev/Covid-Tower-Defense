@@ -100,6 +100,7 @@ public class Disinfectant extends Towers
         {
             HydroalcoholicGel hydroalcoholicGel = new HydroalcoholicGel();
             hydroalcoholicGel.setDamage(damage); // variable damage de la class Towers
+            hydroalcoholicGel.setLinkedTower(this);
             
             int index = Greenfoot.getRandomNumber(possibleLoc.size());
             int posX = possibleLoc.get(index) [0];

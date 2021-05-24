@@ -133,7 +133,6 @@ public class Map extends World
     public void addMoneyPerKill(int amount)
     {
         money += amount;
-        System.out.println(money);
         moneyText.updateMoneyText();
     }
     

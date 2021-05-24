@@ -9,26 +9,43 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class UpgradeHUD extends HUD
 {
     private int score;
+    private boolean needUpdate = false;
     
-    Font scoreFont = new Font("Agency FB", true, false, 15);
-    
-    GreenfootImage textBox = new GreenfootImage(200, 40);
-    //GreenfootImage scoreBox = new GreenfootImage(200, 40);
+    private ScoreText scoreText;
     
     public UpgradeHUD()
     {
         score = 0;
-        textBox.setColor(Color.WHITE);
-        textBox.setFont(scoreFont);
-        textBox.drawString("Virus killed : \n" + score, 50, 20);
-        getImage().drawImage(textBox, 100, 20);
+        scoreText = new ScoreText();
+    }
+    
+    protected void addedToWorld(World world)
+    {
+        getWorld().addObject(scoreText, 140, 875);
+        scoreText.getImage().clear();
+        scoreText.getImage().drawString("Virus killed : \n" + score, 10, 10);
     }
     
     public void act()
     {
-        textBox.clear();
-        textBox.drawString("Virus killed : \n" + score, 50, 20);
-        getImage().drawImage(textBox, 100, 20);
-        score++;
+        if(needUpdate) updateScoreText();
+    }
+    
+    public void updateScore(int kills)
+    {
+        score = kills;
+        needUpdate = true;
+    }
+    
+    public void updateScoreText()
+    {
+        scoreText.getImage().clear();
+        scoreText.getImage().drawString("Virus killed : \n" + score, 10, 10);
+        needUpdate = false;
+    }
+    
+    public void removeScoreText()
+    {
+        getWorld().removeObject(scoreText);
     }
 }

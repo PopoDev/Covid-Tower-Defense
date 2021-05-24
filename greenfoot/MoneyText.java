@@ -40,6 +40,6 @@ public class MoneyText extends HUD
     {
         textBox.clear();
         textBox.drawString(String.valueOf(map.money), 30, 38);
-        System.out.println("Money updated.");
+        // System.out.println("Money updated.");
     }
 } 

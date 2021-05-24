@@ -26,6 +26,8 @@ public class Towers extends SmoothMover
     public int radius; // rayon
     public int cooldown; // time relative to acts
     
+    private int kills = 0;
+    
     private Range rangeObj = new Range();
     private boolean showingRange = false;
     private boolean showingUpgrade = false;
@@ -39,10 +41,12 @@ public class Towers extends SmoothMover
     public void attack(Mobs mobs, int damage)
     {
         int currentHealth = mobs.getHealth();
+        if(damage > currentHealth) damage = currentHealth;
         int damagedHealth = currentHealth - damage;
-        if(damagedHealth <= 0) damagedHealth = 0;
         mobs.setHealth(damagedHealth);
         Greenfoot.playSound("pop.mp3");
+        
+        addKills(damage);
     }
     
     public void showInfo()
@@ -129,6 +133,7 @@ public class Towers extends SmoothMover
         {
             upgradeHUD.getImage().clear();
             upgradeHUD.setImage(new GreenfootImage("HUD Upgrade + TowersIcon 800x100.png"));
+            upgradeHUD.removeScoreText();
             getWorld().removeObject(upgradeHUD);
             for(String type : upgrades.keySet())
             {
@@ -243,5 +248,11 @@ public class Towers extends SmoothMover
     public void setPrices(HashMap prices)
     {
         this.prices = prices;
+    }
+    
+    public void addKills(int amount)
+    {
+        this.kills += amount;
+        upgradeHUD.updateScore(kills);
     }
 }
