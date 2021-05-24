@@ -10,10 +10,10 @@ public class TowersPlacer extends SmoothMover
 {
     Towers specificTower = null;
     boolean placeable = false;
-    int price = 0;
+    int price;
     
     RangeIcon rangeIcon = null;
-    int basicRange = 100;
+    int basicRange;
     
     GreenfootImage rangeTrueImg = new GreenfootImage("Range (5.0) 1000x1000.png");
     GreenfootImage rangeFalseImg = new GreenfootImage("Range false 1000x1000 (5.0).png");

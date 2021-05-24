@@ -13,7 +13,7 @@ public class Disinfectant_Icon extends TowersIcon
     
     GreenfootImage towerImg = new GreenfootImage("Désinfectant 50x50.png");
     
-    DisinfectantPlacer disinfectantPlacer = new DisinfectantPlacer();
+    Disinfectant_Placer disinfectantPlacer = new Disinfectant_Placer();
     InfoDisinfectant infoDisinfectant = new InfoDisinfectant();
     
     int basicPrice = PriceManager.Prices.DISINFECTANT.getPrice(0, 0);
@@ -31,7 +31,7 @@ public class Disinfectant_Icon extends TowersIcon
         if(Greenfoot.mousePressed(this))
         {
             createWhenClicked(disinfectantPlacer, towerImg);
-            System.out.println(basicPrice);
+            //System.out.println(basicPrice);
         }
     }
 }

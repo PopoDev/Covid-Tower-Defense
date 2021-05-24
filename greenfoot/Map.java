@@ -31,7 +31,7 @@ public class Map extends World
     {    
         super(1200, 900, 1);
         setPaintOrder(TowersPlacer.class, RangeIcon.class, Buttons.class, Utils.class, HUD.class,
-        TowersProjectile.class, Towers.class, Mobs.class, Range.class, Backgrounds.class);
+        Towers.class, TowersProjectile.class, Mobs.class, Range.class, Backgrounds.class);
     }
     
     public void initMap(String difficulty)
@@ -63,6 +63,9 @@ public class Map extends World
         
         Disinfectant_Icon disinfectant_Icon = new Disinfectant_Icon();
         addObject(disinfectant_Icon, 925, 150);
+        
+        Tower1M50_Icon tower1M50_Icon = new Tower1M50_Icon();
+        addObject(tower1M50_Icon, 1075, 150);
         
         SpawnMobs nextButton = new SpawnMobs();
         addObject(nextButton, 800 + 200, 800 - 75);

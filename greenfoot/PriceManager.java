@@ -13,13 +13,13 @@ public class PriceManager
     {
         DISINFECTANT(new int[][] {{350}, // Default Price (0, 0)
                                   {600, 900, 1200, 1500},   // 1=Damage Upgrade Price
-                                  {300, 600, 900, 1200},   // 2=Range
+                                  {300, 600, 900, 1200},    // 2=Range
                                   {400, 800, 1200, 1600}}), // 3=Cooldown
         
         M50(new int[][]          {{350},
-                                  {600, 900, 1200, 1500},   // 1=Damage Upgrade Price
-                                  {300, 600, 900, 1200},   // 2=Range
-                                  {400, 800, 1200, 1600}}); // 3=Cooldown
+                                  {600, 900, 1200, 1500},   // 1=Damage
+                                  {300, 600, 900, 1200},    // 2=Range
+                                  {400, 800, 1200, 1600}}); // 3=AtkSpeed
         
         private int[][] prices;
         private int[] typePrices;

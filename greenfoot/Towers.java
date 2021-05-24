@@ -32,6 +32,7 @@ public class Towers extends SmoothMover
     private boolean showingRange = false;
     private boolean showingUpgrade = false;
     
+    public boolean needUpdate = false;
     public boolean rangeUpdated = true;
     
     private GreenfootImage towerImg = getImage();
@@ -172,6 +173,7 @@ public class Towers extends SmoothMover
         }
         System.out.println("Damage : " + damage + " | Range : " + range + " | Cooldown : " + cooldown);
         
+        needUpdate = true;
         upgradeIcons.get(type).update();
         upgradeButtons.get(type).update();
         showStats();

@@ -6,17 +6,14 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class DisinfectantPlacer extends TowersPlacer
+public class Disinfectant_Placer extends TowersPlacer
 {
     private int basicRange = 150;
-    
     private int basicPrice = PriceManager.Prices.DISINFECTANT.getPrice(0, 0);
-    // private double multiplicator = ((Map)getWorld()).multiplicator;
-    // private int price = (int)(basicPrice * multiplicator);
     
     private Towers disinfectant;
     
-    public DisinfectantPlacer()
+    public Disinfectant_Placer()
     {
         setBasicRange(basicRange);
         setBasicPrice(basicPrice);
