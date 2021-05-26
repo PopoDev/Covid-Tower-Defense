@@ -11,15 +11,15 @@ public class PriceManager
     
     public enum Prices
     {
-        DISINFECTANT(new int[][] {{350}, // Default Price (0, 0)
+        DISINFECTANT(new int[][] {{600}, // Default Price (0, 0)
                                   {600, 900, 1200, 1500},   // 1=Damage Upgrade Price
                                   {300, 600, 900, 1200},    // 2=Range
                                   {400, 800, 1200, 1600}}), // 3=Cooldown
         
-        M50(new int[][]          {{350},
-                                  {600, 900, 1200, 1500},   // 1=Damage
-                                  {300, 600, 900, 1200},    // 2=Range
-                                  {400, 800, 1200, 1600}}); // 3=AtkSpeed
+        M50(new int[][]          {{500},
+                                  {800, 1000, 1200, 1400},   // 1=Damage
+                                  {400, 600, 800, 1000},    // 2=Range
+                                  {400, 800, 1200, 1600}}); // 3=Cooldown
         
         private int[][] prices;
         private int[] typePrices;

@@ -15,14 +15,14 @@ public class Tower1M50 extends Towers
     private HashMap <String, int[]> prices = new HashMap();
     private PriceManager.Prices towerPrices = PriceManager.Prices.M50;
     
-    int basicSize = 40;
+    int basicSize = 10;
     Zone1M50 zone1M50;
     
     public Tower1M50()
     {
         int[] damages = {1, 2, 3, 4, 5};
         int[] ranges = {100, 110, 120, 130, 140};
-        int[] cd = {200, 160, 120, 80, 40}; // Temps pour que la zone atteigne sa portée maximale.
+        int[] cd = {180, 140, 100, 60, 20}; // Temps pour que la zone atteigne sa portée maximale.
         stats.put(upgrades[0], damages);
         stats.put(upgrades[1], ranges);
         stats.put(upgrades[2], cd);

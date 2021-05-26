@@ -14,12 +14,11 @@ public class Zone1M50 extends TowersProjectile
     private int range;
     private int cooldown;
     
-    private int basicSize = 40;
+    private int basicSize = 10;
     private int size;
     
     int counter = 0;
     int interval;
-    int coefficient = 10; // Pour que les arrondis ne soient pas trop significatifs
     
     int pause = 20;
     int wait = 0;
@@ -38,7 +37,7 @@ public class Zone1M50 extends TowersProjectile
                 setImage(zone1M50);
                 counter = 0;
             }
-            counter += coefficient;
+            counter++;
         } else {
             size = basicSize;
         }
@@ -69,6 +68,6 @@ public class Zone1M50 extends TowersProjectile
         this.cooldown = cooldown;
         
         this.size = basicSize;
-        this.interval = Math.round((cooldown/range)*coefficient);
+        this.interval = Math.round(cooldown/(range-basicSize));
     }
 }

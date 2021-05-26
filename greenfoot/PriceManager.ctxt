@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=PriceManager
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ PriceManager\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\n\ Write\ a\ description\ of\ class\ PriceManager\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
 comment1.params=multiplicator
 comment1.target=void\ setMultiplicator(double)
 numComments=2
