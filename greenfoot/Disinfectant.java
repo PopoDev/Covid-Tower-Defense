@@ -22,6 +22,8 @@ public class Disinfectant extends Towers
     
     private ArrayList <int[]> possibleLoc = new ArrayList(); // coordonnées [x, y]
     
+    private GreenfootImage image = getImage();
+    
     public Disinfectant()
     {
         int[] damages = {1, 2, 3, 4, 5};
@@ -43,6 +45,7 @@ public class Disinfectant extends Towers
         setUpgrades(upgrades);
         setStats(stats);
         setPrices(prices);
+        setTowerImg(image);
         addUpgradeIcon();
         addUpgradeButton();
         

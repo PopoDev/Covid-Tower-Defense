@@ -67,6 +67,9 @@ public class Map extends World
         Tower1M50_Icon tower1M50_Icon = new Tower1M50_Icon();
         addObject(tower1M50_Icon, 1075, 150);
         
+        Mask_Icon mask_Icon = new Mask_Icon();
+        addObject(mask_Icon, 925, 275);
+        
         SpawnMobs nextButton = new SpawnMobs();
         addObject(nextButton, 800 + 200, 800 - 75);
         

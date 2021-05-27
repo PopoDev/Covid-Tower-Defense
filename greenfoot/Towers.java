@@ -25,6 +25,7 @@ public class Towers extends SmoothMover
     public int range; // diamètre
     public int radius; // rayon
     public int cooldown; // time relative to acts
+    public int delay;
     
     private int kills = 0;
     
@@ -35,7 +36,7 @@ public class Towers extends SmoothMover
     public boolean needUpdate = false;
     public boolean rangeUpdated = true;
     
-    private GreenfootImage towerImg = getImage();
+    private GreenfootImage towerImg;
     private StatsText statstext = new StatsText();
     Font statsFont = new Font("Arial", true, false, 14);
     
@@ -221,10 +222,11 @@ public class Towers extends SmoothMover
     {
         this.stats = stats;
         
-        damage = this.stats.get("Damage")[0];
-        range = this.stats.get("Range")[0];
-        cooldown = this.stats.get("Cooldown")[0];
+        if(stats.get("Damage") != null) damage = this.stats.get("Damage")[0];
+        if(stats.get("Range") != null) range = this.stats.get("Range")[0];
         radius = range / 2;
+        if(stats.get("Cooldown") != null) cooldown = this.stats.get("Cooldown")[0];
+        if(stats.get("Delay") != null) delay = this.stats.get("Delay")[0];
         
         getWorld().addObject(statstext, getX(), getY() - (getImage().getHeight()/2));
         statstext.getImage().setFont(statsFont);
@@ -250,6 +252,11 @@ public class Towers extends SmoothMover
     public void setPrices(HashMap prices)
     {
         this.prices = prices;
+    }
+    
+    public void setTowerImg(GreenfootImage towerImg)
+    {
+        this.towerImg = towerImg;
     }
     
     public void addKills(int amount)

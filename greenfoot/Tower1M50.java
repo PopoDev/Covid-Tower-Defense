@@ -15,6 +15,8 @@ public class Tower1M50 extends Towers
     private HashMap <String, int[]> prices = new HashMap();
     private PriceManager.Prices towerPrices = PriceManager.Prices.M50;
     
+    private GreenfootImage image = getImage();
+    
     int basicSize = 10;
     Zone1M50 zone1M50;
     
@@ -22,7 +24,7 @@ public class Tower1M50 extends Towers
     {
         int[] damages = {1, 2, 3, 4, 5};
         int[] ranges = {100, 110, 120, 130, 140};
-        int[] cd = {180, 140, 100, 60, 20}; // Temps pour que la zone atteigne sa portée maximale.
+        int[] cd = {180, 140, 100, 60, 20};
         stats.put(upgrades[0], damages);
         stats.put(upgrades[1], ranges);
         stats.put(upgrades[2], cd);
@@ -39,6 +41,7 @@ public class Tower1M50 extends Towers
         setUpgrades(upgrades);
         setStats(stats);
         setPrices(prices);
+        setTowerImg(image);
         addUpgradeIcon();
         addUpgradeButton();
         

@@ -21,7 +21,12 @@ public class Tier3 extends Virus
     
     public void act() 
     {
-        move(speed);
+        if(!isTouching(Mask.class))
+        {
+            move(speed);
+        } else {
+            move(Greenfoot.getRandomNumber(4) - 2);
+        }
         turnAtCorner();
         if(isAtBorder()) 
         {
