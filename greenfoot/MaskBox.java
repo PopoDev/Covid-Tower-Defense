@@ -21,9 +21,9 @@ public class MaskBox extends Towers
     
     public MaskBox()
     {
-        int[] delays = {500, 1000, 1500, 2000, 2500};
+        int[] delays = {500, 750, 1000, 1250, 1500};
         int[] ranges = {150, 175, 200, 225, 250};
-        int[] cd = {2000, 1800, 1600, 1400, 1200};
+        int[] cd = {2400, 2200, 2000, 1800, 1600};
         stats.put(upgrades[0], delays);
         stats.put(upgrades[1], ranges);
         stats.put(upgrades[2], cd);
@@ -78,6 +78,7 @@ public class MaskBox extends Towers
         */
         Mask mask = new Mask();
         mask.setDelay(delay);
+        System.out.println(delay);
         getWorld().addObject(mask, x, y);
     }
 }

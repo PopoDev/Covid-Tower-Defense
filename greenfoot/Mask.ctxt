@@ -5,4 +5,6 @@ comment1.params=
 comment1.target=void\ act()
 comment2.params=delay
 comment2.target=void\ setDelay(int)
-numComments=3
+comment3.params=
+comment3.target=void\ drawDelay()
+numComments=4

@@ -169,10 +169,14 @@ public class Towers extends SmoothMover
             case "COOLDOWN":
                 cooldown = stats.get(type) [index];
                 break;
+                
+            case "DELAY":
+                delay = stats.get(type) [index];
+                break;
             default:
                 break;
         }
-        System.out.println("Damage : " + damage + " | Range : " + range + " | Cooldown : " + cooldown);
+        // System.out.println("Damage : " + damage + " | Range : " + range + " | Cooldown : " + cooldown);
         
         needUpdate = true;
         upgradeIcons.get(type).update();
