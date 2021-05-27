@@ -24,7 +24,7 @@ public class SpawnMobs extends Buttons
     GreenfootImage imgSpeedUpOn = new GreenfootImage("Speed up true mouseOn 150x125.png");
     
     int wave = 0;
-    int waveMax = 2;
+    int waveMax = 5;
     boolean waveRunning = false;
     int timeWave = 0; // [acts]
     boolean speedUp = false;
@@ -133,19 +133,39 @@ public class SpawnMobs extends Buttons
             case 1:
                 rounds = new int[][]
                 { // spawnSerie / tier lvl / number / interval / timeWave [acts]
-                    {1, 2, 10, 20, 0},     // Tier 2
-                    {2, 4, 5, 40, 0},      // Tier 4
-                    {3, 3, 20, 10, 500}    // Tier 3
+                    {1, 1, 50, 15, 0},
+                    {2, 2, 25, 40, 400},
                 };
                 break;
                 
            case 2:
                 rounds = new int[][]
                 { // spawnSerie / Tier lvl / number / interval / timeWave [acts]
-                    {1, 5, 10, 20, 0},
+                    {1, 2, 50, 20, 0},
                 };
                 break;
                 
+           case 3:
+                rounds = new int[][]
+                { // spawnSerie / Tier lvl / number / interval / timeWave [acts]
+                    {1, 3, 20, 50, 0},
+                    {2, 1, 40, 15, 100}
+                };
+                break;
+                
+           case 4:
+                rounds = new int[][]
+                { // spawnSerie / Tier lvl / number / interval / timeWave [acts]
+                    {1, 3, 50, 20, 0},
+                };
+                break;
+                
+           case 5:
+                rounds = new int[][]
+                { // spawnSerie / Tier lvl / number / interval / timeWave [acts]
+                    {1, 4, 25, 50, 0},
+                };
+                break;
             default:
                 break;
         }
