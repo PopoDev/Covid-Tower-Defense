@@ -11,7 +11,7 @@ public class Mask extends TowersProjectile
     private int counter = 0;
     private int delay;
     
-    Font font = new Font("Agency FB", true, false, 12);
+    Font font = new Font("Agency FB", true, false, 13);
     
     public void act()
     {
@@ -55,6 +55,6 @@ public class Mask extends TowersProjectile
         }
         
         String textSpacer = new String(new char[spaces]).replace("\0", " ");
-        image.drawString(textSpacer + (time), 14, 12);
+        image.drawString(textSpacer + (time), 14, 13);
     }
 }

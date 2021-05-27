@@ -48,6 +48,7 @@ public class MapRoute extends Map
                 if(road[i][j] == 1)
                 {
                     StraightRoad verticalRoad = new StraightRoad();
+                    verticalRoad.setDirection("Vertical");
                     addObject(verticalRoad, gridSize/2 + j*gridSize, 
                     gridSize/2 + i*gridSize);
                 }
@@ -55,12 +56,14 @@ public class MapRoute extends Map
                 {
                     StraightRoad horizontalRoad = new StraightRoad();
                     horizontalRoad.setImage(new GreenfootImage("roads/road 50x50 (horizontal).png"));
+                    horizontalRoad.setDirection("Horizontal");
                     addObject(horizontalRoad, gridSize/2 + j*gridSize, 
                     gridSize/2 + i*gridSize);
                 }
                 else if(road[i][j] == 12)
                 {
                     CurvedRoad roadUR = new CurvedRoad();
+                    roadUR.setDirection("UR");
                     addObject(roadUR, gridSize/2 + j*gridSize, 
                     gridSize/2 + i*gridSize);
                 }
@@ -68,6 +71,7 @@ public class MapRoute extends Map
                 {
                     CurvedRoad roadUL = new CurvedRoad();
                     roadUL.setImage(new GreenfootImage("roads/road 50x50 (UL).png"));
+                    roadUL.setDirection("UL");
                     addObject(roadUL, gridSize/2 + j*gridSize, 
                     gridSize/2 + i*gridSize);
                 }
@@ -75,6 +79,7 @@ public class MapRoute extends Map
                 {
                     CurvedRoad roadDR = new CurvedRoad();
                     roadDR.setImage(new GreenfootImage("roads/road 50x50 (DR).png"));
+                    roadDR.setDirection("DR");
                     addObject(roadDR, gridSize/2 + j*gridSize, 
                     gridSize/2 + i*gridSize);
                 }
@@ -82,6 +87,7 @@ public class MapRoute extends Map
                 {
                     CurvedRoad roadDL = new CurvedRoad();
                     roadDL.setImage(new GreenfootImage("roads/road 50x50 (DL).png"));
+                    roadDL.setDirection("DL");
                     addObject(roadDL, gridSize/2 + j*gridSize, 
                     gridSize/2 + i*gridSize);
                 } else {

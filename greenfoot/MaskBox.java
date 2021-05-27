@@ -68,17 +68,40 @@ public class MaskBox extends Towers
         Roads road = roads.get(i);
         int x = road.getX();
         int y = road.getY();
-        /*
-        switch(road.getImage())
+        
+        Mask mask = new Mask();
+        mask.setDelay(delay);
+        switch(road.getDirection().toUpperCase())
         {
-            case "":
+            case "VERTICAL":
+                mask.setRotation(0);
+                break;
+            case "HORIZONTAL":
+                mask.setRotation(90);
+                break;
+            case "UR":
+                mask.setRotation(-45);
+                x += 5;
+                y += -5;
+                break;
+            case "UL":
+                mask.setRotation(45);
+                x += -5;
+                y += -5;
+                break;
+            case "DR":
+                mask.setRotation(45);
+                x += 5;
+                y += 5;
+                break;
+            case "DL":
+                mask.setRotation(-45);
+                x += -5;
+                y += 5;
+                break;
             default:
                 break;
         }
-        */
-        Mask mask = new Mask();
-        mask.setDelay(delay);
-        System.out.println(delay);
         getWorld().addObject(mask, x, y);
     }
 }

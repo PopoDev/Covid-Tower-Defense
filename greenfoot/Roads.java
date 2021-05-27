@@ -7,5 +7,16 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @version (a version number or a date)
  */
 public class Roads extends Backgrounds
-{  
+{
+    private String direction;
+    
+    public void setDirection(String direction)
+    {
+        this.direction = direction;
+    }
+    
+    public String getDirection()
+    {
+        return direction;
+    }
 }
