@@ -133,7 +133,7 @@ public class SpawnMobs extends Buttons
             case 1:
                 rounds = new int[][]
                 { // spawnSerie / tier lvl / number / interval / timeWave [acts]
-                    {1, 1, 50, 15, 0},
+                    {1, 1, 50, 30, 0},
                     {2, 2, 25, 40, 400},
                 };
                 break;
@@ -149,7 +149,7 @@ public class SpawnMobs extends Buttons
                 rounds = new int[][]
                 { // spawnSerie / Tier lvl / number / interval / timeWave [acts]
                     {1, 3, 20, 50, 0},
-                    {2, 1, 40, 15, 100}
+                    {2, 1, 40, 30, 100}
                 };
                 break;
                 

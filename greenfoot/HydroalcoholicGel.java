@@ -9,9 +9,12 @@ import java.util.List;
  */
 public class HydroalcoholicGel extends TowersProjectile
 {
-    int cooldown = 30;
-    int wait = cooldown;
-    int damage;
+    private int cooldown = 30; // Temps entre les attaques
+    private int wait = cooldown;
+    private int damage;
+    
+    private int delay = 1000; // Temps du gel sur la map
+    private int counter = 0;
     
     GreenfootImage lvl1 = new GreenfootImage("Gel Hydroalcolique 1 (50x50).png");
     GreenfootImage lvl2 = new GreenfootImage("Gel Hydroalcolique 2 (50x50).png");
@@ -47,6 +50,11 @@ public class HydroalcoholicGel extends TowersProjectile
     public void act() 
     {
         attackGel();
+        if(counter >= delay)
+        {
+            getWorld().removeObject(this);
+        }
+        counter++;
     }
     
     public void attackGel()
