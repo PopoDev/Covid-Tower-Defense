@@ -101,17 +101,7 @@ public class Towers extends SmoothMover
              showingRange = false;
         }
     }
-    
-    public int getRange()
-    {
-        return range;
-    }
-    
-    public void setRange(int range)
-    {
-        this.range = range;
-    }
-    
+
     public void showUpgrade()
     {
         if(!showingUpgrade)

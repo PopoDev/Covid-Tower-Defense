@@ -13,14 +13,25 @@ public class MaskBox_Placer extends TowersPlacer
     
     private Towers maskBox;
     
+    private int rotation;
+    private boolean rotated = false;
+    
     public MaskBox_Placer()
     {
         setBasicRange(basicRange);
         setBasicPrice(basicPrice);
     }
     
+    @Override
+    protected void addedToWorld(World world)
+    {
+        rotation = 0;
+        setRotation(rotation);
+    }
+    
     public void act() 
     {
+        rotateIfKeyPressed();
         showPlacingRange();
         followMouse();
         isPlaceable();
@@ -30,11 +41,30 @@ public class MaskBox_Placer extends TowersPlacer
             if(placeable)
             {
                 maskBox = new MaskBox();
+                maskBox.setRotation(rotation);
                 setTower(maskBox);
                 placeTower();
             } else {
                 System.out.println("You can't place towers on the roads, on other towers and outside of the map.");
             }
         }
-    }   
+    }
+    
+    public void rotateIfKeyPressed()
+    {
+        String key = Greenfoot.getKey();
+        if("r".equals(key))
+        {
+            if(rotated)
+            {
+                rotation = 0;
+                setRotation(rotation);
+                rotated = false;
+            } else {
+                rotation = -90;
+                setRotation(rotation);
+                rotated = true;
+            }
+        }
+    }
 }

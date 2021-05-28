@@ -63,45 +63,48 @@ public class MaskBox extends Towers
     {
         List <Roads> roads = getObjectsInRange(radius, Roads.class);
         
-        int i = Greenfoot.getRandomNumber(roads.size());
-        
-        Roads road = roads.get(i);
-        int x = road.getX();
-        int y = road.getY();
-        
-        Mask mask = new Mask();
-        mask.setDelay(delay);
-        switch(road.getDirection().toUpperCase())
+        if(!roads.isEmpty())
         {
-            case "VERTICAL":
-                mask.setRotation(0);
-                break;
-            case "HORIZONTAL":
-                mask.setRotation(90);
-                break;
-            case "UR":
-                mask.setRotation(-45);
-                x += 5;
-                y += -5;
-                break;
-            case "UL":
-                mask.setRotation(45);
-                x += -5;
-                y += -5;
-                break;
-            case "DR":
-                mask.setRotation(45);
-                x += 5;
-                y += 5;
-                break;
-            case "DL":
-                mask.setRotation(-45);
-                x += -5;
-                y += 5;
-                break;
-            default:
-                break;
+            int i = Greenfoot.getRandomNumber(roads.size());
+            
+            Roads road = roads.get(i);
+            int x = road.getX();
+            int y = road.getY();
+        
+            Mask mask = new Mask();
+            mask.setDelay(delay);
+            switch(road.getDirection().toUpperCase())
+            {
+                case "VERTICAL":
+                    mask.setRotation(0);
+                    break;
+                case "HORIZONTAL":
+                    mask.setRotation(-90);
+                    break;
+                case "UR":
+                    mask.setRotation(-45);
+                    x += 5;
+                    y += -5;
+                    break;
+                case "UL":
+                    mask.setRotation(45);
+                    x += -5;
+                    y += -5;
+                    break;
+                case "DR":
+                    mask.setRotation(45);
+                    x += 5;
+                    y += 5;
+                    break;
+                case "DL":
+                    mask.setRotation(-45);
+                    x += -5;
+                    y += 5;
+                    break;
+                default:
+                    break;
+            }
+            getWorld().addObject(mask, x, y);
         }
-        getWorld().addObject(mask, x, y);
     }
 }
