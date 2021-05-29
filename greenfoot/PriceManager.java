@@ -24,7 +24,12 @@ public class PriceManager
         MASK(new int[][]         {{400},
                                   {500, 1000, 1500, 2000},  // 1=Time
                                   {250, 500, 750, 1000},    // 2=Range
-                                  {400, 800, 1200, 1600}}); // 3=Cooldown
+                                  {400, 800, 1200, 1600}}), // 3=Cooldown
+                                  
+        WHITECELL(new int[][]    {{300},
+                                  {500, 1000, 1500, 2000},  // 1=Damage
+                                  {250, 500, 750, 1000},    // 2=Range
+                                  {400, 800, 1200, 1600}}); // 3=AtkSpd
         
         private int[][] prices;
         private int[] typePrices;

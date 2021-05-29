@@ -25,6 +25,7 @@ public class Towers extends SmoothMover
     public int range; // diamètre
     public int radius; // rayon
     public int cooldown; // time relative to acts
+    public int atkspd; // attack speed
     public int delay;
     
     private int kills = 0;
@@ -163,6 +164,10 @@ public class Towers extends SmoothMover
             case "DELAY":
                 delay = stats.get(type) [index];
                 break;
+                
+            case "ATKSPEED":
+                atkspd = stats.get(type) [index];
+                break;
             default:
                 break;
         }
@@ -221,6 +226,7 @@ public class Towers extends SmoothMover
         radius = range / 2;
         if(stats.get("Cooldown") != null) cooldown = this.stats.get("Cooldown")[0];
         if(stats.get("Delay") != null) delay = this.stats.get("Delay")[0];
+        if(stats.get("AtkSpeed") != null) atkspd = this.stats.get("AtkSpeed")[0];
         
         getWorld().addObject(statstext, getX(), getY() - (getImage().getHeight()/2));
         statstext.getImage().setFont(statsFont);

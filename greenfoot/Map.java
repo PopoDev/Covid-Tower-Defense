@@ -70,6 +70,9 @@ public class Map extends World
         Mask_Icon mask_Icon = new Mask_Icon();
         addObject(mask_Icon, 925, 275);
         
+        WhiteCell_Icon whiteCell_Icon = new WhiteCell_Icon();
+        addObject(whiteCell_Icon, 1075, 275);
+        
         SpawnMobs nextButton = new SpawnMobs();
         addObject(nextButton, 800 + 200, 800 - 75);
         
