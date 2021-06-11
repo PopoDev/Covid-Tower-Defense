@@ -23,7 +23,7 @@ public class UpgradeHUD extends HUD
     {
         getWorld().addObject(scoreText, 140, 875);
         scoreText.getImage().clear();
-        scoreText.getImage().drawString("Virus killed : \n" + score, 10, 10);
+        scoreText.getImage().drawString("Virus killed : \n" + score, 13, 14);
     }
     
     public void act()
@@ -40,7 +40,7 @@ public class UpgradeHUD extends HUD
     public void updateScoreText()
     {
         scoreText.getImage().clear();
-        scoreText.getImage().drawString("Virus killed : \n" + score, 10, 10);
+        scoreText.getImage().drawString("Virus killed : \n" + score, 13, 14);
         needUpdate = false;
     }
     

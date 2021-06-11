@@ -46,6 +46,7 @@ public class UpgradeButton extends Buttons
             {
                 if(((Map)getWorld()).buyIfEnough(Integer.valueOf(price)))
                 {
+                    linkedTower.addTowerPrice(Integer.valueOf(price));
                     linkedTower.upgrade(type);
                     updateImage();
                 }

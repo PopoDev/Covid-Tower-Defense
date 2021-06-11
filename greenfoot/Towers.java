@@ -20,6 +20,8 @@ public class Towers extends SmoothMover
     private UpgradeHUD upgradeHUD = new UpgradeHUD();
     private HashMap <String, UpgradeIcon> upgradeIcons = new HashMap();
     private HashMap <String, UpgradeButton> upgradeButtons = new HashMap();
+    private SellButton sellButton;
+    public int towerPrice;
     
     public int damage;
     public int range; // diamètre
@@ -116,6 +118,7 @@ public class Towers extends SmoothMover
                 getWorld().addObject(upgradeButtons.get(type), 288 + 200 * i, 870);
                 i++;
             }
+            getWorld().addObject(sellButton,136, 830);
             showingUpgrade = true;
         }
     }
@@ -133,6 +136,7 @@ public class Towers extends SmoothMover
                 getWorld().removeObject(upgradeIcons.get(type));
                 getWorld().removeObject(upgradeButtons.get(type));
             }
+            getWorld().removeObject(sellButton);
             showingUpgrade = false;
         }
     }
@@ -186,6 +190,8 @@ public class Towers extends SmoothMover
             upgrades.put(upgrade, 1);
         }
         System.out.println(upgrades);
+        
+        addSellButton();
     }
     
     public void addUpgradeIcon()
@@ -215,6 +221,12 @@ public class Towers extends SmoothMover
             
             upgradeButtons.put(type, upgradeButton);
         }
+    }
+    
+    public void addSellButton()
+    {
+        sellButton = new SellButton();
+        sellButton.setLinkedTower(this);
     }
     
     public void setStats(HashMap stats)
@@ -252,6 +264,7 @@ public class Towers extends SmoothMover
     public void setPrices(HashMap prices)
     {
         this.prices = prices;
+        towerPrice = this.prices.get("Basic")[0];
     }
     
     public void setTowerImg(GreenfootImage towerImg)
@@ -263,5 +276,11 @@ public class Towers extends SmoothMover
     {
         this.kills += amount;
         upgradeHUD.updateScore(kills);
+    }
+    
+    public void addTowerPrice(int amount)
+    {
+        this.towerPrice += amount;
+        System.out.println("Towers price :" + towerPrice);
     }
 }
