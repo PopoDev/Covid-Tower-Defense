@@ -37,6 +37,6 @@ public class WaveText extends HUD
     {
         textBox.clear();
         textBox.drawString(map.waveNumber + " / " + map.waveMax, 105, 34);
-        System.out.println("Wave number updated.");
+        //System.out.println("Wave number updated.");
     }
 }

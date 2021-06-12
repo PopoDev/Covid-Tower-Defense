@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 /**
  * Write a description of class PriceManager here.
  * 
@@ -48,11 +49,13 @@ public class PriceManager
         
         public int[] getTypePrices(int type)
         {
-            typePrices = prices[type];
+            typePrices = Arrays.copyOf(prices[type], prices[type].length);
+            
             for(int i=0 ; i<typePrices.length ; i++)
             {
                 typePrices[i] = (int)(typePrices[i] * multiplicator);
             }
+            //System.out.println(Arrays.toString(prices[type]));
             return typePrices;
         }
     }

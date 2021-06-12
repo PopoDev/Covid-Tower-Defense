@@ -203,6 +203,9 @@ public class Towers extends SmoothMover
             int level = upgrades.get(type);
             int[] values = stats.get(type);
             System.out.println(Arrays.toString(values));
+            
+            int[] price = prices.get(type);
+            System.out.println(Arrays.toString(price));
             upgradeIcon.setUpgradeValues(values);
             
             upgradeIcons.put(type, upgradeIcon);
@@ -280,7 +283,7 @@ public class Towers extends SmoothMover
     public void addTowerPrice(int amount)
     {
         this.towerPrice += amount;
-        System.out.println("Towers price :" + towerPrice);
+        //System.out.println("Towers price :" + towerPrice);
     }
     
     /**

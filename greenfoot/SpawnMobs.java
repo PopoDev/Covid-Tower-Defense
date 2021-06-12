@@ -176,7 +176,7 @@ public class SpawnMobs extends Buttons
             spawnCounters.add(rounds[i][2]);
         }
         //System.out.println("Wave " + wave + " max : " + spawnMax);
-        System.out.println("Rounds : " + spawnCounters);
+        System.out.println("Mobs numbers : " + spawnCounters);
     }
     
     public void wavesSpawner()
