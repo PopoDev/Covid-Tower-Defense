@@ -15,7 +15,7 @@ public class Tower1M50 extends Towers
     private HashMap <String, int[]> prices = new HashMap();
     private PriceManager.Prices towerPrices = PriceManager.Prices.M50;
     
-    private GreenfootImage image = getImage();
+    private GreenfootImage towerImg = new GreenfootImage("1M50 Tower 50x50 TowerImg.png");
     
     int basicSize = 10;
     Zone1M50 zone1M50;
@@ -41,7 +41,7 @@ public class Tower1M50 extends Towers
         setUpgrades(upgrades);        
         setStats(stats);
         setPrices(prices);
-        setTowerImg(image);
+        setTowerImg(towerImg);
         
         addUpgradeIcon();
         addUpgradeButton();
