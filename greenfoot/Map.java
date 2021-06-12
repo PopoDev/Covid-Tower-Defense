@@ -137,9 +137,9 @@ public class Map extends World
     }
     
     /**
-     * Add money for each virus killed
+     * Add money to the current balance
      */
-    public void addMoneyPerKill(int amount)
+    public void addMoney(int amount)
     {
         money += amount;
         moneyText.updateMoneyText();

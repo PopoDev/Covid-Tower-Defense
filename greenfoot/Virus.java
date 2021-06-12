@@ -28,7 +28,7 @@ public class Virus extends Mobs
             int y = getY();
             replaceTier(x, y);
             int amount = getTier() - getHealth();
-            ((Map)getWorld()).addMoneyPerKill(amount);
+            ((Map)getWorld()).addMoney(amount); // Add money per kill
             
             getWorld().removeObject(this);
         }

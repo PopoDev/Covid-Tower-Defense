@@ -75,6 +75,7 @@ public class MaskBox extends Towers
         
             Mask mask = new Mask();
             mask.setDelay(delay);
+            mask.setLinkedTower(this);
             switch(road.getDirection().toUpperCase())
             {
                 case "VERTICAL":

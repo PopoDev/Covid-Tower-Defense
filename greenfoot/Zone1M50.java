@@ -42,6 +42,7 @@ public class Zone1M50 extends TowersProjectile
             size = basicSize;
         }
         attack1M50();
+        removeIfTowerSold();
     }
     
     public void attack1M50()

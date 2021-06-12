@@ -24,6 +24,7 @@ public class Mask extends TowersProjectile
         {
             getWorld().removeObject(this);
         }
+        removeIfTowerSold();
         counter++;
     }
     

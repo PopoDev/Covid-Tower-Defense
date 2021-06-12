@@ -54,6 +54,7 @@ public class HydroalcoholicGel extends TowersProjectile
         {
             getWorld().removeObject(this);
         }
+        removeIfTowerSold();
         counter++;
     }
     

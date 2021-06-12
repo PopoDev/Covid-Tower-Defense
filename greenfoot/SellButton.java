@@ -15,20 +15,36 @@ public class SellButton extends Buttons
     private int towerPrice;
     private int sellPrice;
     
-    Font sellFont = new Font("Berlin Sans FB Demi Gras", true, false, 16);
-    
-    @Override
-    public void addedToWorld(World world)
-    {
-        GreenfootImage textImage = new GreenfootImage("" + linkedTower.towerPrice);
-        textImage.setFont(sellFont);
-        textImage.setColor(Color.WHITE);
-        getImage().drawImage(textImage, (getImage().getWidth() - textImage.getWidth()) / 2, 20);
-    }
+    boolean init = false;
+    Font sellFont = new Font("Berlin Sans FB Demi Gras", true, false, 20);
+    //Font sellFont = new Font("Agency FB", true, false, 20);
     
     public void act()
     {
+        if(!init) init();
+        if(Greenfoot.mousePressed(this)) linkedTower.sell();
         changeIfHovering(sellButton, sellButtonOn);
+    }
+    
+    public void init()
+    {
+        sellPrice = (int)(linkedTower.towerPrice * 0.8);
+        GreenfootImage textImage = new TextImage("" + sellPrice, sellFont, Color.WHITE, null);
+        sellButton.drawImage(textImage, (sellButton.getWidth() - textImage.getWidth()) / 2, 13);
+        sellButtonOn.drawImage(textImage, (sellButton.getWidth() - textImage.getWidth()) / 2, 13);
+        setImage(sellButton);
+        init = true;
+    }
+    
+    public void updateText()
+    {
+        sellPrice = (int)(linkedTower.towerPrice * 0.8);
+        GreenfootImage textImage = new TextImage("" + sellPrice, sellFont, Color.WHITE, null);
+        sellButton = new GreenfootImage("SellButton 70x30.png");
+        sellButton.drawImage(textImage, (sellButton.getWidth() - textImage.getWidth()) / 2, 13);
+        sellButtonOn = new GreenfootImage("SellButton 72x32 mouseOn.png");
+        sellButtonOn.drawImage(textImage, (sellButton.getWidth() - textImage.getWidth()) / 2, 13);
+        setImage(sellButton);
     }
     
     public void setLinkedTower(Towers tower)

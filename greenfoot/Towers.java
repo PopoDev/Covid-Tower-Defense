@@ -180,6 +180,7 @@ public class Towers extends SmoothMover
         needUpdate = true;
         upgradeIcons.get(type).update();
         upgradeButtons.get(type).update();
+        sellButton.updateText();
         showStats();
     }
     
@@ -280,5 +281,27 @@ public class Towers extends SmoothMover
     {
         this.towerPrice += amount;
         System.out.println("Towers price :" + towerPrice);
+    }
+    
+    /**
+     * When the player sell the tower, remove everything and add 80% of the tower's value to the balance
+     */
+    public void sell()
+    {
+        upgradeHUD.removeScoreText();
+        getWorld().removeObject(upgradeHUD);
+        for(String type : upgrades.keySet())
+        {
+            getWorld().removeObject(upgradeIcons.get(type));
+            getWorld().removeObject(upgradeButtons.get(type));
+        }
+        getWorld().removeObject(sellButton);
+        getWorld().removeObject(rangeObj);
+        getWorld().removeObject(statstext);
+        
+        ((Map)getWorld()).addMoney((int)(towerPrice * 0.8)); // Redonne 80% de la valeur de la tour.
+        System.out.println(this + " vendu pour : " + (int)(towerPrice * 0.8));
+        
+        getWorld().removeObject(this);
     }
 }

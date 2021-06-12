@@ -25,4 +25,9 @@ public class TowersProjectile extends SmoothMover
     {
         this.linkedTower = tower;
     }
+    
+    public void removeIfTowerSold()
+    {
+        if(linkedTower.getWorld() == null) getWorld().removeObject(this);
+    }
 }
