@@ -191,6 +191,8 @@ public class Towers extends SmoothMover
         }
         System.out.println(upgrades);
         
+        addUpgradeIcon();
+        addUpgradeButton();
         addSellButton();
     }
     

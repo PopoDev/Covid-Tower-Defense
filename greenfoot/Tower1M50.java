@@ -38,12 +38,10 @@ public class Tower1M50 extends Towers
     @Override
     protected void addedToWorld(World world)
     {
-        setUpgrades(upgrades);
         setStats(stats);
         setPrices(prices);
+        setUpgrades(upgrades);
         setTowerImg(image);
-        addUpgradeIcon();
-        addUpgradeButton();
         
         zone1M50 = new Zone1M50();
         zone1M50.getImage().scale(basicSize, basicSize);
