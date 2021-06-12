@@ -190,10 +190,6 @@ public class Towers extends SmoothMover
             upgrades.put(upgrade, 1);
         }
         System.out.println(upgrades);
-        
-        addUpgradeIcon();
-        addUpgradeButton();
-        addSellButton();
     }
     
     public void addUpgradeIcon()

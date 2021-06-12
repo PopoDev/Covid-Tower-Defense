@@ -44,10 +44,14 @@ public class WhiteCell extends Towers
     @Override
     protected void addedToWorld(World world)
     {
+        setUpgrades(upgrades);        
         setStats(stats);
         setPrices(prices);
-        setUpgrades(upgrades);
         setTowerImg(towerImg);
+        
+        addUpgradeIcon();
+        addUpgradeButton();
+        addSellButton();
     }
     
     public void act() 

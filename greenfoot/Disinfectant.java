@@ -42,10 +42,14 @@ public class Disinfectant extends Towers
     @Override
     protected void addedToWorld(World world)
     {
+        setUpgrades(upgrades);
         setStats(stats);
         setPrices(prices);
-        setUpgrades(upgrades);
         setTowerImg(image);
+               
+        addUpgradeIcon();
+        addUpgradeButton();
+        addSellButton();
         
         counter = cooldown;
         checkLocation();
