@@ -15,6 +15,17 @@ public class SellButton extends Buttons
     private int towerPrice;
     private int sellPrice;
     
+    Font sellFont = new Font("Berlin Sans FB Demi Gras", true, false, 16);
+    
+    @Override
+    public void addedToWorld(World world)
+    {
+        GreenfootImage textImage = new GreenfootImage("" + linkedTower.towerPrice);
+        textImage.setFont(sellFont);
+        textImage.setColor(Color.WHITE);
+        getImage().drawImage(textImage, (getImage().getWidth() - textImage.getWidth()) / 2, 20);
+    }
+    
     public void act()
     {
         changeIfHovering(sellButton, sellButtonOn);
