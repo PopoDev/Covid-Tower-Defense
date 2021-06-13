@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Map 1
+ * Map Route
  * 
  * @author PopoDev
- * @version 1.0.0
+ * @version 03.05.2021
  */
 public class MapRoute extends Map
 {
@@ -39,6 +39,9 @@ public class MapRoute extends Map
         setMapDimension(MAP_WIDTH, MAP_HEIGHT);
     }
     
+    /**
+     * Crée le chemin de la map selon la matrice
+     */
     public void createRoad()
     {
         for(int i = 0; i < road.length; i++)

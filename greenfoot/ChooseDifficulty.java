@@ -1,14 +1,14 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class ChooseDifficulty here.
+ * Bouton permettant de choisir la difficulté.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author PopoDev
+ * @version 14.05.2021
  */
 public class ChooseDifficulty extends Buttons
 {
-    private String name;
+    private String name; // Difficulté
     GreenfootImage image;
     GreenfootImage imageOn;
     

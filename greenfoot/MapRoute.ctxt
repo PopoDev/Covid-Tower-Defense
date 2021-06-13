@@ -1,8 +1,9 @@
 #BlueJ class context
 comment0.target=MapRoute
-comment0.text=\r\n\ Map\ 1\r\n\ \r\n\ @author\ PopoDev\r\n\ @version\ 1.0.0\r\n
+comment0.text=\r\n\ Map\ Route\r\n\ \r\n\ @author\ PopoDev\r\n\ @version\ 03.05.2021\r\n
 comment1.params=
 comment1.target=MapRoute()
 comment2.params=
 comment2.target=void\ createRoad()
+comment2.text=\r\n\ Cr\u00E9e\ le\ chemin\ de\ la\ map\ selon\ la\ matrice\r\n
 numComments=3

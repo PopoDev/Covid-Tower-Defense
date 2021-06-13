@@ -1,16 +1,19 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Buttons here.
+ * Classe donnant l'effet d'un bouton
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author PopoDev
+ * @version 20.04.2021
  */
 public class Buttons extends SmoothMover
 {
     boolean mouseOn = false;
     boolean setImageOn = false;
     
+    /**
+     * Détecte si la souris est sur un objet.
+     */
     public boolean isHovering()
     {
         if(Greenfoot.mouseMoved(this) && !mouseOn) mouseOn = true; 
@@ -23,6 +26,9 @@ public class Buttons extends SmoothMover
         }
     }
     
+    /**
+     * Change d'image si la souris survole l'object pour donner un effet de sélection.
+     */
     public void changeIfHovering(GreenfootImage initialImg, GreenfootImage hoveringImg)
     {
         if(isHovering() && !setImageOn)

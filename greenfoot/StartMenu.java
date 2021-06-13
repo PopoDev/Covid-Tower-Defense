@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class StartMenu here.
+ * Écran d'accueil
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author PopoDev
+ * @version 10.05.2021
  */
 public class StartMenu extends World
 {

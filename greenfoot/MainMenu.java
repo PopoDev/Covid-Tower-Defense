@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class MainMenu here.
+ * La class MainMenu s'occupe du menu principal avec le choix du monde et de la difficulté.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author PopoDev
+ * @version 20.04.2021
  */
 public class MainMenu extends World
 {
@@ -34,6 +34,9 @@ public class MainMenu extends World
         addObject(new ChooseMap(), 950, 500);
     }
     
+    /**
+     * Initialise un monde en fonction du choix du joueur.
+     */
     public void chooseMap()
     {
         switch(map.toUpperCase())

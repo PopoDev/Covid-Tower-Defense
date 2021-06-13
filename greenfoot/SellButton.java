@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class SellButton here.
+ * Bouton pour vendre une tour. Rend 80% de la valeur totale (base + améliorations) lors de la vente.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author PopoDev
+ * @version 12.06.2021
  */
 public class SellButton extends Buttons
 {

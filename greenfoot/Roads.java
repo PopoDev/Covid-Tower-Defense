@@ -1,10 +1,8 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Roads here.
+ * Texture route | Taille : 50x50 px
  * 
- * @author (your name) 
- * @version (a version number or a date)
  */
 public class Roads extends Backgrounds
 {

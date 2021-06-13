@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Map here.
+ * La classe Map gère le placement du GUI et stocke les valeurs pour l'argent, la vie et les vagues.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author PopoDev 
+ * @version 08.06.2021
  */
 public class Map extends World
 {   
@@ -34,6 +34,9 @@ public class Map extends World
         Towers.class, TowersProjectile.class, Mobs.class, Range.class, Backgrounds.class);
     }
     
+    /**
+     * Initialise la map (difficulté, multiplicateur de prix, GUI)
+     */
     public void initMap(String difficulty)
     {
         setDifficulty(difficulty);
@@ -120,6 +123,9 @@ public class Map extends World
         System.out.println("Lives : " + lives + " | Multiplicator : x" + multiplicator);
     }
     
+    /**
+     * Enlève des points de vie si des ennemis passent la map
+     */
     public void removeLives(int amount)
     {
         if(lives - amount > 0) {
@@ -137,7 +143,7 @@ public class Map extends World
     }
     
     /**
-     * Add money to the current balance
+     * Rajoute de l'argent au solde actuel
      */
     public void addMoney(int amount)
     {
@@ -145,6 +151,9 @@ public class Map extends World
         moneyText.updateMoneyText();
     }
     
+    /**
+     * Achète une tour ou amélioration si le solde est suffisant
+     */
     public boolean buyIfEnough(int price)
     {
         if(money - price >= 0)

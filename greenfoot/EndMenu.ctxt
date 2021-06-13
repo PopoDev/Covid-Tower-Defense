@@ -1,10 +1,11 @@
 #BlueJ class context
 comment0.target=EndMenu
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ EndMenu\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ La\ classe\ EndMenu\ g\u00E8re\ l'\u00E9cran\ de\ fin.\r\n\ \r\n\ @author\ PopoDev\r\n\ @version\ 12.04.2021\r\n
 comment1.params=
 comment1.target=EndMenu()
 comment2.params=
 comment2.target=void\ act()
 comment3.params=win
 comment3.target=void\ setWinImage(boolean)
+comment3.text=\r\n\ Affiche\ une\ image\ de\ fin\ en\ cas\ de\ victoire\ ou\ de\ d\u00E9faite.\r\n
 numComments=4

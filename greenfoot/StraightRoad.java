@@ -1,10 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class StraightRoad here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Texture route droite | Taille : 50x50 px
  */
 public class StraightRoad extends Roads
 { 

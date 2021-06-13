@@ -1,8 +1,10 @@
 #BlueJ class context
 comment0.target=Buttons
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Buttons\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ Classe\ donnant\ l'effet\ d'un\ bouton\r\n\ \r\n\ @author\ PopoDev\r\n\ @version\ 20.04.2021\r\n
 comment1.params=
 comment1.target=boolean\ isHovering()
+comment1.text=\r\n\ D\u00E9tecte\ si\ la\ souris\ est\ sur\ un\ objet.\r\n
 comment2.params=initialImg\ hoveringImg
 comment2.target=void\ changeIfHovering(greenfoot.GreenfootImage,\ greenfoot.GreenfootImage)
+comment2.text=\r\n\ Change\ d'image\ si\ la\ souris\ survole\ l'object\ pour\ donner\ un\ effet\ de\ s\u00E9lection.\r\n
 numComments=3

@@ -14,19 +14,23 @@ public class Mask_Icon extends TowersIcon
     GreenfootImage towerImg = new GreenfootImage("Mask box 94x42.png");
     
     MaskBox_Placer maskBox_Placer = new MaskBox_Placer();
-    // INFO
+    
+    InfoTower infoMask = new InfoTower();
+    GreenfootImage infoImage = new GreenfootImage("InfoTower/Info Masques 200x177.png");
     
     int basicPrice = PriceManager.Prices.MASK.getPrice(0, 0);
     
     public Mask_Icon()
     {
         setBasicPrice(basicPrice);
+        infoMask.setImage(infoImage);
+        infoMask.setPrice(basicPrice);
     }
 
     public void act()
     {
         changeIfHovering(Icon, IconOn);
-        //showInfoIfHovering();
+        showInfoIfHovering(infoMask);
         putShadow();
         if(Greenfoot.mousePressed(this))
         {

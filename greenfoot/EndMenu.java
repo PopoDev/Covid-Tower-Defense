@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class EndMenu here.
+ * La classe EndMenu gère l'écran de fin.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author PopoDev
+ * @version 12.04.2021
  */
 public class EndMenu extends World
 {
@@ -25,6 +25,9 @@ public class EndMenu extends World
         imgSet = true;
     }
     
+    /**
+     * Affiche une image de fin en cas de victoire ou de défaite.
+     */
     public void setWinImage(boolean win)
     {
         if(win) 

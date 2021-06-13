@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class ChooseMap here.
+ * Bouton permettant de choisir la map.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author PopoDev
+ * @version 14.05.2021
  */
 public class ChooseMap extends Buttons
 {

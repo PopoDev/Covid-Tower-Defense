@@ -1,12 +1,9 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Grass here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Texture de gazon | Taille : 50x50 px
+ * Source image : "minecraft grass printable" https://www.pinterest.com/pin/289778557257051096/
  */
 public class Grass extends Backgrounds
 {
- 
 }

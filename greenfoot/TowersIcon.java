@@ -30,18 +30,23 @@ public class TowersIcon extends Buttons
         }
     }
     
-    public void showInfoIfHovering(HUD infoTower)
+    public void showInfoIfHovering(InfoTower infoTower)
     {
-        if(isHovering() && !setInfo)
+        if(isHovering())
         {
-            infoBox = infoTower;
-            getWorld().addObject(infoBox, 700, getY());
-            setInfo = true;
+            MouseInfo mi = Greenfoot.getMouseInfo();
+            if(!setInfo)
+            {
+                getWorld().addObject(infoTower, 700, mi.getY());
+                setInfo = true;
+            }else{
+                infoTower.setLocation(700, mi.getY());
+            }
         }
         
         if(!isHovering() && setInfo)
         {
-            getWorld().removeObject(infoBox);
+            getWorld().removeObject(infoTower);
             setInfo = false;
         }
     }

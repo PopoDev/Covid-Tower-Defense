@@ -14,19 +14,23 @@ public class WhiteCell_Icon extends TowersIcon
     GreenfootImage towerImg = new GreenfootImage("Globule blanc 46x48.png");
     
     WhiteCell_Placer whiteCell_Placer = new WhiteCell_Placer();
-    // INFO
+    
+    InfoTower infoWhiteCell = new InfoTower();
+    GreenfootImage infoImage = new GreenfootImage("InfoTower/Info Globule Blanc 200x170.png");
     
     int basicPrice = PriceManager.Prices.WHITECELL.getPrice(0, 0);
     
     public WhiteCell_Icon()
     {
         setBasicPrice(basicPrice);
+        infoWhiteCell.setImage(infoImage);
+        infoWhiteCell.setPrice(basicPrice);
     }
 
     public void act()
     {
         changeIfHovering(Icon, IconOn);
-        //showInfoIfHovering();
+        showInfoIfHovering(infoWhiteCell);
         putShadow();
         if(Greenfoot.mousePressed(this))
         {

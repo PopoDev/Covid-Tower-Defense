@@ -40,7 +40,7 @@ public class Towers extends SmoothMover
     public boolean rangeUpdated = true;
     
     private GreenfootImage towerImg;
-    private StatsText statstext = new StatsText();
+    private TextBox statstext = new TextBox();
     Font statsFont = new Font("Arial", true, false, 14);
     
     public void attack(Mobs mobs, int damage)

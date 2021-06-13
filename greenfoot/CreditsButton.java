@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class CreditsButton here.
+ * Bouton redirigeant vers les credits / sources.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author PopoDev
+ * @version 05.05.2021
  */
 public class CreditsButton extends Buttons
 {

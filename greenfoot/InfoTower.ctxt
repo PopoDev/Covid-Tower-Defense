@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=InfoTower
+comment0.text=\r\n\ Information\ affich\u00E9e\ lorsque\ la\ souris\ est\ sur\ une\ ic\u00F4ne\ de\ tour.\r\n\ \r\n\ @author\ PopoDev\r\n\ @version\ 07.06.2021\r\n
+comment1.params=amount
+comment1.target=void\ setPrice(int)
+comment2.params=
+comment2.target=int\ getPrice()
+comment3.params=price
+comment3.target=void\ drawPrice(int)
+numComments=4

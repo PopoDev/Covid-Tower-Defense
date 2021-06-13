@@ -14,13 +14,17 @@ public class Disinfectant_Icon extends TowersIcon
     GreenfootImage towerImg = new GreenfootImage("Désinfectant 50x50.png");
     
     Disinfectant_Placer disinfectantPlacer = new Disinfectant_Placer();
-    InfoDisinfectant infoDisinfectant = new InfoDisinfectant();
+    
+    InfoTower infoDisinfectant = new InfoTower();
+    GreenfootImage infoImage = new GreenfootImage("InfoTower/Info Désinfectant 200x177.png");
     
     int basicPrice = PriceManager.Prices.DISINFECTANT.getPrice(0, 0);
     
     public Disinfectant_Icon()
     {
         setBasicPrice(basicPrice);
+        infoDisinfectant.setImage(infoImage);
+        infoDisinfectant.setPrice(basicPrice);
     }
 
     public void act()

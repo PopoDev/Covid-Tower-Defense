@@ -3,10 +3,10 @@ import java.util.concurrent.TimeUnit;
 import java.util.ArrayList;
 
 /**
- * Write a description of class SpawnMobs here.
+ * La classe SpawnMobs gère les vagues d'ennemis.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author PopoDev
+ * @version 10.06.2021
  * Source : image from http://clipart-library.com/clipart/rijr5A4jT.htm
  */
 public class SpawnMobs extends Buttons
@@ -126,6 +126,9 @@ public class SpawnMobs extends Buttons
         }
     }
     
+    /**
+     * Contrôle les paramètres pour les vagues (niveau des ennemis, nombre, intervalle d'apparition, temps avant apparition)
+     */
     public void wavesManager()
     {
         switch(wave)
@@ -179,6 +182,9 @@ public class SpawnMobs extends Buttons
         System.out.println("Mobs numbers : " + spawnCounters);
     }
     
+    /**
+     * Regroupe les ennemis par série selon le wavesManager.
+     */
     public void wavesSpawner()
     {
         for(int[] serie : rounds)
@@ -189,6 +195,9 @@ public class SpawnMobs extends Buttons
         }
     }
     
+    /**
+     * Fait apparaître des ennemis au début de la map.
+     */
     public void spawning(int[] serie, Virus tier)
     {
         soloCounter = spawnCounters.get(serie[0] - 1);
@@ -198,6 +207,9 @@ public class SpawnMobs extends Buttons
         }
     }
     
+    /**
+     * Spawn des ennemis à intervalle régulier.
+     */
     public void spawnAtInterval(int spawnSerie, Virus tier, int number, int interval, int x, int y) // interval relative to act
     {   
         if(timeWave % interval == 0)
@@ -211,6 +223,9 @@ public class SpawnMobs extends Buttons
         }
     }
     
+    /**
+     * Permet d'associer un entier à un object de type Virus.
+     */
     public Virus changeToTier(int tierNumber)
     {
         switch(tierNumber)
@@ -236,6 +251,9 @@ public class SpawnMobs extends Buttons
         return tierObj;
     }
     
+    /**
+     * Retourne le nombre d'ennemis en vie.
+     */
     public int countAlive()
     {
         mobAlive = getWorld().getObjects(Mobs.class).size();
@@ -243,6 +261,9 @@ public class SpawnMobs extends Buttons
         return mobAlive;
     }
     
+    /**
+     * Réinitialise tous les paramètres et lance la nouvelle vague.
+     */
     public void nextWave()
     {
         // Reset
@@ -260,52 +281,4 @@ public class SpawnMobs extends Buttons
         wave++;
         map.waveNumber = wave;
     }
-    
-    /*
-    public void showWaveNumber()
-    {
-        waveText.clear();
-        waveText.setFont(waveFont);
-        waveText.setColor(Color.BLACK);
-        waveText.drawString(wave + " / " + waveMax, 150, 50);
-        getWorld().getBackground().drawImage(waveText, 50, 825);
-        getWorld().showText("Wave : " + wave + " / " + waveMax, 300, 850);
-    }
-    */
-   
-    /*public void spawnAtInterval(int number, Virus tier, int x, int y, long interval) // interval in milliseconds
-    {
-        for(int i = 1; i <= number; i++)
-        {
-            getWorld().addObject(tier, x, y);
-            try { 
-                TimeUnit.SECONDS.sleep(interval);
-            } catch (InterruptedException ex) {
-                ex.printStackTrace();
-            }
-            
-        }
-    }
-     */
-    
-    // int actCount = 0;
-    // int current = 0;
-    // boolean timeSet = false;
-    
-    
-    /*public void settimeWave(int acts)
-    {
-        if(!timeSet)
-        {
-            current = actCount;
-            if(current + acts > actCount)
-            { 
-                timeSet = true;
-                return; 
-            }
-        } else {
-            timeSet = false;
-        }
-    }
-     */
 }
