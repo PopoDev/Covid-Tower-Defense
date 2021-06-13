@@ -24,7 +24,7 @@ public class SpawnMobs extends Buttons
     GreenfootImage imgSpeedUpOn = new GreenfootImage("Speed up true mouseOn 150x125.png");
     
     int wave = 0;
-    int waveMax = 5;
+    int waveMax = 10;
     boolean waveRunning = false;
     int timeWave = 0; // [acts]
     boolean speedUp = false;
@@ -137,18 +137,18 @@ public class SpawnMobs extends Buttons
                 rounds = new int[][]
                 { // spawnSerie / tier lvl / number / interval / timeWave [acts]
                     {1, 1, 50, 30, 0},
-                    {2, 2, 25, 40, 400},
+                    {2, 2, 25, 40, 600}
                 };
                 break;
                 
-           case 2:
+            case 2:
                 rounds = new int[][]
                 { // spawnSerie / Tier lvl / number / interval / timeWave [acts]
                     {1, 2, 50, 20, 0},
                 };
                 break;
                 
-           case 3:
+            case 3:
                 rounds = new int[][]
                 { // spawnSerie / Tier lvl / number / interval / timeWave [acts]
                     {1, 3, 20, 50, 0},
@@ -156,17 +156,55 @@ public class SpawnMobs extends Buttons
                 };
                 break;
                 
-           case 4:
+            case 4:
                 rounds = new int[][]
                 { // spawnSerie / Tier lvl / number / interval / timeWave [acts]
                     {1, 3, 50, 20, 0},
                 };
                 break;
                 
-           case 5:
+            case 5:
                 rounds = new int[][]
                 { // spawnSerie / Tier lvl / number / interval / timeWave [acts]
                     {1, 4, 25, 50, 0},
+                };
+                break;
+                
+            case 6:
+                rounds = new int[][]
+                { // spawnSerie / Tier lvl / number / interval / timeWave [acts]
+                    {1, 2, 50, 30, 0},
+                    {2, 4, 25, 50, 200}
+                };
+                break;
+                
+            case 7:
+                rounds = new int[][]
+                { // spawnSerie / Tier lvl / number / interval / timeWave [acts]
+                    {1, 3, 40, 30, 0},
+                    {2, 5, 16, 60, 400}
+                };
+                break;
+                
+            case 8:
+                rounds = new int[][]
+                { // spawnSerie / Tier lvl / number / interval / timeWave [acts]
+                    {1, 4, 50, 30, 0},
+                };
+                break;
+                
+            case 9:
+                rounds = new int[][]
+                { // spawnSerie / Tier lvl / number / interval / timeWave [acts]
+                    {1, 3, 50, 30, 0},
+                    {2, 1, 50, 30, 0},
+                };
+                break;
+                
+            case 10:
+                rounds = new int[][]
+                { // spawnSerie / Tier lvl / number / interval / timeWave [acts]
+                    {1, 5, 50, 30, 0},
                 };
                 break;
             default:
