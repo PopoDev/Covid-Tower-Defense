@@ -76,6 +76,9 @@ public class Map extends World
         WhiteCell_Icon whiteCell_Icon = new WhiteCell_Icon();
         addObject(whiteCell_Icon, 1075, 275);
         
+        Vaccine_Icon vaccine_Icon = new Vaccine_Icon();
+        addObject(vaccine_Icon, 925, 400);
+        
         SpawnMobs nextButton = new SpawnMobs();
         addObject(nextButton, 800 + 200, 800 - 75);
         

@@ -26,7 +26,7 @@ public class InfoTower extends HUD
     
     public void drawPrice(int price)
     {
-        TextImage priceImage = new TextImage("   Prix " + price + "$   ", priceFont, priceColor, null);
+        TextImage priceImage = new TextImage("   Prix " + price + "$     ", priceFont, priceColor, null);
         getImage().drawImage(priceImage, (getImage().getWidth() - priceImage.getWidth()) / 2, 40);
     }
 }

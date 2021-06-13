@@ -30,7 +30,12 @@ public class PriceManager
         WHITECELL(new int[][]    {{300},
                                   {500, 1000, 1500, 2000},  // 1=Damage
                                   {250, 500, 750, 1000},    // 2=Range
-                                  {400, 800, 1200, 1600}}); // 3=AtkSpd
+                                  {400, 800, 1200, 1600}}), // 3=AtkSpd
+                                  
+        VACCINE(new int[][]      {{350},
+                                  {500, 1000, 1500, 2000},  // 1=Damage
+                                  {200, 400, 600, 800},    // 2=Range
+                                  {400, 800, 1200, 1600}}); // 3=Cooldown
         
         private int[][] prices;
         private int[] typePrices;
