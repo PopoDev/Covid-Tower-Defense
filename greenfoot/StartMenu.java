@@ -21,6 +21,6 @@ public class StartMenu extends World
     public void placeStartButtons()
     {
         addObject(new StartButton(), 600, 550);
-        addObject(new CreditsButton(), 600, 650);
+        //addObject(new CreditsButton(), 600, 650);
     }
 }
