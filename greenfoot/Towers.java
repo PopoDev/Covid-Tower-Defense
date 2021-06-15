@@ -30,6 +30,9 @@ public class Towers extends SmoothMover
     public int atkspd; // attack speed
     public int delay;
     
+    public int moneyPerKill; // Sport
+    public int moneyPerRound; // Culture
+    
     private int kills = 0;
     
     private Range rangeObj = new Range();
@@ -80,6 +83,11 @@ public class Towers extends SmoothMover
                 }
             }
         }
+    }
+    
+    public void setRange(int range)
+    {
+        this.range = range;
     }
     
     public void showRange()
@@ -172,6 +180,14 @@ public class Towers extends SmoothMover
             case "ATKSPEED":
                 atkspd = stats.get(type) [index];
                 break;
+            case "SPORT":
+                moneyPerKill = stats.get(type) [index];
+                ((Map)getWorld()).addMoneyPerKill(moneyPerKill);
+                break;
+            case "CULTURE":
+                moneyPerRound = stats.get(type) [index];
+                ((Map)getWorld()).addMoneyPerRound(moneyPerRound);
+                break;
             default:
                 break;
         }
@@ -242,6 +258,9 @@ public class Towers extends SmoothMover
         if(stats.get("Delay") != null) delay = this.stats.get("Delay")[0];
         if(stats.get("AtkSpeed") != null) atkspd = this.stats.get("AtkSpeed")[0];
         
+        if(stats.get("Sport") != null) moneyPerKill = this.stats.get("Sport")[0];
+        if(stats.get("Culture") != null) moneyPerRound = this.stats.get("Culture")[0];
+        
         getWorld().addObject(statstext, getX(), getY() - (getImage().getHeight()/2));
         statstext.getImage().setFont(statsFont);
         statstext.getImage().setColor(Color.CYAN); // CYAN, GREEN or YELLOW
@@ -256,7 +275,8 @@ public class Towers extends SmoothMover
         {
             levels.add(upgrades.get(type));
         }
-        statstext.getImage().drawString(levels.get(0) + " | " + levels.get(1) + " | " + levels.get(2), 0, 10);
+        if(levels.size() == 3) statstext.getImage().drawString(levels.get(0) + " | " + levels.get(1) + " | " + levels.get(2), 0, 10);
+        if(levels.size() == 2) statstext.getImage().drawString(levels.get(0) + " | " + levels.get(1), 10, 10);
         
         // GreenfootImage statsImg = new GreenfootImage(levels.get(0) + " | " + levels.get(1) + " | " + levels.get(2), 18, 
         //                                             Color.GREEN, Color.BLACK);

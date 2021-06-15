@@ -35,7 +35,11 @@ public class PriceManager
         VACCINE(new int[][]      {{350},
                                   {500, 1000, 1500, 2000},  // 1=Damage
                                   {200, 400, 600, 800},    // 2=Range
-                                  {400, 800, 1200, 1600}}); // 3=Cooldown
+                                  {400, 800, 1200, 1600}}), // 3=Cooldown
+                                  
+        SPORT_CULTURE(new int[][]{{1000},
+                                  {1500, 3000, 6000, 10000},  // 1=$ per kill --> Sport
+                                  {800, 2000, 3400, 5000}});   // 2=$ per round --> Culture
         
         private int[][] prices;
         private int[] typePrices;

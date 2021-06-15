@@ -16,6 +16,9 @@ public class Map extends World
     public int money = STARTING_MONEY;
     private MoneyText moneyText;
     
+    private int moneyPerKill = 1; // initial
+    private int moneyPerRound = 50;
+    
     private int LIVES_MAX;
     public int lives;
     private LivesText livesText;
@@ -30,7 +33,7 @@ public class Map extends World
     public Map()
     {    
         super(1200, 900, 1);
-        setPaintOrder(TowersPlacer.class, RangeIcon.class, Buttons.class, Utils.class, HUD.class,
+        setPaintOrder(TowersPlacer.class, RangeIcon.class, Buttons.class, HUD.class, Utils.class,
         Towers.class, TowersProjectile.class, Mobs.class, Range.class, Backgrounds.class);
     }
     
@@ -78,6 +81,9 @@ public class Map extends World
         
         Vaccine_Icon vaccine_Icon = new Vaccine_Icon();
         addObject(vaccine_Icon, 925, 400);
+        
+        Sport_Culture_Icon Sport_Culture_Icon = new Sport_Culture_Icon();
+        addObject(Sport_Culture_Icon, 1075, 400);
         
         SpawnMobs nextButton = new SpawnMobs();
         addObject(nextButton, 800 + 200, 800 - 75);
@@ -189,5 +195,25 @@ public class Map extends World
     public void setWaveText(WaveText waveText)
     {
         this.waveText = waveText;
+    }
+        
+    public void addMoneyPerKill(int moneyPerKill)
+    {
+        this.moneyPerKill += moneyPerKill;
+    }
+    
+    public int getMoneyPerKill()
+    {
+        return moneyPerKill;
+    }
+    
+    public void addMoneyPerRound(int moneyPerRound)
+    {
+        this.moneyPerRound += moneyPerRound;
+    }
+    
+    public int getMoneyPerRound()
+    {
+        return moneyPerRound;
     }
 }

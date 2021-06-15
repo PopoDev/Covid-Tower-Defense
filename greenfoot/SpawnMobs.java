@@ -108,7 +108,8 @@ public class SpawnMobs extends Buttons
                 {
                     if(timeWave % 10 == 0) countAlive();  // Pour éviter le lag
                 } else {
-                    System.out.println("Bravo vous avez battu la vague " + wave + " ! ");
+                    System.out.println("Bravo vous avez battu la vague " + wave + " !" + " Récompense par vague : " + map.getMoneyPerRound() + "$") ;
+                    map.addMoney(map.getMoneyPerRound());
                     setImageOn = !setImageOn; // Réinitialise l'image next
                     waveRunning = false;
                     if(wave >= waveMax)

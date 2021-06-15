@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Virus extends Mobs
 {
-    int tier = 0;
+    private int tier = 0;
     
     public int getTier()
     {
@@ -28,7 +28,7 @@ public class Virus extends Mobs
             int y = getY();
             replaceTier(x, y);
             int amount = getTier() - getHealth();
-            ((Map)getWorld()).addMoney(amount); // Add money per kill
+            addMoneyPerKill(amount);
             
             getWorld().removeObject(this);
         }
@@ -75,5 +75,11 @@ public class Virus extends Mobs
         int livesLoosed = tier;
         ((Map)getWorld()).removeLives(livesLoosed);
         getWorld().removeObject(this);
+    }
+    
+    public void addMoneyPerKill(int amount)
+    {
+        int value = amount * ((Map)getWorld()).getMoneyPerKill();
+        ((Map)getWorld()).addMoney(value);
     }
 }
