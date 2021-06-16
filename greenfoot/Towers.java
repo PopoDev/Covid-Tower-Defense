@@ -73,7 +73,8 @@ public class Towers extends SmoothMover
                     showUpgrade();
                 }
             } else {
-                if(!(mouseActor instanceof Buttons || mouseActor instanceof HUD)) // Pas si on clique sur les buttons et HUD
+                if(!(mouseActor instanceof SpawnMobs || mouseActor instanceof UpgradeButton || mouseActor instanceof SellButton 
+                || mouseActor instanceof HUD)) // Pas si on clique sur SpawnMobs, Upgrade, Sell et HUD
                 {
                     if(showingUpgrade)
                     {

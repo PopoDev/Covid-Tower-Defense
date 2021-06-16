@@ -51,6 +51,9 @@ public class Disinfectant extends Towers
         addUpgradeButton();
         addSellButton();
         
+        showRange();
+        showUpgrade();
+        
         counter = cooldown;
         checkLocation();
     }

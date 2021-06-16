@@ -47,6 +47,13 @@ public class TowersPlacer extends SmoothMover
         }
     }
     
+    public void cancelBuy()
+    {
+        if(!getWorld().getObjectsAt(getX(), getY(), Buttons.class).isEmpty()) // Si le joueur clique sur une autre tour ou veut annuler
+        {
+        }
+    }
+    
     public void setTower(Towers tower)
     {
         this.specificTower = tower;

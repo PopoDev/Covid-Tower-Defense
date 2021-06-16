@@ -53,6 +53,9 @@ public class Vaccine extends Towers
         addUpgradeButton();
         addSellButton();
         
+        showRange();
+        showUpgrade();        
+        
         counter = cooldown;
     }
     

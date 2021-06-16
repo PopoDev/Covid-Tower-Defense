@@ -47,6 +47,9 @@ public class Tower1M50 extends Towers
         addUpgradeButton();
         addSellButton();
         
+        showRange();
+        showUpgrade();
+        
         zone1M50 = new Zone1M50();
         zone1M50.getImage().scale(basicSize, basicSize);
         zone1M50.setLinkedTower(this);

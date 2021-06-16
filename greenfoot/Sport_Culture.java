@@ -45,6 +45,9 @@ public class Sport_Culture extends Towers
         addUpgradeButton();
         addSellButton();
         
+        showRange();
+        showUpgrade();
+        
         ((Map)getWorld()).addMoneyPerKill(1);
         ((Map)getWorld()).addMoneyPerRound(100);
     }

@@ -46,6 +46,9 @@ public class MaskBox extends Towers
         addUpgradeButton();
         addSellButton();
         
+        showRange();
+        showUpgrade(); 
+        
         counter = cooldown;
     }
     

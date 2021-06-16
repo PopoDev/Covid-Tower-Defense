@@ -12,7 +12,7 @@ public class Map extends World
     private double multiplicator; // multiplicateur des prix
     private PriceManager priceManager = new PriceManager();
     
-    private final int STARTING_MONEY = 1000;
+    private final int STARTING_MONEY = 100000;
     public int money = STARTING_MONEY;
     private MoneyText moneyText;
     
