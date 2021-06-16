@@ -29,7 +29,7 @@ public class Sport_Culture_Icon extends TowersIcon
 
     public void act()
     {
-        changeIfHovering(Icon, IconOn);
+        changeIfOnTop(Icon, IconOn);
         showInfoIfHovering(infoSport_Culture);
         putShadow();
         if(Greenfoot.mousePressed(this) || artificialClicked)

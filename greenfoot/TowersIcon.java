@@ -35,7 +35,7 @@ public class TowersIcon extends Buttons
     
     public void showInfoIfHovering(InfoTower infoTower)
     {
-        if(isHovering())
+        if(isOnTop())
         {
             MouseInfo mi = Greenfoot.getMouseInfo();
             if(!setInfo)
@@ -47,7 +47,7 @@ public class TowersIcon extends Buttons
             }
         }
         
-        if(!isHovering() && setInfo)
+        if(!isOnTop() && setInfo)
         {
             getWorld().removeObject(infoTower);
             setInfo = false;

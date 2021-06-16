@@ -29,7 +29,7 @@ public class Disinfectant_Icon extends TowersIcon
 
     public void act()
     {
-        changeIfHovering(Icon, IconOn);
+        changeIfOnTop(Icon, IconOn);
         showInfoIfHovering(infoDisinfectant);
         putShadow();
         if(Greenfoot.mousePressed(this) || artificialClicked)

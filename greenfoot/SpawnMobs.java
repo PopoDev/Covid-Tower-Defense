@@ -86,14 +86,14 @@ public class SpawnMobs extends Buttons
 
             if(speedUp)
             {
-                changeIfHovering(imgSpeedUp, imgSpeedUpOn);
+                changeIfOnTop(imgSpeedUp, imgSpeedUpOn);
                 if(speed != 60)
                 {
                     speed = 60;
                     Greenfoot.setSpeed(speed);
                 }
             } else {
-                changeIfHovering(imgSpeed, imgSpeedOn);
+                changeIfOnTop(imgSpeed, imgSpeedOn);
                 if(speed != 50)
                 {
                     speed = 50;
@@ -124,7 +124,7 @@ public class SpawnMobs extends Buttons
             }
             timeWave++;
         } else {
-            changeIfHovering(next, nextOn);
+            changeIfOnTop(next, nextOn);
         }
     }
     

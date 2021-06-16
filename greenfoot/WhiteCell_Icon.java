@@ -29,7 +29,7 @@ public class WhiteCell_Icon extends TowersIcon
 
     public void act()
     {
-        changeIfHovering(Icon, IconOn);
+        changeIfOnTop(Icon, IconOn);
         showInfoIfHovering(infoWhiteCell);
         putShadow();
         if(Greenfoot.mousePressed(this) || artificialClicked)

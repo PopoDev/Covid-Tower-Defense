@@ -29,7 +29,7 @@ public class Vaccine_Icon extends TowersIcon
 
     public void act()
     {
-        changeIfHovering(Icon, IconOn);
+        changeIfOnTop(Icon, IconOn);
         showInfoIfHovering(infoVaccine);
         putShadow();
         if(Greenfoot.mousePressed(this) || artificialClicked)

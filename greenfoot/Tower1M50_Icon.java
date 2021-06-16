@@ -29,7 +29,7 @@ public class Tower1M50_Icon extends TowersIcon
 
     public void act()
     {
-        changeIfHovering(Icon, IconOn);
+        changeIfOnTop(Icon, IconOn);
         showInfoIfHovering(info1M50);
         putShadow();
         if(Greenfoot.mousePressed(this) || artificialClicked)
