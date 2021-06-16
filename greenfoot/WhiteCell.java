@@ -47,14 +47,14 @@ public class WhiteCell extends Towers
         setUpgrades(upgrades);        
         setStats(stats);
         setPrices(prices);
-        setTowerImg(towerImg);
-        
-        showRange();
-        showUpgrade();        
+        setTowerImg(towerImg);      
         
         addUpgradeIcon();
         addUpgradeButton();
         addSellButton();
+        
+        showRange();
+        showUpgrade(); 
     }
     
     public void act() 

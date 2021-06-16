@@ -32,10 +32,10 @@ public class Tower1M50_Icon extends TowersIcon
         changeIfHovering(Icon, IconOn);
         showInfoIfHovering(info1M50);
         putShadow();
-        if(Greenfoot.mousePressed(this))
+        if(Greenfoot.mousePressed(this) || artificialClicked)
         {
             createWhenClicked(tower1M50_Placer, towerImg);
-            //System.out.println(basicPrice);
+            artificialClicked = false;
         }
     }
 }

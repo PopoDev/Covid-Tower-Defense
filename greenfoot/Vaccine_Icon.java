@@ -32,9 +32,10 @@ public class Vaccine_Icon extends TowersIcon
         changeIfHovering(Icon, IconOn);
         showInfoIfHovering(infoVaccine);
         putShadow();
-        if(Greenfoot.mousePressed(this))
+        if(Greenfoot.mousePressed(this) || artificialClicked)
         {
             createWhenClicked(vaccinePlacer, towerImg);
+            artificialClicked = false;
         }
     }  
 }

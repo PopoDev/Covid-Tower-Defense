@@ -25,10 +25,9 @@ public class Disinfectant_Placer extends TowersPlacer
         followMouse();
         isPlaceable();
         showIfPlaceable();
+        cancelBuy();
         if(Greenfoot.mousePressed(this))
         {
-            MouseInfo mi = Greenfoot.getMouseInfo();
-            System.out.println(mi.getActor());
             if(placeable)
             {
                 disinfectant = new Disinfectant();

@@ -32,9 +32,10 @@ public class Mask_Icon extends TowersIcon
         changeIfHovering(Icon, IconOn);
         showInfoIfHovering(infoMask);
         putShadow();
-        if(Greenfoot.mousePressed(this))
+        if(Greenfoot.mousePressed(this) || artificialClicked)
         {
             createWhenClicked(maskBox_Placer, towerImg);
+            artificialClicked = false;
         }
     }
 }

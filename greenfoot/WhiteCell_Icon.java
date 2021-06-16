@@ -32,10 +32,10 @@ public class WhiteCell_Icon extends TowersIcon
         changeIfHovering(Icon, IconOn);
         showInfoIfHovering(infoWhiteCell);
         putShadow();
-        if(Greenfoot.mousePressed(this))
+        if(Greenfoot.mousePressed(this) || artificialClicked)
         {
             createWhenClicked(whiteCell_Placer, towerImg);
-            //System.out.println(basicPrice);
+            artificialClicked = false;
         }
     }    
 }

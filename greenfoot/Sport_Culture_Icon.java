@@ -32,10 +32,10 @@ public class Sport_Culture_Icon extends TowersIcon
         changeIfHovering(Icon, IconOn);
         showInfoIfHovering(infoSport_Culture);
         putShadow();
-        if(Greenfoot.mousePressed(this))
+        if(Greenfoot.mousePressed(this) || artificialClicked)
         {
             createWhenClicked(sport_Culture_Placer, towerImg);
-            //System.out.println(basicPrice);
+            artificialClicked = false;
         }
     }
 }

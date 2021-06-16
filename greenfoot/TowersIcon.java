@@ -17,6 +17,8 @@ public class TowersIcon extends Buttons
     
     boolean setShadow = false;
     
+    CancelButton cancelButton = new CancelButton();
+    
     public void createWhenClicked(TowersPlacer towerPlacer, GreenfootImage TowerImg)
     {
         // Create new Instance only when clicked for selecting
@@ -25,6 +27,7 @@ public class TowersIcon extends Buttons
         if(canAfford())
         {
             getWorld().addObject(towerPlacer, getX(), getY());
+            getWorld().addObject(cancelButton, 1000, 850);
         } else {
             System.out.println("You can't afford this. (Money : " + money + "; Price : " + basicPrice + ")");
         }

@@ -8,12 +8,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class CancelButton extends Buttons
 {
-    /**
-     * Act - do whatever the CancelButton wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    public void act() 
+    private GreenfootImage cancelButton = new GreenfootImage("CancelBuy 386x86.png");
+    private GreenfootImage cancelButtonOn = new GreenfootImage("CancelBuy 386x86 mouseOn.png");
+
+    public void act()
     {
-        // Add your action code here.
-    }    
+        changeIfOnTop(cancelButton, cancelButtonOn);
+    }
 }

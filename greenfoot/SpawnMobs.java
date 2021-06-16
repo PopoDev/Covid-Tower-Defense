@@ -57,7 +57,7 @@ public class SpawnMobs extends Buttons
     {
         if(!mapEnded)
         {
-            if(Greenfoot.mousePressed(this))
+            if(Greenfoot.mousePressed(this) || artificialClicked)
             {
                 if(!waveRunning)
                 {
@@ -72,8 +72,9 @@ public class SpawnMobs extends Buttons
         
         if(waveRunning)
         {
-            if(Greenfoot.mousePressed(this)) 
+            if(Greenfoot.mousePressed(this) || artificialClicked)
             {
+                artificialClicked = false;
                 if(timeWave > 0) speedUp = !speedUp;
                 if(speedUp)
                 {

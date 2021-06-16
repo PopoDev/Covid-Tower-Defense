@@ -10,6 +10,7 @@ public class Buttons extends SmoothMover
 {
     boolean mouseOn = false;
     boolean setImageOn = false;
+    boolean artificialClicked = false;
     
     /**
      * Détecte si la souris est sur un objet.
@@ -41,5 +42,44 @@ public class Buttons extends SmoothMover
             setImage(initialImg);
             setImageOn = false;
         }
+    }
+    
+    public void artificialClick()
+    {
+        artificialClicked = true;
+    }
+    
+    public boolean isOnTop()
+    {
+        if(Greenfoot.getMouseInfo() != null)
+        {
+            MouseInfo mi = Greenfoot.getMouseInfo();
+            int width = getImage().getWidth();
+            int height = getImage().getHeight();
+            if(mi.getX() >= getX() - width/2 && mi.getX() <= getX() + width/2 && // X axis
+               mi.getY() >= getY() - height/2 && mi.getY() <= getY() + height/2) // Y axis
+            {
+                return true;
+            } else {
+                return false;
+            }
+        }else{
+            return false;
+        }
+    }
+    
+    public void changeIfOnTop(GreenfootImage initialImg, GreenfootImage hoveringImg)
+    {
+        if(isOnTop() && !setImageOn)
+        {
+            setImage(hoveringImg);
+            setImageOn = true;
+        } 
+        if(!isOnTop() && setImageOn)
+        {
+            setImage(initialImg);
+            setImageOn = false;
+        }
+        
     }
 }

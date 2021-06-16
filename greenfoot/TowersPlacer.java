@@ -41,6 +41,7 @@ public class TowersPlacer extends SmoothMover
                 //System.out.println(rangeIcon + " was removed.");
                 //System.out.println(this + " was removed.");
                 getWorld().removeObject(rangeIcon);
+                getWorld().removeObjects(getWorld().getObjects(CancelButton.class));
                 getWorld().removeObject(this);
                 rangeIcon = null;
             }
@@ -49,8 +50,27 @@ public class TowersPlacer extends SmoothMover
     
     public void cancelBuy()
     {
-        if(!getWorld().getObjectsAt(getX(), getY(), Buttons.class).isEmpty()) // Si le joueur clique sur une autre tour ou veut annuler
+        if(Greenfoot.mousePressed(this) &&
+        !getWorld().getObjectsAt(getX(), getY(), Buttons.class).isEmpty()) // Si le joueur clique sur une autre tour ou veut annuler
         {
+            MouseInfo mi = Greenfoot.getMouseInfo();
+            Buttons clickedButton = getWorld().getObjectsAt(getX(), getY(), Buttons.class).get(0);
+            //System.out.println("Button : " + clickedButton);
+            
+            getWorld().removeObject(rangeIcon);
+            getWorld().removeObjects(getWorld().getObjects(CancelButton.class));
+            getWorld().removeObject(this);
+            rangeIcon = null;
+            
+            clickedButton.artificialClick();
+        }
+        // Si le joueur presse "ESC"
+        if(Greenfoot.isKeyDown("escape"))
+        {
+            getWorld().removeObject(rangeIcon);
+            getWorld().removeObjects(getWorld().getObjects(CancelButton.class));
+            getWorld().removeObject(this);
+            rangeIcon = null;
         }
     }
     

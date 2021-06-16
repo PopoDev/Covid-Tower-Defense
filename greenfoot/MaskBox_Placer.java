@@ -36,6 +36,7 @@ public class MaskBox_Placer extends TowersPlacer
         followMouse();
         isPlaceable();
         showIfPlaceable();
+        cancelBuy();
         if(Greenfoot.mousePressed(this))
         {
             if(placeable)
