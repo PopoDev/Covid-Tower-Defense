@@ -195,6 +195,8 @@ public class Towers extends SmoothMover
         }
         // System.out.println("Damage : " + damage + " | Range : " + range + " | Cooldown : " + cooldown);
         
+        if(SoundButton.soundOn) Greenfoot.playSound("buy.mp3");
+        
         needUpdate = true;
         upgradeIcons.get(type).update();
         upgradeButtons.get(type).update();

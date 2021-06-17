@@ -40,6 +40,9 @@ public class TowersPlacer extends SmoothMover
                 getWorld().addObject(specificTower, getX(), getY());
                 //System.out.println(rangeIcon + " was removed.");
                 //System.out.println(this + " was removed.");
+                
+                if(SoundButton.soundOn) Greenfoot.playSound("buy.mp3");
+                
                 getWorld().removeObject(rangeIcon);
                 getWorld().removeObjects(getWorld().getObjects(CancelButton.class));
                 getWorld().removeObject(this);

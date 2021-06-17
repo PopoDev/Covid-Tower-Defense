@@ -22,7 +22,11 @@ public class SellButton extends Buttons
     public void act()
     {
         if(!init) init();
-        if(Greenfoot.mousePressed(this)) linkedTower.sell();
+        if(Greenfoot.mousePressed(this))
+        {
+            linkedTower.sell();
+            if(SoundButton.soundOn) Greenfoot.playSound("sell.mp3");            
+        }
         changeIfHovering(sellButton, sellButtonOn);
     }
     

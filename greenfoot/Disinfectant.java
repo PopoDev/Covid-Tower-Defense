@@ -118,7 +118,7 @@ public class Disinfectant extends Towers
             if(SoundButton.soundOn)
             {
                 GreenfootSound splash = new GreenfootSound("splash2.mp3");   
-                splash.setVolume(25); 
+                splash.setVolume(30); 
                 splash.play();
             }
         }
