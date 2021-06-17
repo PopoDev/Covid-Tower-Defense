@@ -16,7 +16,7 @@ public class Mask_Icon extends TowersIcon
     MaskBox_Placer maskBox_Placer = new MaskBox_Placer();
     
     InfoTower infoMask = new InfoTower();
-    GreenfootImage infoImage = new GreenfootImage("InfoTower/Info Masques 200x177.png");
+    GreenfootImage infoImage = new GreenfootImage("InfoTower/Info Masques 200x188.png");
     
     int basicPrice = PriceManager.Prices.MASK.getPrice(0, 0);
     
