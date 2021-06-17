@@ -16,7 +16,8 @@ public class TowersProjectile extends SmoothMover
         if(damage > currentHealth) damage = currentHealth;
         int damagedHealth = currentHealth - damage;
         mobs.setHealth(damagedHealth);
-        Greenfoot.playSound("pop.mp3");
+        
+        if(SoundButton.soundOn) Greenfoot.playSound("pop.mp3");
         
         linkedTower.addKills(damage);
     }

@@ -24,6 +24,7 @@ public class GameStateManager
         {
             case STARTMENU:
                 if(startMenu == null) startMenu = new StartMenu();
+                Greenfoot.setWorld(startMenu);
                 break;
             case MAINMENU:
                 mainMenu = new MainMenu();

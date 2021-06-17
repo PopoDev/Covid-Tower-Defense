@@ -99,6 +99,12 @@ public class Map extends World
         
         MultiplicatorIcon multiplicatorIcon = new MultiplicatorIcon();
         addObject(multiplicatorIcon, 750, 850);
+        
+        HomeButton homeButton = new HomeButton();
+        addObject(homeButton, 925, 850);
+        
+        SoundButton soundButton = new SoundButton();
+        addObject(soundButton, 1075, 850);
     }
     
     public void setDifficulty(String difficulty)

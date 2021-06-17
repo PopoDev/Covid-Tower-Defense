@@ -52,7 +52,8 @@ public class Towers extends SmoothMover
         if(damage > currentHealth) damage = currentHealth;
         int damagedHealth = currentHealth - damage;
         mobs.setHealth(damagedHealth);
-        Greenfoot.playSound("pop.mp3");
+        
+        if(SoundButton.soundOn) Greenfoot.playSound("pop.mp3");
         
         addKills(damage);
     }

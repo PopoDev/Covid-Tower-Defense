@@ -115,9 +115,12 @@ public class Disinfectant extends Towers
             int posY = possibleLoc.get(index) [1];
             getWorld().addObject(hydroalcoholicGel, posX, posY);
             
-            GreenfootSound splash = new GreenfootSound("splash2.mp3");   
-            splash.setVolume(25); 
-            splash.play();
+            if(SoundButton.soundOn)
+            {
+                GreenfootSound splash = new GreenfootSound("splash2.mp3");   
+                splash.setVolume(25); 
+                splash.play();
+            }
         }
     }
 }
