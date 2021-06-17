@@ -10,13 +10,12 @@ public class GameStateManager
 {
     public static enum GameState
     {
-        STARTMENU, MAINMENU, GAME, END;
+        STARTMENU, MAINMENU, ENDMENU_WIN, ENDMENU_LOSE;
     }
     
     public static GameState gameState = GameState.STARTMENU;
     public static StartMenu startMenu;
     public static MainMenu mainMenu;
-    public static MapRoute mapRoute;
     public static EndMenu endMenu;
     
     public static void update()
@@ -30,12 +29,15 @@ public class GameStateManager
                 mainMenu = new MainMenu();
                 Greenfoot.setWorld(mainMenu);
                 break;
-            case GAME:
-                // map1 = new Map1();
-                // Greenfoot.setWorld(map1);
+            case ENDMENU_WIN:
+                endMenu = new EndMenu();
+                endMenu.setWinImage(true);
+                Greenfoot.setWorld(endMenu);
                 break;
-            case END:
-                
+            case ENDMENU_LOSE:
+                endMenu = new EndMenu();
+                endMenu.setWinImage(false);
+                Greenfoot.setWorld(endMenu);
                 break;
             default:
                 break;

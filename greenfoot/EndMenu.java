@@ -8,8 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class EndMenu extends World
 {
-    GreenfootImage victoryImg = new GreenfootImage("victoire 1200x900.png");
-    GreenfootImage defeatImg = new GreenfootImage("défaite 1200x900.png");
+    GreenfootImage victoryImg = new GreenfootImage("Victoire 1200x900 V2.png");
+    GreenfootImage defeatImg = new GreenfootImage("Defeat 1200x900 V2.png");
     
     GreenfootImage image = null;
     boolean imgSet = false;
@@ -17,6 +17,9 @@ public class EndMenu extends World
     public EndMenu()
     {    
         super(1200, 900, 1);
+        
+        PlayAgainButton playAgainButton = new PlayAgainButton();
+        addObject(playAgainButton, 600, 500);
     }
     
     public void act()

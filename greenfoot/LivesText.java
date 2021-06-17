@@ -41,6 +41,6 @@ public class LivesText extends HUD
     {
         textBox.clear();
         textBox.drawString(String.valueOf(map.lives), 42, 38);
-        System.out.println("Lives updated.");
+        //System.out.println("Lives updated.");
     }
 }

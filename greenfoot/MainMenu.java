@@ -72,8 +72,6 @@ public class MainMenu extends World
         hard.initImageOn(new GreenfootImage("chooseHard mouseOn 334x464.png"));
         hard.setName("Hard");
         addObject(hard, 950, 500);
-
-        // addObject(new PlayButton(), 600, 700);
     }
     
     public void chooseDifficulty()

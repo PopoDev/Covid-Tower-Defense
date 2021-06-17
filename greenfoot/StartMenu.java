@@ -8,7 +8,6 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class StartMenu extends World
 {
-    // GreenfootImage startBackground = new GreenfootImage("Interface BTD 5.PNG");
     GreenfootImage startBackground = new GreenfootImage("Starting screen 1200x900.png");
     
     public StartMenu()
@@ -21,6 +20,5 @@ public class StartMenu extends World
     public void placeStartButtons()
     {
         addObject(new StartButton(), 600, 550);
-        //addObject(new CreditsButton(), 600, 650);
     }
 }

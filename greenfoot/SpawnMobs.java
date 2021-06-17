@@ -31,7 +31,7 @@ public class SpawnMobs extends Buttons
     int speed = 50;
     
     boolean mapEnded = false;
-    EndMenu endMenu = new EndMenu();
+    //EndMenu endMenu = new EndMenu();
     
     int[][] rounds = {{}};
     int spawnMax = 0;
@@ -117,8 +117,10 @@ public class SpawnMobs extends Buttons
                     {
                         mapEnded = true;
                         System.out.println("Map1 complétée !");
-                        endMenu.setWinImage(true);
-                        Greenfoot.setWorld(endMenu);
+                        //endMenu.setWinImage(true);
+                        //Greenfoot.setWorld(endMenu);
+                        GameStateManager.gameState = GameStateManager.GameState.ENDMENU_WIN;
+                        GameStateManager.update();
                     }
                 }
             }

@@ -145,9 +145,8 @@ public class Map extends World
             lives = 0;
             System.out.println("You lost.");
             
-            EndMenu endMenu = new EndMenu();
-            endMenu.setWinImage(false);
-            Greenfoot.setWorld(endMenu);
+            GameStateManager.gameState = GameStateManager.GameState.ENDMENU_LOSE;
+            GameStateManager.update();
         }
     }
     
