@@ -10,11 +10,11 @@ public class UpgradeIcon extends HUD
 {
     private GreenfootImage upgradeIcon;
 
-    private Font font = new Font("Agency FB", true, false, 14);
+    private Font font = new Font("Agency FB", true, false, 18);
+    private Color initialColor = Color.WHITE;
+    private Color upgradeColor = Color.GREEN;
     
     private String type;
-    private String textAligner = new String(new char[20]).replace("\0", " ");
-    private String adjustedText; // Pour centrer le texte
     private int level;
     private int[] values;
     private String initialValue;
@@ -66,32 +66,33 @@ public class UpgradeIcon extends HUD
     }
     
     public void updateText()
-    {
-        int spaces = 8 - type.length(); // Plus long type "Cooldown" 8 character
-        String textSpacer = new String(new char[spaces]).replace("\0", " ");
-        adjustedText = textSpacer + type;
-            
+    { 
         if(level < 5)
         {
-            upgradeIcon.drawString(adjustedText + " " + level, 30, 19);
+            TextImage initialLevel = new TextImage("   " + type + " " + level + "   ", font, initialColor, null);
+            upgradeIcon.drawImage(initialLevel, (getImage().getWidth() - initialLevel.getWidth())/ 2 - 32, 6);
             
-            upgradeIcon.setColor(Color.GREEN);
-            upgradeIcon.drawString(adjustedText + " " + (level + 1), 115, 19);
-                
-            GreenfootImage textBox1 = new GreenfootImage(textAligner + "\n" + initialValue, 18, Color.WHITE, null);
-            upgradeIcon.drawImage(textBox1, 10, 6);
+            TextImage upgradeLevel = new TextImage("   " + type + " " + (level+1) + "   ", font, upgradeColor, null);
+            upgradeIcon.drawImage(upgradeLevel, (getImage().getWidth() - upgradeLevel.getWidth())/ 2 + 56, 6);
             
-            GreenfootImage textBox2 = new GreenfootImage(textAligner + "\n" + upgradedValue, 18, Color.GREEN, null);
-            upgradeIcon.drawImage(textBox2, 90, 6);
+            TextImage valueText1 = new TextImage("   " + initialValue + "   ", font, initialColor, null);
+            upgradeIcon.drawImage(valueText1, (getImage().getWidth() - valueText1.getWidth())/ 2 - 32, 25);
+            
+            TextImage valueText2 = new TextImage("   " + upgradedValue + "   ", font, upgradeColor, null);
+            upgradeIcon.drawImage(valueText2, (getImage().getWidth() - valueText2.getWidth())/ 2 + 56, 25);
+            
         } else {
-            upgradeIcon.drawString(adjustedText + " " + level, 30, 19);
+            TextImage initialLevel = new TextImage("   " + type + " " + level + "   ", font, initialColor, null);
+            upgradeIcon.drawImage(initialLevel, (getImage().getWidth() - initialLevel.getWidth())/ 2 - 32, 6);
             
-            upgradeIcon.setColor(Color.GREEN);
-            upgradeIcon.drawString("MAX", 136, 19);
-            upgradeIcon.drawString("MAX", 136, 38);
-                
-            GreenfootImage textBox1 = new GreenfootImage(textAligner + "\n" + initialValue, 18, Color.WHITE, null);
-            upgradeIcon.drawImage(textBox1, 10, 6);
+            TextImage maxLevel = new TextImage("   MAX   ", font, upgradeColor, null);
+            upgradeIcon.drawImage(maxLevel, (getImage().getWidth() - maxLevel.getWidth())/ 2 + 56, 6);
+            
+            TextImage valueText1 = new TextImage("   " + initialValue + "   ", font, initialColor, null);
+            upgradeIcon.drawImage(valueText1, (getImage().getWidth() - valueText1.getWidth())/ 2 - 32, 25);
+            
+            TextImage valueTextMax = new TextImage("   MAX   ", font, upgradeColor, null);
+            upgradeIcon.drawImage(valueTextMax, (getImage().getWidth() - valueTextMax.getWidth())/ 2 + 56, 25);
         }
            
         setImage(upgradeIcon);

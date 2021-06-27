@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class StartMenu extends World
 {
-    GreenfootImage startBackground = new GreenfootImage("Starting screen 1200x900.png");
+    GreenfootImage startBackground = new GreenfootImage("Starting background final 1200x900.png");
     
     public StartMenu()
     {    

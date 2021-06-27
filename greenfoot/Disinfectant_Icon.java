@@ -8,15 +8,15 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Disinfectant_Icon extends TowersIcon
 {
-    GreenfootImage Icon = new GreenfootImage("TowersIcon désinfectant 100x100.png");
-    GreenfootImage IconOn = new GreenfootImage("TowersIcon désinfectant mouseOn 100x100.png");
+    GreenfootImage Icon = new GreenfootImage("TowersIcon desinfectant 100x100.png");
+    GreenfootImage IconOn = new GreenfootImage("TowersIcon desinfectant mouseOn 100x100.png");
     
-    GreenfootImage towerImg = new GreenfootImage("Désinfectant 50x50.png");
+    GreenfootImage towerImg = new GreenfootImage("Desinfectant 50x50.png");
     
     Disinfectant_Placer disinfectantPlacer = new Disinfectant_Placer();
     
     InfoTower infoDisinfectant = new InfoTower();
-    GreenfootImage infoImage = new GreenfootImage("InfoTower/Info Désinfectant 200x177.png");
+    GreenfootImage infoImage = new GreenfootImage("InfoTower/Info Desinfectant 200x177.png");
     
     int basicPrice = PriceManager.Prices.DISINFECTANT.getPrice(0, 0);
     
